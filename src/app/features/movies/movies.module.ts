@@ -1,3 +1,4 @@
+import { HomeComponent } from './pages/home/home.component';
 import { ShareModule } from './../../share/share.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,6 +15,7 @@ import { TvShowListComponent } from './pages/tv-show-list/tv-show-list.component
     TvShowDetailsComponent,
     MovieListComponent,
     TvShowListComponent,
+    HomeComponent,
   ],
   imports: [CommonModule, ShareModule],
 })
