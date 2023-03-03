@@ -1,19 +1,22 @@
+import { ShowsModule } from './features/shows/shows.module';
 import { CoreModule } from './core/core.module';
-import { MoviesModule } from './features/movies/movies.module';
 import { ShareModule } from './share/share.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { LayoutRoutingModule } from './share/layout/layout-routing.module';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    // AppRoutingModule,
+    RouterModule.forRoot([]),
+    LayoutRoutingModule,
     ShareModule,
-    MoviesModule,
+    ShowsModule,
     CoreModule,
     MatGridListModule,
   ],
