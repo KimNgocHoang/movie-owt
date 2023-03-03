@@ -1,0 +1,8 @@
+@import "/src/assets/scss/variables/colors/colors";
+.arrow-icon{
+  svg{
+    path:hover{
+      stroke: $primary-400;
+    }
+  }
+}
