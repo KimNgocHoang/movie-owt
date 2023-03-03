@@ -7,15 +7,8 @@ const routes: Routes = [
   {
     path: 'shows',
     component: MainLayoutComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () =>
-          import('../../features/shows/shows.module').then(
-            (m) => m.ShowsModule
-          ),
-      },
-    ],
+    loadChildren: () =>
+      import('../../features/shows/shows.module').then((m) => m.ShowsModule),
   },
 ];
 
