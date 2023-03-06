@@ -1,0 +1,45 @@
+@import "/src/assets/scss/variables/colors/colors";
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0;
+  background-color: $grey-900;
+
+  &-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    &-item {
+      margin-right: 48px;
+
+      a {
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        color: $grey-200;
+
+        &:hover {
+          color: $primary-400
+        }
+      }
+    }
+
+    &-item:last-child {
+      a {
+        display: flex;
+        align-items: center;
+        height: 24px;
+
+        p {
+          margin: 0 8px 0 0;
+        }
+      }
+    }
+  }
+}

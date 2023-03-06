@@ -1,2 +1,15 @@
-<app-toolbar></app-toolbar>
-
+<nav class="navbar">
+  <a routerLink="/">
+    <img src="/assets/image/logo.svg" alt="logo">
+  </a>
+  <ul class="navbar-list">
+    <li class="navbar-list-item"><a routerLink="movies">Movies</a></li>
+    <li class="navbar-list-item"><a routerLink="tv">TV Shows</a></li>
+    <li class="navbar-list-item">
+      <a routerLink="suggest-me">
+        <p>Suggest me</p>
+        <mat-icon>arrow_right_alt</mat-icon>
+      </a>
+    </li>
+  </ul>
+</nav>

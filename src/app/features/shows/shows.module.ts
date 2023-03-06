@@ -9,6 +9,7 @@ import { TvShowListComponent } from './pages/tv-show-list/tv-show-list.component
 import { MovieListComponent } from './pages/movie-list/movie-list.component';
 import { SuggestMeComponent } from './pages/suggest-me/suggest-me.component';
 import { ShowsRoutingModule } from './shows-routing.module';
+import { MaterialModule } from 'src/app/material/material.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,6 @@ import { ShowsRoutingModule } from './shows-routing.module';
     MovieListComponent,
     SuggestMeComponent,
   ],
-  imports: [CommonModule, ShowsRoutingModule, ShareModule],
+  imports: [CommonModule, ShowsRoutingModule, ShareModule, MaterialModule],
 })
 export class ShowsModule {}

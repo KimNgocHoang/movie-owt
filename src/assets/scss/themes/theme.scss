@@ -1,0 +1,99 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$primary-palette: (
+  50 : #ebe9fe,
+  100 : #DEDBFD,
+  200 : #BEB7FB,
+  300 : #9C92F8,
+  400 : #7B6EF6,
+  500 : #5a4af4,
+  600 : #483BC3,
+  700 : #362C92,
+  800 : #251E62,
+  900 : #120F31,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff
+  )
+);
+
+$accent-palette: (
+  50 : #E4F4FF,
+  100 : #D2ECFE,
+  200 : #A5DBFE,
+  300 : #78C8FD,
+  400 : #4BB7FD,
+  500 : #1EA5FC,
+  600 : #1884CA,
+  700 : #126297,
+  800 : #0C4265,
+  900 : #062032,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000
+  )
+);
+
+$warn-palette: (
+  50 : #fff5e9,
+  100 : #FFEFDB,
+  200 : #FFDEB6,
+  300 : #FFCE92,
+  400 : #FFBD6D,
+  500 : #ffad49,
+  600 : #CC8A3A,
+  700 : #99682C,
+  800 : #66451D,
+  900 : #33230F,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000
+  )
+);
+
+
+$primary: mat.define-palette($primary-palette);
+$accent: mat.define-palette($accent-palette);
+$warn: mat.define-palette($warn-palette);
+
+$theme: mat.define-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+  )
+));
+
+@include mat.all-component-themes($theme);
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
