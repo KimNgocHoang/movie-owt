@@ -1,3 +1,4 @@
+@use "/src/assets/scss/typography/config" as typography_config;
 @use '@angular/material' as mat;
 @include mat.core();
 @import "/src/assets/scss/variables/colors/colors";
@@ -74,7 +75,6 @@ $warn-palette: (
   )
 );
 
-
 $primary: mat.define-palette($primary-palette);
 $accent: mat.define-palette($accent-palette);
 $warn: mat.define-palette($warn-palette);
@@ -84,7 +84,8 @@ $theme: mat.define-light-theme((
     primary: $primary,
     accent: $accent,
     warn: $warn,
-  )
+  ),
 ));
 
 @include mat.all-component-themes($theme);
+@include mat.typography-hierarchy(typography_config.$typography-config);

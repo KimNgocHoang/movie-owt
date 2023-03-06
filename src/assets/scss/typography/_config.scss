@@ -1,0 +1,15 @@
+@use "@angular/material" as mat;
+
+$heading-font-family: "'Poppins', sans-serif";
+$typography-config: mat.define-typography-config(
+  $headline-1: mat.define-typography-level(64px, 80px, 600, $letter-spacing: -0.02em, $font-family: $heading-font-family),
+  $headline-2: mat.define-typography-level(48px, 56px, 600, $letter-spacing: -0.02em, $font-family: $heading-font-family),
+  $headline-3: mat.define-typography-level(32px, 40px, 600, $letter-spacing: -0.02em, $font-family: $heading-font-family),
+  $headline-4: mat.define-typography-level(24px, 32px, 700, $letter-spacing: -0.015em, $font-family: $heading-font-family),
+  $headline-5: mat.define-typography-level(20px, 24px, 700, $letter-spacing: -0.015em, $font-family: $heading-font-family),
+  $headline-6: mat.define-typography-level(16px, 24px, 700, $letter-spacing: -0.015em, $font-family: $heading-font-family),
+  $subtitle-1: mat.define-typography-level(20px, 32px, 400, $font-family: $heading-font-family),
+  $subtitle-2: mat.define-typography-level(16px, 24px, 400, $font-family: $heading-font-family),
+  $body-1: mat.define-typography-level(12px, 16px, 400, $font-family: $heading-font-family),
+  $caption: mat.define-typography-level(14px, 16px, 400, $font-family: $heading-font-family),
+);
