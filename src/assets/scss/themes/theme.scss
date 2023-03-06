@@ -85,7 +85,6 @@ $theme: mat.define-light-theme((
     accent: $accent,
     warn: $warn,
   ),
-    typography: typography_config.$typography-config,
 ));
 
 @include mat.all-component-themes($theme);
