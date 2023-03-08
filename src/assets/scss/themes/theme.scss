@@ -1,5 +1,6 @@
-@use "/src/assets/scss/typography/config" as typography_config;
 @use '@angular/material' as mat;
+@use "/src/assets/scss/typography/config" as typography_config;
+@use "/src/assets/scss/material/button-theme" as button;
 @include mat.core();
 @import "/src/assets/scss/variables/colors/colors";
 
@@ -75,17 +76,18 @@ $warn-palette: (
   )
 );
 
-$primary: mat.define-palette($primary-palette);
+$primary: mat.define-palette($primary-palette, 400);
 $accent: mat.define-palette($accent-palette);
 $warn: mat.define-palette($warn-palette);
 
-$theme: mat.define-light-theme((
+$theme: mat.define-dark-theme((
   color: (
     primary: $primary,
     accent: $accent,
     warn: $warn,
-  ),
+  )
 ));
 
 @include mat.all-component-themes($theme);
 @include mat.typography-hierarchy(typography_config.$typography-config);
+@include button.theme($theme);
