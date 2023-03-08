@@ -4,15 +4,16 @@
 @mixin typography($theme) {
   $typography-config: mat.get-typography-config($theme);
 
-  .mat-button,
-  .mat-button-toggle-group {
-    font-family: mat.font-family($typography-config);
+  .mdc-button{
+    &__label {
+      font-family: mat.font-family($typography-config);
+    }
+
   }
 }
 
 @mixin theme($theme) {
-    .mat-flat-button,
-    .mat-button-toggle-group {
+    .mdc-button {
       border-radius: 12px !important;
     }
 
