@@ -21,7 +21,6 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     TvShowListComponent,
     MovieListComponent,
     SuggestMeComponent,
-    NotFoundComponent,
   ],
   imports: [CommonModule, ShowsRoutingModule, ShareModule, MaterialModule],
 })

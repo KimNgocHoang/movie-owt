@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'shows', pathMatch: 'full' },
+  { path: '', redirectTo: '/shows', pathMatch: 'full' },
   {
     path: 'shows',
     component: MainLayoutComponent,
@@ -12,7 +12,7 @@ const routes: Routes = [
       import('../../features/shows/shows.module').then((m) => m.ShowsModule),
   },
   { path: 'not-found', component: NotFoundComponent },
-  { path: '**', redirectTo: '/shows/not-found' },
+  { path: '**', redirectTo: '/not-found' },
 ];
 
 @NgModule({
