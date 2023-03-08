@@ -11,7 +11,7 @@
 }
 
 @mixin theme($theme) {
-    .mat-button,
+    .mat-flat-button,
     .mat-button-toggle-group {
       border-radius: 12px !important;
     }

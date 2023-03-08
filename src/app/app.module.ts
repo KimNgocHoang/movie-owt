@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { LayoutRoutingModule } from './share/layout/layout-routing.module';
 import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 @NgModule({
   declarations: [AppComponent, NotFoundComponent],
   imports: [
@@ -20,7 +22,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     CoreModule,
     MaterialModule,
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
