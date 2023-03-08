@@ -1,4 +1,3 @@
-import { NotFoundComponent } from './../features/shows/pages/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
@@ -9,12 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../material/material.module';
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    FooterComponent,
-    MainLayoutComponent,
-    NotFoundComponent,
-  ],
+  declarations: [HeaderComponent, FooterComponent, MainLayoutComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,

@@ -10,7 +10,6 @@ import { MovieListComponent } from './pages/movie-list/movie-list.component';
 import { SuggestMeComponent } from './pages/suggest-me/suggest-me.component';
 import { ShowsRoutingModule } from './shows-routing.module';
 import { MaterialModule } from 'src/app/material/material.module';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
