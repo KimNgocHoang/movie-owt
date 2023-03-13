@@ -6,6 +6,9 @@
   position: relative;
   margin-top: 24px;
   cursor: pointer;
+  a{
+    text-decoration: none;
+  }
 
   .movie-item-rating {
     position: absolute;
