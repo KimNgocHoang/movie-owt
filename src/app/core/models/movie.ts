@@ -1,15 +1,15 @@
-import { MovieGenerModel } from './movie-genre.model';
+import { MovieGenre } from './movie-genre.model';
 
-export interface MovieModel {
+export interface Movie {
   id: number;
-  category: MovieGenerModel;
+  genreIds: MovieGenre;
   date: string;
-  original_title: string;
+  originalTitle: string;
   overview: string;
-  poster_path: string;
-  backdrop_path: string;
-  release_date: string;
-  vote_average: number;
+  posterPath: string;
+  backdropPath: string;
+  releaseDate: string;
+  voteAverage: number;
   runtime: number;
   tagline: string;
 }

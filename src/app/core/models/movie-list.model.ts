@@ -1,12 +1,8 @@
-import { MovieModel } from './movie';
+import { Movie } from './movie';
 
-export interface MovieListModel {
+export interface MovieList {
   page: number;
-  results: MovieModel[];
-  dates?: {
-    maximum: string;
-    minimum: string;
-  };
-  total_pages: number;
-  total_results: number;
+  results: Movie[];
+  totalPages: number;
+  totalResults: number;
 }
