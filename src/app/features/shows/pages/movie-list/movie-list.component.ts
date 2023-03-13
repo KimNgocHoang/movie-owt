@@ -17,7 +17,7 @@ export class MovieListComponent implements OnInit {
   }
 
   getMovies() {
-    this.movieService.getMoviesPopular().subscribe((res) => {
+    this.movieService.getPopularMovies().subscribe((res) => {
       this.movies = res.results;
       console.log(this.movies);
     });

@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class MovieService {
   constructor(private http: HttpClient) {}
 
-  getMoviesPopular(): Observable<MovieList> {
+  getPopularMovies(): Observable<MovieList> {
     return this.http
       .get<MovieList>(`${environment.apiHost}/movie/popular?page=1`)
       .pipe(
