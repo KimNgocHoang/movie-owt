@@ -1,1 +1,12 @@
-<p>movies-list-item works!</p>
+<a [routerLink]="[movie.id]">
+  <div class="movie-item">
+    <div class="movie-item-rating">
+      <img class="movie-item" src="/assets/image/star.svg" alt="">
+      {{ movie.voteAverage }}
+    </div>
+    <img src="https://image.tmdb.org/t/p/w500/{{ movie.posterPath }}" alt="image-item">
+    <div class="movie-item-name">
+      <p class="mat-headline-6">{{ movie.originalTitle }}</p>
+    </div>
+  </div>
+</a>

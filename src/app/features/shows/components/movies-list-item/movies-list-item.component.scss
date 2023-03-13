@@ -1,0 +1,49 @@
+@import "/src/assets/scss/variables/colors/colors";
+
+.movie-item {
+  background: #20283ECC;
+  border-radius: 12px;
+  position: relative;
+  margin-top: 24px;
+  cursor: pointer;
+
+  .movie-item-rating {
+    position: absolute;
+    background-color: $black-65;
+    color: $warning-500;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    background: $black-65;
+    backdrop-filter: blur(4px);
+    top: 18px;
+    left: 16px;
+
+    img {
+      width: 14px;
+      height: 14px;
+      padding: 0;
+      margin-right: 4px;
+      margin-top: 0;
+    }
+  }
+
+  img {
+    width: 266px;
+    padding: 8px;
+  }
+
+  &-name {
+    padding: 16px 16px 24px;
+    color: $grey-50;
+    p{
+      overflow: hidden;
+      display: block;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      margin-bottom: 0;
+    }
+  }
+}

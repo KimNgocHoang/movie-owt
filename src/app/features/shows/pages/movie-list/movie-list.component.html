@@ -1,1 +1,9 @@
-<p>movie-list works!</p>
+<span class="mat-body-1">MaileHereko</span>
+<h1 class="mat-headline-1">Movies</h1>
+<span class="mat-subtitle-2"> {{ count }} items</span>
+<div class="list">
+  <app-movies-list-item
+    *ngFor="let movie of movies"
+    [movie]="movie"
+  ></app-movies-list-item>
+</div>
