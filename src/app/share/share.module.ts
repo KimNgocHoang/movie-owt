@@ -6,15 +6,21 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 import { LayoutRoutingModule } from './layout/layout-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../material/material.module';
+import { SkeletonComponent } from './components/skeleton/skeleton.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, MainLayoutComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    MainLayoutComponent,
+    SkeletonComponent,
+  ],
   imports: [
     CommonModule,
     LayoutRoutingModule,
     HttpClientModule,
     MaterialModule,
   ],
-  exports: [MainLayoutComponent, HeaderComponent],
+  exports: [MainLayoutComponent, SkeletonComponent],
 })
 export class ShareModule {}

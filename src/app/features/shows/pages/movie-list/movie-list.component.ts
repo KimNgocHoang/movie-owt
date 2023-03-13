@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieListComponent implements OnInit {
   movies: Movie[];
-  count: number;
 
   constructor(private movieService: MovieService) {}
 
@@ -21,7 +20,6 @@ export class MovieListComponent implements OnInit {
     this.movieService.getPopularMovies().subscribe((res) => {
       this.movies = res.results;
       console.log(this.movies);
-      this.count = Object.keys(this.movies).length;
     });
   }
 }

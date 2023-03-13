@@ -2,16 +2,18 @@
 
 a {
   text-decoration: none;
+  cursor: pointer;
+
   .movie-item {
-    background: #20283ECC;
+    background: $grey-1000;
     border-radius: 12px;
     position: relative;
     margin-top: 24px;
-    cursor: pointer;
+    min-height: 480px;
+    padding: 8px;
 
     .movie-item-rating {
       position: absolute;
-      background-color: $black-65;
       color: $warning-500;
       display: flex;
       align-items: center;
@@ -21,6 +23,7 @@ a {
       backdrop-filter: blur(4px);
       top: 18px;
       left: 16px;
+      z-index: 3;
 
       img {
         width: 14px;
@@ -31,9 +34,15 @@ a {
       }
     }
 
-    img {
-      width: 266px;
-      padding: 8px;
+    .img-hover-zoom{
+      overflow: hidden;
+      img {
+        width: 100%;
+        transition: .5s ease;
+        &:hover{
+          transform: scale(1.1);
+        }
+      }
     }
 
     &-name {
