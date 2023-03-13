@@ -1,0 +1,20 @@
+@import "/src/assets/scss/variables/colors/colors";
+
+.mat-body-1{
+  color: $primary-200;
+}
+.mat-headline-1{
+  margin-bottom: 24px;
+  color: $grey-50;
+}
+
+.mat-subtitle-2{
+  color: $grey-400;
+}
+
+.list {
+  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+
+}
