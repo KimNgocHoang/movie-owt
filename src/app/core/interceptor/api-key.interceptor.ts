@@ -10,8 +10,6 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class ApiKeyInterceptor implements HttpInterceptor {
-  API_KEY = environment.apiKey;
-
   constructor() {}
 
   intercept(
@@ -21,7 +19,7 @@ export class ApiKeyInterceptor implements HttpInterceptor {
     const tokenizedReq = request.clone({
       setHeaders: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${this.API_KEY}`,
+        Authorization: `Bearer ${environment.apiKey}`,
       },
     });
     return next.handle(tokenizedReq);
