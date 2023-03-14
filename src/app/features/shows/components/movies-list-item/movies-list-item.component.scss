@@ -9,7 +9,6 @@ a {
     border-radius: 12px;
     position: relative;
     margin-top: 24px;
-    min-height: 480px;
     padding: 8px;
 
     .movie-item-rating {
@@ -37,6 +36,7 @@ a {
     .img-hover-zoom{
       overflow: hidden;
       img {
+        min-height: 400px;
         width: 100%;
         transition: .5s ease;
         &:hover{

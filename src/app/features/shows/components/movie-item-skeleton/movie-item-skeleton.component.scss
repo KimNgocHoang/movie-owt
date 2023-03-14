@@ -1,0 +1,12 @@
+@import "/src/assets/scss/variables/colors/colors";
+.card {
+  margin-top: 24px;
+  width: 266px;
+  background: $grey-1000;
+  border-radius: 5px;
+  box-shadow: 0 0 10px $skeleton-shadow;
+
+  .content {
+    padding: 20px 30px;
+  }
+}

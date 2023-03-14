@@ -1,53 +1,32 @@
 @import "/src/assets/scss/variables/colors/colors";
-.card {
-  margin-top: 24px;
-  width: 266px;
-  background: white;
-  border-radius: 5px;
-  box-shadow: 0 0 10px $skeleton-shadow;
 
-  .image {
-    img {
-      max-width: 100%;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-    }
-  }
-
-  .content {
-    padding: 20px 30px;
+.image {
+  img {
+    max-width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
 }
 
-.card.is-loading {
+.image, .text {
+  background: linear-gradient(110deg, $skeleton-bg-1, $skeleton-bg-2, $skeleton-bg-3);
+  border-radius: 5px;
+  background-size: 300% 200%;
+  animation: 1.5s shine linear infinite;
+}
 
-  .image,
-  h2,
-  p {
-    background: $skeleton-bg;
-    background: linear-gradient(110deg, $skeleton-bg-1, $skeleton-bg-2, $skeleton-bg-3);
-    border-radius: 5px;
-    background-size: 200% 100%;
-    animation: 1.5s shine linear infinite;
-  }
-
-  .image {
-    height: 200px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  h2 {
-    height: 30px;
-  }
-
-  p {
-    height: 70px;
-  }
+.image {
+  height: var(--h);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.text{
+  height: var(--h);
+  width: var(--w);
 }
 
 @keyframes shine {
   to {
-    background-position-x: -200%;
+    background-position-x: -300%;
   }
 }

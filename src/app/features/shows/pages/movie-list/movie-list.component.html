@@ -1,16 +1,9 @@
 <span class="mat-body-1">MaileHereko</span>
 <h1 class="mat-headline-1">Movies</h1>
 <span class="mat-subtitle-2"> {{ movies === undefined ? 0 : movies.length }} items</span>
-
 <div class="list">
-  <div class="skeleton" *ngIf="movies === undefined; else yes">
-    <app-skeleton></app-skeleton>
-  </div>
-  <ng-template #yes>
-    <app-movies-list-item
-    *ngFor="let movie of movies"
-    [movie]="movie"
-    ></app-movies-list-item>
-  </ng-template>
-
+  <app-movies-list-item
+  *ngFor="let movie of movies"
+  [movie]="movie"
+  ></app-movies-list-item>
 </div>

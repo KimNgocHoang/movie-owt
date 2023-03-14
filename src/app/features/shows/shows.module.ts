@@ -10,6 +10,7 @@ import { MovieListComponent } from './pages/movie-list/movie-list.component';
 import { SuggestMeComponent } from './pages/suggest-me/suggest-me.component';
 import { ShowsRoutingModule } from './shows-routing.module';
 import { MaterialModule } from 'src/app/material/material.module';
+import { MovieItemSkeletonComponent } from './components/movie-item-skeleton/movie-item-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MaterialModule } from 'src/app/material/material.module';
     TvShowListComponent,
     MovieListComponent,
     SuggestMeComponent,
+    MovieItemSkeletonComponent,
   ],
   imports: [CommonModule, ShowsRoutingModule, ShareModule, MaterialModule],
 })
