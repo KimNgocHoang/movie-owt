@@ -1,7 +1,3 @@
-<div class="skeleton" *ngIf="movie === undefined; else yes">
-  <app-movie-item-skeleton></app-movie-item-skeleton>
-</div>
-<ng-template #yes>
 <a [routerLink]="[movie.id]" *ngIf="movie">
   <div class="movie-item">
     <div class="movie-item-rating">
@@ -16,5 +12,5 @@
     </div>
   </div>
 </a>
-</ng-template>
+
 

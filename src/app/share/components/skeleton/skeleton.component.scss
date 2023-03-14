@@ -16,13 +16,13 @@
 }
 
 .image {
-  height: var(--h);
+  height: var(--height);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 .text{
-  height: var(--h);
-  width: var(--w);
+  height: var(--height);
+  width: var(--width);
 }
 
 @keyframes shine {
