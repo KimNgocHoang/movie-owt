@@ -1,0 +1,32 @@
+@import "/src/assets/scss/variables/colors/colors";
+
+.image {
+  img {
+    max-width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+}
+
+.image, .text {
+  background: linear-gradient(110deg, $skeleton-bg-1, $skeleton-bg-2, $skeleton-bg-3);
+  border-radius: 5px;
+  background-size: 300% 200%;
+  animation: 1.5s shine linear infinite;
+}
+
+.image {
+  height: var(--height);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.text{
+  height: var(--height);
+  width: var(--width);
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -300%;
+  }
+}
