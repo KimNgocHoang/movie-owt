@@ -2,7 +2,10 @@
 <h1 class="mat-headline-1">Movies</h1>
 <span class="mat-subtitle-2"> {{ movies === undefined ? 0 : movies.length }} items</span>
 <div class="list" *ngIf="movies === undefined; else yes">
-  <app-movie-item-skeleton *ngFor="let movie of movies"></app-movie-item-skeleton>
+  <app-movie-item-skeleton></app-movie-item-skeleton>
+  <app-movie-item-skeleton></app-movie-item-skeleton>
+  <app-movie-item-skeleton></app-movie-item-skeleton>
+  <app-movie-item-skeleton></app-movie-item-skeleton>
 </div>
 <ng-template #yes>
 <div class="list">

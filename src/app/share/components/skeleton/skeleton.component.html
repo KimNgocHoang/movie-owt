@@ -1,4 +1,4 @@
 <div
   class="{{shape==='text' ? 'text' : 'image' }}"
-  style="--height:{{height}}; --width:{{width}}"
+  style="--height:{{height ? height : '100%'}}; --width:{{width ? width : '100%'}}"
 ></div>
