@@ -1,10 +1,9 @@
-import { MovieList } from './../../../../core/models/movie-list.model';
 import { MovieService } from './../../movie.service';
 import { Movie } from './../../../../core/models/movie';
 import { Component, OnInit } from '@angular/core';
 import { debounceTime, map } from 'rxjs/operators';
-import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subject } from 'rxjs';
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
@@ -13,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class MovieListComponent implements OnInit {
   movies: Movie[];
   searchText: string;
+  searchTextUpdate = new Subject<string>();
 
   constructor(
     private movieService: MovieService,
@@ -21,10 +21,12 @@ export class MovieListComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.searchText = this.route.snapshot.queryParams.search;
+    this.searchTextUpdate.pipe(debounceTime(1000)).subscribe((results) => {
+      this.search(results);
+    });
     this.route.queryParams
       .pipe(
         map((query) => query.search),
-        debounceTime(2000),
         map((query) => this.getMoviesBySearch(query))
       )
       .subscribe((results) => {
@@ -33,14 +35,9 @@ export class MovieListComponent implements OnInit {
   }
 
   search(term: string): void {
-    this.router.navigate([], { queryParams: { search: term } });
-  }
-
-  getMovies() {
-    this.movieService.getPopularMovies().subscribe((res) => {
-      this.movies = res.results;
+    this.router.navigate([], {
+      queryParams: { search: term },
     });
-    return this.movies;
   }
 
   getMoviesBySearch(text: string) {

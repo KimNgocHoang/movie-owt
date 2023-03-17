@@ -33,6 +33,6 @@ export class MovieService {
           })
         );
     }
-    this.getPopularMovies();
+    return this.getPopularMovies();
   }
 }

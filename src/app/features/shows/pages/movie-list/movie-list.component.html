@@ -4,7 +4,7 @@
   <mat-form-field appearance="outline">
     <mat-icon matPrefix>search</mat-icon>
     <mat-label>Search Movies or TV Shows</mat-label>
-    <input matInput placeholder="eg. Avenger" [(ngModel)]="searchText" #searchBox (input)="search(searchBox.value)">
+    <input matInput placeholder="eg. Avenger" [(ngModel)]="searchText" (ngModelChange)="this.searchTextUpdate.next($event)">
   </mat-form-field>
 </div>
 <span class="mat-subtitle-2"> {{ movies === undefined ? 0 : movies.length }} items</span>
