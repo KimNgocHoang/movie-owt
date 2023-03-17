@@ -2,6 +2,7 @@
 @use "/src/assets/scss/typography/config" as typography_config;
 @use "/src/assets/scss/material/button-theme" as button;
 @use "/src/assets/scss/material/mat-form-field-theme" as mat_form_field;
+@use "/src/assets/scss/material/mat-icon-theme" as mat_icon;
 @include mat.core();
 @import "/src/assets/scss/variables/colors/colors";
 
@@ -93,3 +94,4 @@ $theme: mat.define-dark-theme((
 @include mat.typography-hierarchy(typography_config.$typography-config);
 @include button.theme($theme);
 @include mat_form_field.theme($theme);
+@include mat_icon.theme($theme);

@@ -13,9 +13,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class MovieListComponent implements OnInit {
   movies: Movie[];
   searchText: string;
-  // searchForm = new FormGroup({
-  //   searchText: new FormControl(''),
-  // });
 
   constructor(
     private movieService: MovieService,
@@ -28,9 +25,7 @@ export class MovieListComponent implements OnInit {
       .pipe(
         map((query) => query.search),
         debounceTime(2000),
-        map((query) =>
-          query ? this.getMoviesBySearch(query) : this.getMovies()
-        )
+        map((query) => this.getMoviesBySearch(query))
       )
       .subscribe((results) => {
         this.movies = results;
@@ -49,11 +44,11 @@ export class MovieListComponent implements OnInit {
   }
 
   getMoviesBySearch(text: string) {
-    this.movieService.getPopularMovies().subscribe((res) => {
-      this.movies = res.results.filter((i) =>
-        i.originalTitle.toLowerCase().includes(text.toLowerCase())
-      );
-    });
+    text
+      ? this.movieService.getPopularMoviesBySearch(text).subscribe((res) => {
+          this.movies = res.results;
+        })
+      : this.getMovies();
     return this.movies;
   }
 }
