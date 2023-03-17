@@ -2,8 +2,9 @@ import { MovieList } from './../../../../core/models/movie-list.model';
 import { MovieService } from './../../movie.service';
 import { Movie } from './../../../../core/models/movie';
 import { Component, OnInit } from '@angular/core';
-import { QueryParamGroup, QueryParamBuilder } from '@ngqp/core';
-import { map } from 'rxjs/operators';
+import { debounceTime, map } from 'rxjs/operators';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
@@ -11,29 +12,33 @@ import { map } from 'rxjs/operators';
 })
 export class MovieListComponent implements OnInit {
   movies: Movie[];
-  public paramGroup: QueryParamGroup;
+  searchText: string;
+  // searchForm = new FormGroup({
+  //   searchText: new FormControl(''),
+  // });
 
   constructor(
     private movieService: MovieService,
-    private qpb: QueryParamBuilder
-  ) {
-    this.paramGroup = this.qpb.group({
-      searchText: this.qpb.stringParam('search', {
-        debounceTime: 2500,
-      }),
-    });
-  }
-
-  ngOnInit() {
-    this.paramGroup.valueChanges
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+  ngOnInit(): void {
+    this.searchText = this.route.snapshot.queryParams.search;
+    this.route.queryParams
       .pipe(
-        map((value) =>
-          value.searchText !== null
-            ? this.getMoviesBySearch(value.searchText)
-            : this.getMovies()
+        map((query) => query.search),
+        debounceTime(2000),
+        map((query) =>
+          query ? this.getMoviesBySearch(query) : this.getMovies()
         )
       )
-      .subscribe((v) => (this.movies = v));
+      .subscribe((results) => {
+        this.movies = results;
+      });
+  }
+
+  search(term: string): void {
+    this.router.navigate([], { queryParams: { search: term } });
   }
 
   getMovies() {

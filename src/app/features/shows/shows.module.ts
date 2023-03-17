@@ -11,7 +11,7 @@ import { SuggestMeComponent } from './pages/suggest-me/suggest-me.component';
 import { ShowsRoutingModule } from './shows-routing.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { MovieItemSkeletonComponent } from './components/movie-item-skeleton/movie-item-skeleton.component';
-import { QueryParamModule } from '@ngqp/core';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { QueryParamModule } from '@ngqp/core';
     ShowsRoutingModule,
     ShareModule,
     MaterialModule,
-    QueryParamModule,
+    FormsModule,
   ],
 })
 export class ShowsModule {}

@@ -1,10 +1,10 @@
 <span class="mat-body-1">MaileHereko</span>
 <h1 class="mat-headline-1">Movies</h1>
-<div class="form-search" [queryParamGroup]="paramGroup">
+<div class="form-search">
   <mat-form-field appearance="outline">
     <mat-icon matPrefix>search</mat-icon>
     <mat-label>Search Movies or TV Shows</mat-label>
-    <input matInput placeholder="eg. Avenger" queryParamName="searchText">
+    <input matInput placeholder="eg. Avenger" [(ngModel)]="searchText" #searchBox (input)="search(searchBox.value)">
   </mat-form-field>
 </div>
 <span class="mat-subtitle-2"> {{ movies === undefined ? 0 : movies.length }} items</span>
