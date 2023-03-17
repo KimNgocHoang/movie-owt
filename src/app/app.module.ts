@@ -4,6 +4,7 @@ import { CoreModule } from './core/core.module';
 import { ShareModule } from './share/share.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { LayoutRoutingModule } from './share/layout/layout-routing.module';
@@ -14,6 +15,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   declarations: [AppComponent, NotFoundComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([]),
     LayoutRoutingModule,
     ShareModule,
