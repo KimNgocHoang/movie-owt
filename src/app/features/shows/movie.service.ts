@@ -22,14 +22,17 @@ export class MovieService {
   }
 
   getPopularMoviesBySearch(searchQuery: string): Observable<MovieList> {
-    return this.http
-      .get<MovieList>(
-        `${environment.apiHost}/search/movie?query=${searchQuery}`
-      )
-      .pipe(
-        map((responseData) => {
-          return camelcaseKeys(responseData, { deep: true });
-        })
-      );
+    if (searchQuery) {
+      return this.http
+        .get<MovieList>(
+          `${environment.apiHost}/search/movie?query=${searchQuery}`
+        )
+        .pipe(
+          map((responseData) => {
+            return camelcaseKeys(responseData, { deep: true });
+          })
+        );
+    }
+    this.getPopularMovies();
   }
 }

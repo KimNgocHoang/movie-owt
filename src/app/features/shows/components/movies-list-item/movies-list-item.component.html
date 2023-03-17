@@ -2,7 +2,7 @@
   <div class="movie-item">
     <div class="movie-item-rating">
       <img src="/assets/image/star.svg" alt="">
-      {{ movie.voteAverage }}
+      {{ movie.voteAverage.toFixed(1) }}
     </div>
     <div class="img-hover-zoom" *ngIf="movie.posterPath; else no ">
       <img src="https://image.tmdb.org/t/p/w500/{{ movie.posterPath }}" alt="image-item" >
