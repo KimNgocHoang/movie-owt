@@ -35,8 +35,6 @@ export class MovieService {
         { skipNull: true }
       );
     }
-    console.log(urlMain);
-
     return this.http.get<MovieList>(urlMain).pipe(
       map((responseData) => {
         return camelcaseKeys(responseData, { deep: true });
