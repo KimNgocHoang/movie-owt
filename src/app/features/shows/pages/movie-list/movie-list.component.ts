@@ -1,4 +1,4 @@
-import { MovieService } from './../../movie.service';
+import { MovieService, Query } from './../../movie.service';
 import { Movie } from './../../../../core/models/movie';
 import { Component, OnInit } from '@angular/core';
 import { debounceTime, map } from 'rxjs/operators';
@@ -13,6 +13,10 @@ export class MovieListComponent implements OnInit {
   movies: Movie[];
   searchText: string;
   searchTextUpdate = new Subject<string>();
+  queryValue: Query = {
+    query: '',
+    page: 1,
+  };
 
   constructor(
     private movieService: MovieService,
@@ -41,9 +45,12 @@ export class MovieListComponent implements OnInit {
   }
 
   getMoviesBySearch(text: string) {
-    this.movieService.getPopularMoviesBySearch(text).subscribe((res) => {
-      this.movies = res.results;
-    });
+    this.queryValue.query = text;
+    this.movieService
+      .getPopularMoviesBySearch(this.queryValue)
+      .subscribe((res) => {
+        this.movies = res.results;
+      });
     return this.movies;
   }
 }

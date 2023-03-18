@@ -5,34 +5,41 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import camelcaseKeys from 'camelcase-keys';
 import { HttpClient } from '@angular/common/http';
+import queryString from 'query-string';
+
 @Injectable({
   providedIn: 'root',
 })
 export class MovieService {
   constructor(private http: HttpClient) {}
 
-  getPopularMovies(): Observable<MovieList> {
-    return this.http
-      .get<MovieList>(`${environment.apiHost}/movie/popular?page=1`)
-      .pipe(
-        map((responseData) => {
-          return camelcaseKeys(responseData, { deep: true });
-        })
+  getPopularMoviesBySearch(queryStr: Query): Observable<MovieList> {
+    let urlMain: string;
+    if (queryStr.query) {
+      urlMain = queryString.stringifyUrl(
+        {
+          url: `${environment.apiHost}/search/movie`,
+          query: queryStr,
+        },
+        { skipNull: true }
       );
-  }
-
-  getPopularMoviesBySearch(searchQuery: string): Observable<MovieList> {
-    if (searchQuery) {
-      return this.http
-        .get<MovieList>(
-          `${environment.apiHost}/search/movie?query=${searchQuery}`
-        )
-        .pipe(
-          map((responseData) => {
-            return camelcaseKeys(responseData, { deep: true });
-          })
-        );
+    } else {
+      urlMain = queryString.stringifyUrl(
+        {
+          url: `${environment.apiHost}/movie/popular`,
+          query: queryStr,
+        },
+        { skipNull: true }
+      );
     }
-    return this.getPopularMovies();
+    return this.http.get<MovieList>(urlMain).pipe(
+      map((responseData) => {
+        return camelcaseKeys(responseData, { deep: true });
+      })
+    );
   }
 }
+export type Query = {
+  query: string;
+  page: number;
+};
