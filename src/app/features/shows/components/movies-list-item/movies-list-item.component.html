@@ -2,11 +2,16 @@
   <div class="movie-item">
     <div class="movie-item-rating">
       <img src="/assets/image/star.svg" alt="">
-      {{ movie.voteAverage }}
+      {{ movie.voteAverage.toFixed(1) }}
     </div>
-    <div class="img-hover-zoom">
-      <img src="https://image.tmdb.org/t/p/w500/{{ movie.posterPath }}" alt="image-item">
+    <div class="img-hover-zoom" *ngIf="movie.posterPath; else no ">
+      <img src="https://image.tmdb.org/t/p/w500/{{ movie.posterPath }}" alt="image-item" >
     </div>
+    <ng-template #no>
+      <div class="img-hover-zoom">
+        <img src="/assets/image/dummy-image-portrait.jpg" alt="image-item">
+      </div>
+    </ng-template>
     <div class="movie-item-name">
       <p class="mat-headline-6">{{ movie.originalTitle }}</p>
     </div>

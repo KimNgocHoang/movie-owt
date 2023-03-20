@@ -1,0 +1,9 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import "/src/assets/scss/variables/colors/colors";
+
+@mixin theme($theme){
+  .mat-icon {
+    color: $grey-600;
+  }
+}

@@ -1,7 +1,14 @@
 <span class="mat-body-1">MaileHereko</span>
 <h1 class="mat-headline-1">Movies</h1>
-<span class="mat-subtitle-2"> {{ movies === undefined ? 0 : movies.length }} items</span>
-<div class="list" *ngIf="movies === undefined; else yes">
+<div class="form-search">
+  <mat-form-field appearance="outline">
+    <mat-icon matPrefix>search</mat-icon>
+    <mat-label>Search Movies or TV Shows</mat-label>
+    <input matInput placeholder="eg. Avenger" [(ngModel)]="searchText" (ngModelChange)="this.searchTextUpdate.next($event)">
+  </mat-form-field>
+</div>
+<span class="mat-subtitle-2"> {{ loading ? 0 : movies.length }} items</span>
+<div class="list" *ngIf="loading; else yes">
   <app-movie-item-skeleton *ngFor="let _ of [].constructor(4)"></app-movie-item-skeleton>
 </div>
 <ng-template #yes>

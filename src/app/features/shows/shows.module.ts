@@ -11,6 +11,7 @@ import { SuggestMeComponent } from './pages/suggest-me/suggest-me.component';
 import { ShowsRoutingModule } from './shows-routing.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { MovieItemSkeletonComponent } from './components/movie-item-skeleton/movie-item-skeleton.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,12 @@ import { MovieItemSkeletonComponent } from './components/movie-item-skeleton/mov
     SuggestMeComponent,
     MovieItemSkeletonComponent,
   ],
-  imports: [CommonModule, ShowsRoutingModule, ShareModule, MaterialModule],
+  imports: [
+    CommonModule,
+    ShowsRoutingModule,
+    ShareModule,
+    MaterialModule,
+    FormsModule,
+  ],
 })
 export class ShowsModule {}

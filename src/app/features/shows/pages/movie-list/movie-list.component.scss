@@ -12,6 +12,16 @@
   color: $grey-400;
 }
 
+.form-search{
+  display: flex;
+  margin-bottom: 24px;
+  align-items: center;
+  max-width: 350px;
+  mat-form-field {
+    width: 100%;
+  }
+}
+
 .list {
   gap: 24px;
   display: grid;
