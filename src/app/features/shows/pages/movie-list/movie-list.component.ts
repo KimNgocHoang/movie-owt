@@ -14,10 +14,6 @@ export class MovieListComponent implements OnInit {
   movies: Movie[];
   searchText: string;
   searchTextUpdate = new Subject<string>();
-  queryValue: SearchMoviesRequest = {
-    query: '',
-    page: 1,
-  };
   constructor(
     private movieService: MovieService,
     private router: Router,
@@ -28,27 +24,19 @@ export class MovieListComponent implements OnInit {
     this.searchTextUpdate.pipe(debounceTime(1000)).subscribe((results) => {
       this.search(results);
     });
-    this.route.queryParamMap
-      .pipe(
-        map(
-          (params) =>
-            (this.queryValue = {
-              page: +params.get('page') !== 0 ? +params.get('page') : 1,
-              query: params.get('search'),
-            })
-        ),
-        map((results) => this.getMoviesBySearch(results))
-      )
-      .subscribe((results) => {
-        this.movies = results;
+    this.route.queryParamMap.subscribe((results) => {
+      this.movies = this.getMoviesBySearch({
+        query: results.get('search'),
+        page: +results.get('page') !== 0 ? +results.get('page') : 1,
       });
+    });
   }
 
-  search(term: string): void {
+  search(term: string, page: number = 1): void {
     this.router.navigate([], {
       queryParams: {
         search: term,
-        page: this.queryValue.page,
+        page: page,
       },
     });
   }
