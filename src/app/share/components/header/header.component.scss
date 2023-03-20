@@ -30,7 +30,7 @@
       }
     }
 
-    &-item:last-child {
+    &-item:nth-child(3) {
       a {
         display: flex;
         align-items: center;

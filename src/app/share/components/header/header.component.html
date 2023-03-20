@@ -3,13 +3,19 @@
     <img src="/assets/image/logo.svg" alt="logo">
   </a>
   <ul class="navbar-list">
-    <li class="navbar-list-item"><a routerLink="movies">Movies</a></li>
-    <li class="navbar-list-item"><a routerLink="tv">TV Shows</a></li>
+    <li class="navbar-list-item"><a routerLink="movies">{{ 'HEADER.Movies' | translate }}</a></li>
+    <li class="navbar-list-item"><a routerLink="tv">{{ 'HEADER.TV' | translate }}</a></li>
     <li class="navbar-list-item">
       <a routerLink="suggest-me">
-        <p>Suggest me</p>
+        <p>{{ 'HEADER.Suggest' | translate }}</p>
         <mat-icon>arrow_right_alt</mat-icon>
       </a>
+    </li>
+    <li class="navbar-list-item">
+      <select #langSelect (change)="translate.use(langSelect.value)">
+        <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{
+          lang }}</option>
+      </select>
     </li>
   </ul>
 </mat-toolbar>
