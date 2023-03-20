@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
 import { ShowsModule } from './features/shows/shows.module';
@@ -40,4 +41,11 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(public translate: TranslateService) {
+    translate.addLangs(['en', 'vi']);
+    translate.setDefaultLang('en');
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+  }
+}

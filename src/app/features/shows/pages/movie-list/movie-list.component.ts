@@ -5,6 +5,7 @@ import { debounceTime, map } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { SearchMoviesRequest } from '../../type/search-movies-request.type';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
@@ -18,7 +19,8 @@ export class MovieListComponent implements OnInit {
   constructor(
     private movieService: MovieService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public translate: TranslateService
   ) {}
   ngOnInit(): void {
     this.searchText = this.route.snapshot.queryParams.search;

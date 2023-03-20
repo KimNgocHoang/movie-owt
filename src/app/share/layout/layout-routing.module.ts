@@ -23,25 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes),
-    TranslateModule.forChild({
-      defaultLanguage: 'en',
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
-      extend: true,
-    }),
-  ],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class LayoutRoutingModule {
-  constructor(public translate: TranslateService) {
-    translate.addLangs(['en', 'fr']);
-    translate.setDefaultLang('en');
-    const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
-  }
-}
+export class LayoutRoutingModule {}

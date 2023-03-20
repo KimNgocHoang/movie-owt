@@ -1,11 +1,35 @@
 {
-  "HOME": {
-    "TITLE": "Hello Angular with ngx-translate!",
-    "SELECT": "Change language"
+  "shows": {
+    "movie-list": {
+      "TITLE": "Movies",
+      "LABEL": {
+        "item_quantity": "items"
+      },
+      "ACTIONS": {
+        "input_text": "Search Movies or TV Shows",
+        "input_placeholder": "eg."
+      }
+    }
   },
-  "HEADER": {
-    "Movies": "Movies",
-    "TV": "TV Shows",
-    "Suggest": "Suggest me"
+  "share": {
+    "header": {
+      "LABEL": {
+        "movies": "Movies",
+        "tv_shows": "TV Shows",
+        "suggest_me": "Suggest me"
+      }
+    }
+  },
+  "app": {
+    "not-found": {
+      "TITLE": "Page not found",
+      "LABEL": {
+        "headline": "Lost your way",
+        "subtitle": "Oops! This is awkward. You are looking for something that doesn't actually exist."
+      },
+      "ACTIONS": {
+        "button_text": "Go Home"
+      }
+    }
   }
 }
