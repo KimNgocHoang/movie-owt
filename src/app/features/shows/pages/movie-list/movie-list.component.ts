@@ -14,6 +14,7 @@ export class MovieListComponent implements OnInit {
   movies: Movie[];
   searchText: string;
   searchTextUpdate = new Subject<string>();
+  loading: boolean = true;
   constructor(
     private movieService: MovieService,
     private router: Router,
@@ -42,10 +43,12 @@ export class MovieListComponent implements OnInit {
   }
 
   getMoviesBySearch(searchMoviesRes: SearchMoviesRequest) {
+    this.loading = true;
     this.movieService
       .getPopularMoviesBySearch(searchMoviesRes)
       .subscribe((res) => {
         this.movies = res.results;
+        this.loading = false;
       });
     return this.movies;
   }
