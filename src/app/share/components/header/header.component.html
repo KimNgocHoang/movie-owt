@@ -3,19 +3,21 @@
     <img src="/assets/image/logo.svg" alt="logo">
   </a>
   <ul class="navbar-list">
-    <li class="navbar-list-item"><a routerLink="movies">{{ 'share.header.LABEL.movies' | translate }}</a></li>
-    <li class="navbar-list-item"><a routerLink="tv">{{ 'share.header.LABEL.tv_shows' | translate }}</a></li>
-    <li class="navbar-list-item">
-      <a routerLink="suggest-me">
-        <p>{{ 'share.header.LABEL.suggest_me' | translate }}</p>
+    <li class="navbar-list-item mat-body-2"><a routerLink="movies">{{ 'share.header.labels.movies' | translate }}</a></li>
+    <li class="navbar-list-item mat-body-2"><a routerLink="tv">{{ 'share.header.labels.tv_shows' | translate }}</a></li>
+    <li class="navbar-list-item mat-body-2">
+      <a routerLink="suggest-me mat-body-2">
+        <p>{{ 'share.header.labels.suggest_me' | translate }}</p>
         <mat-icon>arrow_right_alt</mat-icon>
       </a>
     </li>
     <li class="navbar-list-item">
-      <select #langSelect (change)="translate.use(langSelect.value)">
-        <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{
-          lang }}</option>
-      </select>
+      <mat-form-field appearance="fill">
+        <mat-select [(value)]="code" (selectionChange)="changeSiteLanguage($event.value)">
+          <mat-option  [value]="lang.code" *ngFor="let lang of languages">{{ lang.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </li>
   </ul>
 </mat-toolbar>

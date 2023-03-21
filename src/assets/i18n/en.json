@@ -1,11 +1,11 @@
 {
   "shows": {
     "movie-list": {
-      "TITLE": "Movies",
-      "LABEL": {
+      "title": "Movies",
+      "labels": {
         "item_quantity": "items"
       },
-      "ACTIONS": {
+      "actions": {
         "input_text": "Search Movies or TV Shows",
         "input_placeholder": "eg."
       }
@@ -13,7 +13,7 @@
   },
   "share": {
     "header": {
-      "LABEL": {
+      "labels": {
         "movies": "Movies",
         "tv_shows": "TV Shows",
         "suggest_me": "Suggest me"
@@ -22,12 +22,12 @@
   },
   "app": {
     "not-found": {
-      "TITLE": "Page not found",
-      "LABEL": {
+      "title": "Page not found",
+      "labels": {
         "headline": "Lost your way",
         "subtitle": "Oops! This is awkward. You are looking for something that doesn't actually exist."
       },
-      "ACTIONS": {
+      "actions": {
         "button_text": "Go Home"
       }
     }

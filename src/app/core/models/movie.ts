@@ -4,7 +4,7 @@ export interface Movie {
   id: number;
   genreIds: MovieGenre;
   date: string;
-  originalTitle: string;
+  title: string;
   overview: string;
   posterPath: string;
   backdropPath: string;

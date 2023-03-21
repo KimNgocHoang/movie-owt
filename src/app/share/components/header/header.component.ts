@@ -7,5 +7,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(public translate: TranslateService) {}
+  siteLanguage: string;
+  code: string;
+  public languages = [
+    {
+      name: 'English',
+      code: 'en',
+    },
+    {
+      name: 'Vietnamese',
+      code: 'vi',
+    },
+  ];
+
+  constructor(public translate: TranslateService) {
+    this.code = localStorage.getItem('locale');
+  }
+
+  changeSiteLanguage(localeCode: string): void {
+    const selectedLanguage = this.languages
+      .find((language) => language.code === localeCode)
+      ?.name.toString();
+    if (selectedLanguage) {
+      this.siteLanguage = selectedLanguage;
+      this.code = localeCode;
+      this.translate.use(localeCode);
+      localStorage.setItem('locale', localeCode);
+    }
+  }
 }

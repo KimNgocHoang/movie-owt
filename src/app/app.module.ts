@@ -44,8 +44,18 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 export class AppModule {
   constructor(public translate: TranslateService) {
     translate.addLangs(['en', 'vi']);
-    translate.setDefaultLang('en');
-    const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+    if (localStorage.getItem('locale')) {
+      translate.setDefaultLang(localStorage.getItem('locale'));
+      translate.use(localStorage.getItem('locale'));
+    } else {
+      const browserLang = translate.getBrowserLang();
+      if (browserLang.match(/en|fr/)) {
+        translate.use(browserLang);
+        localStorage.setItem('locale', browserLang);
+      } else {
+        translate.use('en');
+        localStorage.setItem('locale', 'en');
+      }
+    }
   }
 }

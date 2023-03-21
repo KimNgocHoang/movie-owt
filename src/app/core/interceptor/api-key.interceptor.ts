@@ -5,6 +5,7 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
+  HttpParams,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -21,6 +22,10 @@ export class ApiKeyInterceptor implements HttpInterceptor {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${environment.apiKey}`,
       },
+      params: (request.params ? request.params : new HttpParams()).set(
+        'language',
+        localStorage.getItem('locale')
+      ),
     });
     return next.handle(tokenizedReq);
   }

@@ -1,11 +1,11 @@
 {
   "shows": {
     "movie-list": {
-      "TITLE": "Phim",
-      "LABEL": {
+      "title": "Phim",
+      "labels": {
         "item_quantity": "mục"
       },
-      "ACTIONS": {
+      "actions": {
         "input_text": "Tìm kiếm Phim hoặc Chương trình TV",
         "input_placeholder": "Ví dụ."
       }
@@ -13,7 +13,7 @@
   },
   "share": {
     "header": {
-      "LABEL": {
+      "labels": {
         "movies": "Phim",
         "tv_shows": "Chương trình TV",
         "suggest_me": "Gợi ý cho tôi"
@@ -22,12 +22,12 @@
   },
   "app": {
     "not-found": {
-      "TITLE": "Không tìm thấy trang",
-      "LABEL": {
+      "title": "Không tìm thấy trang",
+      "labels": {
         "headline": "Bạn đang lạc đường?",
         "subtitle": "Ôiii! Điều này thật khó xử. Bạn đang tìm kiếm thứ gì đó không thực sự tồn tại."
       },
-      "ACTIONS": {
+      "actions": {
         "button_text": "Quay lại trang chủ"
       }
     }

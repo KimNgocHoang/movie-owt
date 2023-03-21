@@ -87,7 +87,8 @@ $theme: mat.define-dark-theme((
     primary: $primary,
     accent: $accent,
     warn: $warn,
-  )
+  ),
+  typography: typography_config.$typography-config,
 ));
 
 @include mat.all-component-themes($theme);
