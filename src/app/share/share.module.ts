@@ -23,7 +23,6 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     MaterialModule,
     TranslateModule,
-    FormsModule,
   ],
   exports: [MainLayoutComponent, SkeletonComponent, TranslateModule],
 })
