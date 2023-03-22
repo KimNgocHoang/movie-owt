@@ -20,5 +20,6 @@ export class HeaderComponent {
 
   changeSiteLanguage(localeCode: string): void {
     this.i18nService.changeLocale(localeCode);
+    location.reload();
   }
 }

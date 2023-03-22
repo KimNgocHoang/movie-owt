@@ -6,9 +6,19 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class I18nService {
-  languages = [
+  languagesCodeEn = [
     {
       name: 'English',
+      code: 'en',
+    },
+    {
+      name: 'Vietnamese',
+      code: 'vi',
+    },
+  ];
+  languagesCodeVi = [
+    {
+      name: 'Tiếng Anh',
       code: 'en',
     },
     {
@@ -16,7 +26,12 @@ export class I18nService {
       code: 'vi',
     },
   ];
-  constructor(private translate: TranslateService) {}
+  languages = [];
+  constructor(private translate: TranslateService) {
+    this.translate.currentLang == 'vi'
+      ? (this.languages = this.languagesCodeVi)
+      : (this.languages = this.languagesCodeEn);
+  }
 
   changeLocale(localeCode: string) {
     const selectedLanguage = this.languages
