@@ -26,6 +26,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     RouterModule.forRoot([]),
     LayoutRoutingModule,
     TranslateModule.forRoot({
+      defaultLanguage: 'en',
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
