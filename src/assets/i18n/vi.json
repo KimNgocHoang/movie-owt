@@ -18,6 +18,10 @@
         "tvShows": "Chương trình TV",
         "suggestMe": "Gợi ý cho tôi"
       }
+    },
+    "language": {
+      "en": "Tiếng Anh",
+      "vi": "Tiếng Việt"
     }
   },
   "app": {

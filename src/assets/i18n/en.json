@@ -18,6 +18,10 @@
         "tvShows": "TV Shows",
         "suggestMe": "Suggest me"
       }
+    },
+    "language": {
+      "en": "English",
+      "vi": "Vietnamese"
     }
   },
   "app": {

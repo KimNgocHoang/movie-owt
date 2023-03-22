@@ -13,8 +13,9 @@
     </li>
     <li class="navbar-list-item">
       <mat-form-field appearance="fill">
-        <mat-select [(value)]="code" (selectionChange)="changeSiteLanguage($event.value)">
-          <mat-option  [value]="lang.code" *ngFor="let lang of languages">{{ lang.name }}
+        <mat-label>Language</mat-label>
+        <mat-select #selectedLang [value]='translate.currentLang' (selectionChange)="changeSiteLanguage(selectedLang.value)">
+          <mat-option *ngFor="let lang of translate.getLangs()" [value]="lang" >{{ 'share.language.' + lang | translate}}
           </mat-option>
         </mat-select>
       </mat-form-field>

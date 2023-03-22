@@ -9,15 +9,11 @@ import { I18nService } from '../share/services/i18n.service';
   styleUrls: ['./not-found.component.scss'],
 })
 export class NotFoundComponent {
-  code: string;
-  languages = this.i18nService.languages;
   constructor(
     public translate: TranslateService,
     private router: Router,
     private i18nService: I18nService
-  ) {
-    this.code = localStorage.getItem('locale');
-  }
+  ) {}
 
   backHome() {
     this.router.navigate(['/shows']);
