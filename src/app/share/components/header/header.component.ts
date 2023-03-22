@@ -1,3 +1,4 @@
+import { I18nService } from './../../services/i18n.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Component } from '@angular/core';
 
@@ -7,32 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  siteLanguage: string;
   code: string;
-  public languages = [
-    {
-      name: 'English',
-      code: 'en',
-    },
-    {
-      name: 'Vietnamese',
-      code: 'vi',
-    },
-  ];
+  languages = this.i18nService.languages;
 
-  constructor(public translate: TranslateService) {
+  constructor(
+    public translate: TranslateService,
+    private i18nService: I18nService
+  ) {
     this.code = localStorage.getItem('locale');
   }
 
   changeSiteLanguage(localeCode: string): void {
-    const selectedLanguage = this.languages
-      .find((language) => language.code === localeCode)
-      ?.name.toString();
-    if (selectedLanguage) {
-      this.siteLanguage = selectedLanguage;
-      this.code = localeCode;
-      this.translate.use(localeCode);
-      localStorage.setItem('locale', localeCode);
-    }
+    this.i18nService.changeLocale(localeCode);
   }
 }

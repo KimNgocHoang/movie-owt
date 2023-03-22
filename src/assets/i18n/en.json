@@ -1,13 +1,13 @@
 {
   "shows": {
-    "movie-list": {
+    "movieList": {
       "title": "Movies",
       "labels": {
-        "item_quantity": "items"
+        "itemQuantity": "items"
       },
       "actions": {
-        "input_text": "Search Movies or TV Shows",
-        "input_placeholder": "eg."
+        "inputText": "Search Movies or TV Shows",
+        "inputPlaceholder": "eg."
       }
     }
   },
@@ -15,20 +15,20 @@
     "header": {
       "labels": {
         "movies": "Movies",
-        "tv_shows": "TV Shows",
-        "suggest_me": "Suggest me"
+        "tvShows": "TV Shows",
+        "suggestMe": "Suggest me"
       }
     }
   },
   "app": {
-    "not-found": {
+    "notFound": {
       "title": "Page not found",
       "labels": {
         "headline": "Lost your way",
         "subtitle": "Oops! This is awkward. You are looking for something that doesn't actually exist."
       },
       "actions": {
-        "button_text": "Go Home"
+        "buttonText": "Go Home"
       }
     }
   }

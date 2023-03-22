@@ -1,6 +1,6 @@
 import { MovieService } from './../../movie.service';
 import { Movie } from './../../../../core/models/movie';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { debounceTime, map } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.scss'],
 })
-export class MovieListComponent implements OnInit {
+export class MovieListComponent implements OnInit, OnDestroy {
   movies: Movie[];
   searchText: string;
   searchTextUpdate = new Subject<string>();
@@ -21,7 +21,14 @@ export class MovieListComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     public translate: TranslateService
-  ) {}
+  ) {
+    this.router.navigate([], {
+      queryParams: {
+        page: 1,
+      },
+      queryParamsHandling: 'merge',
+    });
+  }
   ngOnInit(): void {
     this.searchText = this.route.snapshot.queryParams.search;
     this.searchTextUpdate.pipe(debounceTime(1000)).subscribe((results) => {
@@ -30,17 +37,17 @@ export class MovieListComponent implements OnInit {
     this.route.queryParamMap.subscribe((results) => {
       this.movies = this.getMoviesBySearch({
         query: results.get('search'),
-        page: +results.get('page') !== 0 ? +results.get('page') : 1,
+        page: +results.get('page'),
       });
     });
+    this.langChange();
   }
 
-  search(term: string, page: number = 1): void {
+  search(term: string): void {
     this.router.navigate([], {
-      queryParams: {
-        search: term,
-        page: page,
-      },
+      relativeTo: this.route,
+      queryParams: { search: term },
+      queryParamsHandling: 'merge',
     });
   }
 
@@ -53,5 +60,20 @@ export class MovieListComponent implements OnInit {
         this.loading = false;
       });
     return this.movies;
+  }
+
+  langChange() {
+    this.translate.onLangChange.subscribe(() => {
+      this.route.queryParamMap.subscribe((results) => {
+        this.movies = this.getMoviesBySearch({
+          query: results.get('search'),
+          page: +results.get('page'),
+        });
+      });
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.translate.onLangChange.unsubscribe();
   }
 }
