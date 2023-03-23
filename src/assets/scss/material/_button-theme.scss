@@ -6,9 +6,8 @@
 
   .mdc-button{
     &__label {
-      font-family: mat.font-family($typography-config);
+      @include mat.typography-level($typography-config, 'subtitle-2')
     }
-
   }
 }
 

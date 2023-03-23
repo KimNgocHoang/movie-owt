@@ -1,4 +1,3 @@
-import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,
@@ -10,19 +9,16 @@ import {
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class ApiKeyInterceptor implements HttpInterceptor {
+export class LanguageInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const tokenizedReq = request.clone({
-      setHeaders: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${environment.apiKey}`,
-      },
+    const lang = request.clone({
+      params: new HttpParams().set('language', localStorage.getItem('locale')),
     });
-    return next.handle(tokenizedReq);
+    return next.handle(lang);
   }
 }

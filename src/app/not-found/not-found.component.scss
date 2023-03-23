@@ -6,6 +6,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  .language{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 40px;
+  }
 
   .description {
     text-align: center;

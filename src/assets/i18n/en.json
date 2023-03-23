@@ -1,0 +1,39 @@
+{
+  "shows": {
+    "movieList": {
+      "title": "Movies",
+      "labels": {
+        "itemQuantity": "items"
+      },
+      "actions": {
+        "inputText": "Search Movies or TV Shows",
+        "inputPlaceholder": "eg."
+      }
+    }
+  },
+  "share": {
+    "header": {
+      "labels": {
+        "movies": "Movies",
+        "tvShows": "TV Shows",
+        "suggestMe": "Suggest me"
+      }
+    },
+    "language": {
+      "en": "English",
+      "vi": "Vietnamese"
+    }
+  },
+  "app": {
+    "notFound": {
+      "title": "Page not found",
+      "labels": {
+        "headline": "Lost your way",
+        "subtitle": "Oops! This is awkward. You are looking for something that doesn't actually exist."
+      },
+      "actions": {
+        "buttonText": "Go Home"
+      }
+    }
+  }
+}

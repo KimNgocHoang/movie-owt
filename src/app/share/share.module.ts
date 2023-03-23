@@ -7,6 +7,8 @@ import { LayoutRoutingModule } from './layout/layout-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../material/material.module';
 import { SkeletonComponent } from './components/skeleton/skeleton.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { SkeletonComponent } from './components/skeleton/skeleton.component';
     LayoutRoutingModule,
     HttpClientModule,
     MaterialModule,
+    TranslateModule,
   ],
-  exports: [MainLayoutComponent, SkeletonComponent],
+  exports: [MainLayoutComponent, SkeletonComponent, TranslateModule],
 })
 export class ShareModule {}

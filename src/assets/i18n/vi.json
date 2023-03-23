@@ -1,0 +1,39 @@
+{
+  "shows": {
+    "movieList": {
+      "title": "Phim",
+      "labels": {
+        "itemQuantity": "mục"
+      },
+      "actions": {
+        "inputText": "Tìm kiếm Phim hoặc Chương trình TV",
+        "inputPlaceholder": "Ví dụ."
+      }
+    }
+  },
+  "share": {
+    "header": {
+      "labels": {
+        "movies": "Phim",
+        "tvShows": "Chương trình TV",
+        "suggestMe": "Gợi ý cho tôi"
+      }
+    },
+    "language": {
+      "en": "Tiếng Anh",
+      "vi": "Tiếng Việt"
+    }
+  },
+  "app": {
+    "notFound": {
+      "title": "Không tìm thấy trang",
+      "labels": {
+        "headline": "Bạn đang lạc đường?",
+        "subtitle": "Ôiii! Điều này thật khó xử. Bạn đang tìm kiếm thứ gì đó không thực sự tồn tại."
+      },
+      "actions": {
+        "buttonText": "Quay lại trang chủ"
+      }
+    }
+  }
+}
