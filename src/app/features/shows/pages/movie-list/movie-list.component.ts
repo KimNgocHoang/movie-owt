@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { SearchMoviesRequest } from '../../type/search-movies-request.type';
 import { TranslateService } from '@ngx-translate/core';
+import { PageEvent } from '@angular/material/paginator';
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
@@ -17,6 +18,8 @@ export class MovieListComponent implements OnInit, OnDestroy {
   searchTextUpdate = new Subject<string>();
   loading: boolean = true;
   getMoviesByApiSub: Subscription;
+  length: number;
+  pageIndex: number;
   constructor(
     private movieService: MovieService,
     private router: Router,
@@ -33,13 +36,13 @@ export class MovieListComponent implements OnInit, OnDestroy {
         query: results.get('search'),
         page: +results.get('page') === 0 ? 1 : +results.get('page'),
       });
+      this.pageIndex = +results.get('page') - 1;
     });
   }
-
-  search(term: string, page: number = 1): void {
+  search(term: string): void {
     this.router.navigate([], {
       relativeTo: this.route,
-      queryParams: { search: term, page: page },
+      queryParams: { search: term },
       queryParamsHandling: 'merge',
     });
   }
@@ -50,9 +53,21 @@ export class MovieListComponent implements OnInit, OnDestroy {
       .getPopularMoviesBySearch(searchMoviesRes)
       .subscribe((res) => {
         this.movies = res.results;
+        this.length = res.totalResults;
         this.loading = false;
       });
     return this.movies;
+  }
+
+  pageChangeEvent(event: PageEvent) {
+    console.log(event.pageIndex);
+
+    this.router.navigate([], {
+      queryParams: {
+        page: event.pageIndex + 1,
+      },
+      queryParamsHandling: 'merge',
+    });
   }
 
   ngOnDestroy(): void {

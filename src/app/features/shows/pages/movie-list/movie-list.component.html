@@ -19,3 +19,10 @@
   ></app-movies-list-item>
 </div>
 </ng-template>
+<mat-paginator
+  [length]="length"
+  [pageIndex]="pageIndex"
+  [pageSize]="loading ? 0 : movies.length"
+  (page)="pageChangeEvent($event)"
+>
+</mat-paginator>

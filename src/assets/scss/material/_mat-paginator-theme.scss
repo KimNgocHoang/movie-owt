@@ -1,0 +1,12 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import "/src/assets/scss/variables/colors/colors";
+
+@mixin theme($theme) {
+  .mat-mdc-paginator-container {
+    background-color: $grey-900;
+  }
+  .mat-mdc-tooltip-trigger:hover{
+      background-color: $primary-400;
+    }
+}
