@@ -4,8 +4,8 @@
       "title": "Phim",
       "labels": {
         "itemQuantity": "mục",
-        "page": "Trang: ",
-        "itemsPerPage": "Số mục trên mỗi trang: ",
+        "page": "Trang:",
+        "itemsPerPage": "Số mục trên mỗi trang:",
         "lastPage": "Trang trước",
         "nextPage": "Trang tiếp theo",
         "range": "của"

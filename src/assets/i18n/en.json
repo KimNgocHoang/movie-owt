@@ -4,8 +4,8 @@
       "title": "Movies",
       "labels": {
         "itemQuantity": "items",
-        "page": "Page: ",
-        "itemsPerPage": "Items per page: ",
+        "page": "Page:",
+        "itemsPerPage": "Items per page:",
         "lastPage": "Last page",
         "nextPage": "Next page",
         "range": "of"
