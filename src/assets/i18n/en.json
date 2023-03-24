@@ -3,7 +3,11 @@
     "movieList": {
       "title": "Movies",
       "labels": {
-        "itemQuantity": "items"
+        "itemQuantity": "items",
+        "itemsPerPage": "Items per page: ",
+        "lastPage": "Last page",
+        "nextPage": "Next page",
+        "range": "of"
       },
       "actions": {
         "inputText": "Search Movies or TV Shows",

@@ -1,7 +1,7 @@
 import { MovieService } from './../../movie.service';
 import { Movie } from './../../../../core/models/movie';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { debounceTime, map } from 'rxjs/operators';
+import { debounceTime } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { SearchMoviesRequest } from '../../type/search-movies-request.type';
@@ -18,7 +18,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
   searchTextUpdate = new Subject<string>();
   loading: boolean = true;
   getMoviesByApiSub: Subscription;
-  length: number;
+  totalResults: number;
   pageIndex: number;
   constructor(
     private movieService: MovieService,
@@ -53,15 +53,13 @@ export class MovieListComponent implements OnInit, OnDestroy {
       .getPopularMoviesBySearch(searchMoviesRes)
       .subscribe((res) => {
         this.movies = res.results;
-        this.length = res.totalResults;
+        this.totalResults = res.totalResults;
         this.loading = false;
       });
     return this.movies;
   }
 
   pageChangeEvent(event: PageEvent) {
-    console.log(event.pageIndex);
-
     this.router.navigate([], {
       queryParams: {
         page: event.pageIndex + 1,
