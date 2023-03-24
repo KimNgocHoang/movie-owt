@@ -18,7 +18,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
   searchTextUpdate = new Subject<string>();
   loading: boolean = true;
   getMoviesByApiSub: Subscription;
-  totalResults: number;
+  totalPages: number;
   pageIndex: number;
   constructor(
     private movieService: MovieService,
@@ -53,7 +53,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
       .getPopularMoviesBySearch(searchMoviesRes)
       .subscribe((res) => {
         this.movies = res.results;
-        this.totalResults = res.totalResults;
+        this.totalPages = res.totalPages;
         this.loading = false;
       });
     return this.movies;
