@@ -4,11 +4,10 @@
       "title": "Movies",
       "labels": {
         "itemQuantity": "items",
-        "page": "Page:",
-        "itemsPerPage": "Items per page:",
+        "page": "Page: {{page}} of {{totalPage}}",
+        "itemsPerPage": "Items per page",
         "lastPage": "Last page",
-        "nextPage": "Next page",
-        "range": "of"
+        "nextPage": "Next page"
       },
       "actions": {
         "inputText": "Search Movies or TV Shows",

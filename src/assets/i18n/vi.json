@@ -4,11 +4,10 @@
       "title": "Phim",
       "labels": {
         "itemQuantity": "mục",
-        "page": "Trang:",
+        "page": "Trang: {{page}} của {{totalPage}}",
         "itemsPerPage": "Số mục trên mỗi trang:",
         "lastPage": "Trang trước",
-        "nextPage": "Trang tiếp theo",
-        "range": "của"
+        "nextPage": "Trang tiếp theo"
       },
       "actions": {
         "inputText": "Tìm kiếm Phim hoặc Chương trình TV",
