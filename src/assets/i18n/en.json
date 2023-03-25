@@ -5,7 +5,7 @@
       "labels": {
         "itemQuantity": "items",
         "page": "Page: {{page}} of {{totalPage}}",
-        "itemsPerPage": "Items per page",
+        "itemsPerPage": "Items per page:",
         "lastPage": "Last page",
         "nextPage": "Next page"
       },
