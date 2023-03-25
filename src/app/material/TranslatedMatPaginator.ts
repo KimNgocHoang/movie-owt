@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TranslatedMatPaginator extends MatPaginatorIntl {
-  rangeLabel = 'of';
   constructor(private translateService: TranslateService) {
     super();
   }
@@ -12,15 +11,15 @@ export class TranslatedMatPaginator extends MatPaginatorIntl {
   getRangeLabel = (page: number, pageSize: number, length: number) => {
     this.getAndInitTranslations();
     if (length === 0 || pageSize === 0) {
-      return `${this.translateService.instant('shows.movieList.labels.page', {
+      return this.translateService.instant('shows.movieList.labels.page', {
         page: 0,
         totalPage: length,
-      })}`;
+      });
     }
-    return `${this.translateService.instant('shows.movieList.labels.page', {
+    return this.translateService.instant('shows.movieList.labels.page', {
       page: page + 1,
       totalPage: length,
-    })}`;
+    });
   };
   getAndInitTranslations() {
     this.itemsPerPageLabel = this.translateService.instant(
