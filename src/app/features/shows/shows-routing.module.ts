@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { TvShowListComponent } from './pages/tv-show-list/tv-show-list.component';
-import { MainLayoutComponent } from 'src/app/share/layout/main-layout/main-layout.component';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 import { TvShowDetailsComponent } from './pages/tv-show-details/tv-show-details.component';
 

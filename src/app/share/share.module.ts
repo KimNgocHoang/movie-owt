@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../material/material.module';
 import { SkeletonComponent } from './components/skeleton/skeleton.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [

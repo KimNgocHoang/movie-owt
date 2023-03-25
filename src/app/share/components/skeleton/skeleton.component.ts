@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class SkeletonComponent {
   @Input() shape: 'image' | 'text';
-  @Input() width: string = '100%';
-  @Input() height: string = '100%';
+  @Input() width = '100%';
+  @Input() height = '100%';
 }

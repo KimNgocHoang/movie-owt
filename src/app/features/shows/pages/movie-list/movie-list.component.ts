@@ -16,7 +16,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
   movies: Movie[];
   searchText: string;
   searchTextUpdate = new Subject<string>();
-  loading: boolean = true;
+  loading = true;
   getMoviesByApiSub: Subscription;
   totalPages: number;
   pageIndex: number;

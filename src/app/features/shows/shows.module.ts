@@ -1,3 +1,4 @@
+import { MatPaginatorIntl } from '@angular/material/paginator';
 import { ShareModule } from './../../share/share.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,6 +13,7 @@ import { ShowsRoutingModule } from './shows-routing.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { MovieItemSkeletonComponent } from './components/movie-item-skeleton/movie-item-skeleton.component';
 import { FormsModule } from '@angular/forms';
+import { TranslatedMatPaginator } from './translated-mat-paginator';
 
 @NgModule({
   declarations: [
@@ -31,5 +33,6 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     FormsModule,
   ],
+  providers: [{ provide: MatPaginatorIntl, useClass: TranslatedMatPaginator }],
 })
 export class ShowsModule {}
