@@ -10,9 +10,9 @@ export class TranslatedMatPaginator extends MatPaginatorIntl {
 
   getRangeLabel = (page: number, pageSize: number, length: number) => {
     this.getAndInitTranslations();
-    length === 0 || pageSize === 0 ? (page = 0) : (page = page + 1);
+    const newPage = (length === 0 || pageSize === 0) ? 0 : page + 1;
     return this.translateService.instant('shows.movieList.labels.page', {
-      page: page,
+      page: newPage,
       totalPage: length,
     });
   };
