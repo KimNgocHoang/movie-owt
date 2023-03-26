@@ -11,20 +11,20 @@ export class TranslatedMatPaginator extends MatPaginatorIntl {
   getRangeLabel = (page: number, pageSize: number, length: number) => {
     this.getAndInitTranslations();
     const newPage = (length === 0 || pageSize === 0) ? 0 : page + 1;
-    return this.translateService.instant('shows.movieList.labels.page', {
+    return this.translateService.instant('material.matPaginator.labels.page', {
       page: newPage,
       totalPage: length,
     });
   };
   getAndInitTranslations() {
     this.itemsPerPageLabel = this.translateService.instant(
-      'shows.movieList.labels.itemsPerPage'
+      'material.matPaginator.labels.itemsPerPage'
     );
     this.previousPageLabel = this.translateService.instant(
-      'shows.movieList.labels.lastPage'
+      'material.matPaginator.labels.lastPage'
     );
     this.nextPageLabel = this.translateService.instant(
-      'shows.movieList.labels.nextPage'
+      'material.matPaginator.labels.nextPage'
     );
   }
 }

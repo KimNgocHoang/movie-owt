@@ -3,11 +3,7 @@
     "movieList": {
       "title": "Movies",
       "labels": {
-        "itemQuantity": "items",
-        "page": "Page: {{page}} of {{totalPage}}",
-        "itemsPerPage": "Items per page:",
-        "lastPage": "Last page",
-        "nextPage": "Next page"
+        "itemQuantity": "items"
       },
       "actions": {
         "inputText": "Search Movies or TV Shows",
@@ -37,6 +33,16 @@
       },
       "actions": {
         "buttonText": "Go Home"
+      }
+    }
+  },
+  "material": {
+    "matPaginator": {
+      "labels": {
+        "page": "Page: {{page}} of {{totalPage}}",
+        "itemsPerPage": "Items per page:",
+        "lastPage": "Last page",
+        "nextPage": "Next page"
       }
     }
   }

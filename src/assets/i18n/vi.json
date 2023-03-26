@@ -3,11 +3,7 @@
     "movieList": {
       "title": "Phim",
       "labels": {
-        "itemQuantity": "mục",
-        "page": "Trang: {{page}} của {{totalPage}}",
-        "itemsPerPage": "Số mục trên mỗi trang:",
-        "lastPage": "Trang trước",
-        "nextPage": "Trang tiếp theo"
+        "itemQuantity": "mục"
       },
       "actions": {
         "inputText": "Tìm kiếm Phim hoặc Chương trình TV",
@@ -37,6 +33,16 @@
       },
       "actions": {
         "buttonText": "Quay lại trang chủ"
+      }
+    }
+  },
+  "material": {
+    "matPaginator": {
+      "labels": {
+        "page": "Trang: {{page}} của {{totalPage}}",
+        "itemsPerPage": "Số mục trên mỗi trang:",
+        "lastPage": "Trang trước",
+        "nextPage": "Trang tiếp theo"
       }
     }
   }
