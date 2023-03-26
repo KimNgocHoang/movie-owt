@@ -35,5 +35,15 @@
         "buttonText": "Go Home"
       }
     }
+  },
+  "material": {
+    "matPaginator": {
+      "labels": {
+        "page": "Page: {{page}} of {{totalPage}}",
+        "itemsPerPage": "Items per page:",
+        "lastPage": "Last page",
+        "nextPage": "Next page"
+      }
+    }
   }
 }

@@ -35,5 +35,15 @@
         "buttonText": "Quay lại trang chủ"
       }
     }
+  },
+  "material": {
+    "matPaginator": {
+      "labels": {
+        "page": "Trang: {{page}} của {{totalPage}}",
+        "itemsPerPage": "Số mục trên mỗi trang:",
+        "lastPage": "Trang trước",
+        "nextPage": "Trang tiếp theo"
+      }
+    }
   }
 }
