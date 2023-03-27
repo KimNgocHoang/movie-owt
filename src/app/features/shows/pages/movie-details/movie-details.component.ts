@@ -2,7 +2,6 @@ import { Movie } from './../../../../core/models/movie';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { MovieService } from '../../movie.service';
-import { MovieGenre } from 'src/app/core/models/movie-genre.model';
 
 @Component({
   selector: 'app-movie-details',
@@ -11,7 +10,7 @@ import { MovieGenre } from 'src/app/core/models/movie-genre.model';
 })
 export class MovieDetailsComponent implements OnInit {
   movie: Movie;
-  genres: MovieGenre[];
+  genres: string;
   loading = true;
 
   constructor(
@@ -29,10 +28,8 @@ export class MovieDetailsComponent implements OnInit {
     this.loading = true;
     this.movieService.getMovieById(id).subscribe((res) => {
       this.movie = res;
-      // this.genres = res.genres;
+      this.genres = res.genres.map((genre) => genre.name).join(', ');
       this.loading = false;
-      console.log(this.movie.genres);
-
     });
     return this.movie;
   }

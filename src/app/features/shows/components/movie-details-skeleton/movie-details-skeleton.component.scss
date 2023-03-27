@@ -13,3 +13,15 @@
     }
   }
 }
+
+@media screen and (max-width: 739px) {
+  .info-movie {
+    grid-template-columns: 1fr;
+    .poster {
+      grid-row: 2;
+    }
+    .desc-movie {
+      grid-row: 1;
+    }
+  }
+}

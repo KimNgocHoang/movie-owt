@@ -1,17 +1,17 @@
-<div *ngIf="loading; else yes">
+<div *ngIf="loading; else showMovieDetails">
   <app-movie-details-skeleton></app-movie-details-skeleton>
 </div>
-<ng-template #yes>
+<ng-template #showMovieDetails>
   <div class="heading">
-    <img src="https://image.tmdb.org/t/p/w500/{{ movie.backdropPath }}" alt="backdrop" class="backdrop">
-    <div class="cart-name">
-      <div class="breadcumb mat-body-1">MaileHereko / Movies</div>
+    <img src="https://image.tmdb.org/t/p/original/{{ movie.backdropPath }}" alt="backdrop" class="backdrop">
+    <div class="title">
+      <div class="breadcrumb mat-body-1">{{'shows.movieDetails.labels.breadCrumb' | translate }}</div>
       <p class="mat-headline-3">{{movie.title}}</p>
     </div>
   </div>
   <div class="info-movie">
     <div class="poster">
-      <img src="https://image.tmdb.org/t/p/w500/{{ movie.posterPath }}" alt="poster">
+      <img src="https://image.tmdb.org/t/p/original/{{ movie.posterPath }}" alt="poster">
     </div>
     <div class="desc-movie">
       <p class="mat-headline-4">{{movie.title}}.</p>
@@ -21,23 +21,20 @@
         {{ movie.voteAverage.toFixed(1) }}
       </div>
       <div class="type">
-        <p class="mat-subtitle-2">Type</p>
-        <p class="mat-subtitle-1">Movie</p>
+        <p class="mat-subtitle-2">{{'shows.movieDetails.labels.type' | translate }}</p>
+        <p class="mat-subtitle-1">{{'shows.movieDetails.labels.nameType' | translate }}</p>
       </div>
       <div class="release-date">
-        <p class="mat-subtitle-2">Release Date:</p>
+        <p class="mat-subtitle-2">{{'shows.movieDetails.labels.releaseDate' | translate }}</p>
         <p class="mat-subtitle-1">{{ movie.releaseDate }}</p>
       </div>
       <div class="run-time">
-        <p class="mat-subtitle-2">Run time</p>
+        <p class="mat-subtitle-2">{{'shows.movieDetails.labels.runTime' | translate }}</p>
         <p class="mat-subtitle-1">{{ movie.runtime }} min</p>
       </div>
       <div class="genres">
-        <p class="mat-subtitle-2">Genres</p>
-        <ul>
-          <li *ngFor="let genre of movie.genres"><p class="mat-subtitle-1">{{genre.name}}, </p></li>
-        </ul>
-
+        <p class="mat-subtitle-2">{{'shows.movieDetails.labels.genres' | translate }}</p>
+        <p class="mat-subtitle-1">{{genres}}</p>
       </div>
     </div>
   </div>

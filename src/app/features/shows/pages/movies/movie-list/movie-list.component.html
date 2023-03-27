@@ -1,4 +1,4 @@
-<span class="mat-body-1">MaileHereko</span>
+<span class="mat-body-1">OWT</span>
 <h1 class="mat-headline-1">{{ 'shows.movieList.title' | translate }}</h1>
 <div class="form-search">
   <mat-form-field appearance="outline">
@@ -8,10 +8,10 @@
   </mat-form-field>
 </div>
 <span class="mat-subtitle-2"> {{ loading ? 0 : movies.length }} {{'shows.movieList.labels.itemQuantity' | translate }}</span>
-<div class="list" *ngIf="loading; else yes">
+<div class="list" *ngIf="loading; else showMoviesListItem">
   <app-movie-item-skeleton *ngFor="let _ of [].constructor(4)"></app-movie-item-skeleton>
 </div>
-<ng-template #yes>
+<ng-template #showMoviesListItem>
 <div class="list">
   <app-movies-list-item
   *ngFor="let movie of movies"
