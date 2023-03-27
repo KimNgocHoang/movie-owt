@@ -1,10 +1,10 @@
-import { MovieService } from './../../movie.service';
-import { Movie } from './../../../../core/models/movie';
+import { MovieService } from '../../../movie.service';
+import { Movie } from '../../../../../core/models/movie';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { debounceTime } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
-import { SearchMoviesRequest } from '../../type/search-movies-request.type';
+import { SearchMoviesRequest } from '../../../type/search-movies-request.type';
 import { TranslateService } from '@ngx-translate/core';
 import { PageEvent } from '@angular/material/paginator';
 @Component({

@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import camelcaseKeys from 'camelcase-keys';
 import { HttpClient } from '@angular/common/http';
 import queryString from 'query-string';
+import { Movie } from './../../core/models/movie';
 
 @Injectable({
   providedIn: 'root',
@@ -36,6 +37,13 @@ export class MovieService {
       );
     }
     return this.http.get<MovieList>(urlMain).pipe(
+      map((responseData) => {
+        return camelcaseKeys(responseData, { deep: true });
+      })
+    );
+  }
+  getMovieById(id: number): Observable<Movie> {
+    return this.http.get<Movie>(`${environment.apiHost}/movie/${id}`).pipe(
       map((responseData) => {
         return camelcaseKeys(responseData, { deep: true });
       })

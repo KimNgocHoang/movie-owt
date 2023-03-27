@@ -12,4 +12,5 @@ export interface Movie {
   voteAverage: number;
   runtime: number;
   tagline: string;
+  genres?: MovieGenre[];
 }
