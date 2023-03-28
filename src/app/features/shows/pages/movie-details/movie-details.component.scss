@@ -79,18 +79,13 @@
 }
 
 @media screen and (max-width: 739px) {
+  .heading {
+    display: none;
+  }
   .movie-info {
-    margin-top: 40px;
     grid-template-columns: 1fr;
     padding: 10px;
     width: 100%;
-
-    &__poster{
-      grid-row: 2;
-    }
-    &__movie-desc{
-      grid-row: 1;
-    }
   }
 }
 @media only screen and (max-width: 1024px) and (min-width: 740px) {
