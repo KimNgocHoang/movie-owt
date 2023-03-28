@@ -1,23 +1,21 @@
 @import "/src/assets/scss/variables/colors/colors";
 
 .heading {
-  position: relative;
-
-  img {
+  &__backdrop{
     width: 100%;
     border-radius: 40px;
     min-width: 700px;
+    min-height: 700px;
   }
 
-  .title {
+  &__title{
+    width: 40%;
     min-width: 500px;
-    position: absolute;
+    margin: -80px 0 0 80px;
     padding: 40px;
     background: rgba(32, 40, 62, 0.8);
     backdrop-filter: blur(12px);
     border-radius: 24px;
-    left: 6%;
-    bottom: -10%;
 
     .mat-body-1 {
       margin-bottom: 8px;
@@ -28,25 +26,21 @@
       margin-bottom: 0;
       color: $grey-50;
     }
-
   }
 }
 
 .info-movie {
-  margin-top: 80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 80px;
   gap: 80px;
 
-  .poster {
-    img {
-      width: 100%;
-      border-radius: 24px;
-    }
+  &__poster {
+    width: 100%;
+    border-radius: 24px;
   }
 
-  .desc-movie {
+  &__desc-movie {
     .mat-headline-4 {
       color: $grey-50;
       margin-bottom: 24px;
@@ -57,7 +51,7 @@
       margin-bottom: 24px;
     }
 
-    .movie-item-rating {
+    &--rating {
       display: flex;
       width: 40px;
       align-items: center;
@@ -69,10 +63,10 @@
       margin-bottom: 24px;
     }
 
-    .type,
-    .release-date,
-    .run-time,
-    .genres {
+    &--type,
+    &--release-date,
+    &--run-time,
+    &--genres {
       .mat-subtitle-2 {
         color: $grey-400;
       }
@@ -86,26 +80,28 @@
 
 @media screen and (max-width: 739px) {
   .info-movie {
+    margin-top: 40px;
     grid-template-columns: 1fr;
     padding: 10px;
     width: 100%;
 
-    .poster{
+    &__poster{
       grid-row: 2;
     }
-    .desc-movie{
+    &__desc-movie{
       grid-row: 1;
     }
   }
 }
 @media only screen and (max-width: 1024px) and (min-width: 740px) {
   .heading{
-    img {
+    &__backdrop {
       border-radius: 40px;
       min-width: 100%;
     }
   }
   .info-movie {
+    margin-top: 40px;
     padding: 20px;
     width: 100%;
     gap: 40px;

@@ -3,36 +3,34 @@
 </div>
 <ng-template #showMovieDetails>
   <div class="heading">
-    <img src="https://image.tmdb.org/t/p/original/{{ movie.backdropPath }}" alt="backdrop" class="backdrop">
-    <div class="title">
-      <div class="breadcrumb mat-body-1">{{'shows.movieDetails.labels.breadCrumb' | translate }}</div>
-      <p class="mat-headline-3">{{movie.title}}</p>
+    <img src="https://image.tmdb.org/t/p/w1280/{{ movie.backdropPath }}" alt="backdrop" class="heading__backdrop">
+    <div class="heading__title">
+      <div class="heading__title--breadcrumb mat-body-1">{{'shows.movieDetails.labels.breadCrumb' | translate }}</div>
+      <p class="mat-headline-3 heading__title--name">{{movie.title}}</p>
     </div>
   </div>
   <div class="info-movie">
-    <div class="poster">
-      <img src="https://image.tmdb.org/t/p/original/{{ movie.posterPath }}" alt="poster">
-    </div>
-    <div class="desc-movie">
-      <p class="mat-headline-4">{{movie.title}}.</p>
-      <p class="mat-subtitle-1">{{movie.overview}}</p>
-      <div class="movie-item-rating">
+    <img src="https://image.tmdb.org/t/p/w780/{{ movie.posterPath }}" alt="poster" class="info-movie__poster">
+    <div class="info-movie__desc-movie">
+      <p class="mat-headline-4 info-movie__desc-movie--title">{{movie.title}}.</p>
+      <p class="mat-subtitle-1 info-movie__desc-movie--overview">{{movie.overview}}</p>
+      <div class="info-movie__desc-movie--rating">
         <img src="/assets/image/star.svg" alt="">
         {{ movie.voteAverage.toFixed(1) }}
       </div>
-      <div class="type">
+      <div class="info-movie__desc-movie--type">
         <p class="mat-subtitle-2">{{'shows.movieDetails.labels.type' | translate }}</p>
         <p class="mat-subtitle-1">{{'shows.movieDetails.labels.nameType' | translate }}</p>
       </div>
-      <div class="release-date">
+      <div class="info-movie__desc-movie--release-date">
         <p class="mat-subtitle-2">{{'shows.movieDetails.labels.releaseDate' | translate }}</p>
         <p class="mat-subtitle-1">{{ movie.releaseDate }}</p>
       </div>
-      <div class="run-time">
+      <div class="info-movie__desc-movie--run-time">
         <p class="mat-subtitle-2">{{'shows.movieDetails.labels.runTime' | translate }}</p>
         <p class="mat-subtitle-1">{{ movie.runtime }} min</p>
       </div>
-      <div class="genres">
+      <div class="info-movie__desc-movie--genres">
         <p class="mat-subtitle-2">{{'shows.movieDetails.labels.genres' | translate }}</p>
         <p class="mat-subtitle-1">{{genres}}</p>
       </div>
