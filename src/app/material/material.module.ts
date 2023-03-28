@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
 import {
   MatPaginatorIntl,
   MatPaginatorModule,
@@ -21,6 +22,7 @@ import {
     MatInputModule,
     MatSelectModule,
     MatPaginatorModule,
+    MatMenuModule,
   ],
   providers: [{ provide: MatPaginatorIntl, useClass: TranslatedMatPaginator }],
 })

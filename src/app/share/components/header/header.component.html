@@ -21,4 +21,17 @@
       </mat-form-field>
     </li>
   </ul>
+  <div class="navbar-mobile">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" class="navbar-mobile__list">
+      <a routerLink="movies" mat-menu-item>{{ 'share.header.labels.movies' | translate }}</a>
+      <a routerLink="movies" mat-menu-item>{{ 'share.header.labels.tvShows' | translate }}</a>
+      <a routerLink="suggest-me" mat-menu-item class="navbar-mobile__item">
+        <p>{{ 'share.header.labels.suggestMe' | translate }}</p>
+        <mat-icon matSuffix>arrow_right_alt</mat-icon>
+      </a>
+    </mat-menu>
+  </div>
 </mat-toolbar>

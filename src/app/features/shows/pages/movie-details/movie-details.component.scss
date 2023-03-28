@@ -85,7 +85,7 @@
   .movie-info {
     grid-template-columns: 1fr;
     padding: 10px;
-    width: 100%;
+    gap: 40px;
   }
 }
 @media only screen and (max-width: 1024px) and (min-width: 740px) {

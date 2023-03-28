@@ -7,6 +7,17 @@
     background-color: $grey-900;
   }
   .mat-mdc-tooltip-trigger:hover{
-      background-color: $primary-400;
+    background-color: $primary-400;
+  }
+
+  @media screen and (max-width: 739px) {
+    .mat-mdc-paginator-container {
+      font-size: 12px;
     }
+    .mat-mdc-paginator-range-actions{
+      .mat-mdc-paginator-range-label{
+        margin: 0;
+      }
+    }
+  }
 }
