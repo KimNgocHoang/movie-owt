@@ -9,28 +9,28 @@
       <p class="mat-headline-3 heading__name">{{movie.title}}</p>
     </div>
   </div>
-  <div class="info-movie">
-    <img src="https://image.tmdb.org/t/p/w780/{{ movie.posterPath }}" alt="poster" class="info-movie__poster">
-    <div class="info-movie__desc-movie">
-      <p class="mat-headline-4 info-movie__title">{{movie.title}}.</p>
-      <p class="mat-subtitle-1 info-movie__overview">{{movie.overview}}</p>
-      <div class="info-movie__rating">
+  <div class="movie-info">
+    <img src="https://image.tmdb.org/t/p/w780/{{ movie.posterPath }}" alt="poster" class="movie-info__poster">
+    <div class="movie-info__movie-desc">
+      <p class="mat-headline-4 movie-info__title">{{movie.title}}.</p>
+      <p class="mat-subtitle-1 movie-info__overview">{{movie.overview}}</p>
+      <div class="movie-info__rating">
         <img src="/assets/image/star.svg" alt="">
         {{ movie.voteAverage.toFixed(1) }}
       </div>
-      <div class="info-movie__type">
+      <div class="movie-info__type">
         <p class="mat-subtitle-2">{{'shows.movieDetails.labels.type' | translate }}</p>
         <p class="mat-subtitle-1">{{'shows.movieDetails.labels.nameType' | translate }}</p>
       </div>
-      <div class="info-movie__release-date">
+      <div class="movie-info__release-date">
         <p class="mat-subtitle-2">{{'shows.movieDetails.labels.releaseDate' | translate }}</p>
         <p class="mat-subtitle-1">{{ movie.releaseDate }}</p>
       </div>
-      <div class="info-movie__run-time">
+      <div class="movie-info__run-time">
         <p class="mat-subtitle-2">{{'shows.movieDetails.labels.runTime' | translate }}</p>
         <p class="mat-subtitle-1">{{ movie.runtime }} min</p>
       </div>
-      <div class="info-movie__genres">
+      <div class="movie-info__genres">
         <p class="mat-subtitle-2">{{'shows.movieDetails.labels.genres' | translate }}</p>
         <p class="mat-subtitle-1">{{genres}}</p>
       </div>

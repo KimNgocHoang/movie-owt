@@ -29,7 +29,7 @@
   }
 }
 
-.info-movie {
+.movie-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 80px;
@@ -40,7 +40,7 @@
     border-radius: 24px;
   }
 
-  &__desc-movie {
+  &__movie-desc {
     .mat-headline-4 {
       color: $grey-50;
       margin-bottom: 24px;
@@ -51,7 +51,7 @@
       margin-bottom: 24px;
     }
 
-    .info-movie__rating {
+    .movie-info__rating {
       display: flex;
       width: 40px;
       align-items: center;
@@ -63,10 +63,10 @@
       margin-bottom: 24px;
     }
 
-    .info-movie__type,
-    .info-movie__release-date,
-    .info-movie__run-time,
-    .info-movie__genres {
+    .movie-info__type,
+    .movie-info__release-date,
+    .movie-info__run-time,
+    .movie-info__genres {
       .mat-subtitle-2 {
         color: $grey-400;
       }
@@ -79,7 +79,7 @@
 }
 
 @media screen and (max-width: 739px) {
-  .info-movie {
+  .movie-info {
     margin-top: 40px;
     grid-template-columns: 1fr;
     padding: 10px;
@@ -88,7 +88,7 @@
     &__poster{
       grid-row: 2;
     }
-    &__desc-movie{
+    &__movie-desc{
       grid-row: 1;
     }
   }
@@ -100,7 +100,7 @@
       min-width: 100%;
     }
   }
-  .info-movie {
+  .movie-info {
     margin-top: 40px;
     padding: 20px;
     width: 100%;

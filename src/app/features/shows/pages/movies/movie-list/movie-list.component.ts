@@ -32,7 +32,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
       this.search(results);
     });
     this.getMoviesByApiSub = this.route.queryParamMap.subscribe((results) => {
-      this.movies = this.getMoviesBySearch({
+      this.getMoviesBySearch({
         query: results.get('search'),
         page: +results.get('page') === 0 ? 1 : +results.get('page'),
       });
@@ -56,7 +56,6 @@ export class MovieListComponent implements OnInit, OnDestroy {
         this.totalPages = res.totalPages;
         this.loading = false;
       });
-    return this.movies;
   }
 
   pageChangeEvent(event: PageEvent) {
@@ -69,7 +68,6 @@ export class MovieListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.translate.onLangChange.unsubscribe();
     this.getMoviesByApiSub.unsubscribe();
   }
 }
