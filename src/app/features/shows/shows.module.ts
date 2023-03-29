@@ -6,12 +6,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 import { TvShowDetailsComponent } from './pages/tv-show-details/tv-show-details.component';
 import { TvShowListComponent } from './pages/tv-show-list/tv-show-list.component';
-import { MovieListComponent } from './pages/movie-list/movie-list.component';
+import { MovieListComponent } from './pages/movies/movie-list/movie-list.component';
 import { SuggestMeComponent } from './pages/suggest-me/suggest-me.component';
 import { ShowsRoutingModule } from './shows-routing.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { MovieItemSkeletonComponent } from './components/movie-item-skeleton/movie-item-skeleton.component';
 import { FormsModule } from '@angular/forms';
+import { MoviesComponent } from './pages/movies/movies.component';
+import { MovieDetailsSkeletonComponent } from './components/movie-details-skeleton/movie-details-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { FormsModule } from '@angular/forms';
     MovieListComponent,
     SuggestMeComponent,
     MovieItemSkeletonComponent,
+    MoviesComponent,
+    MovieDetailsSkeletonComponent,
   ],
   imports: [
     CommonModule,

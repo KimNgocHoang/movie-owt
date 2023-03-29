@@ -1,0 +1,29 @@
+.info-movie{
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  .poster{
+    min-width: 380px;
+    border-radius: 24px;
+  }
+  .desc-movie{
+    .title, .overview, .description{
+      margin-bottom: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 739px) {
+  .heading {
+      display: none;
+    }
+  .info-movie {
+    grid-template-columns: 1fr;
+    padding: 10px;
+    gap: 40px;
+    .poster{
+      min-width: auto;
+    }
+  }
+}

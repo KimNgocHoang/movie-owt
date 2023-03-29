@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import "/src/assets/scss/variables/colors/colors";
+
+@mixin theme($theme) {
+  $typography-config: mat.get-typography-config($theme);
+  .mat-mdc-menu-content{
+    .mat-mdc-menu-item{
+      .mdc-list-item__primary-text{
+        @include mat.typography-level($typography-config, 'body-2');
+        color: $grey-200;
+      }
+      .mat-icon-no-color{
+        color: $grey-200;
+      }
+    }
+  }
+  .mat-mdc-menu-item:last-child{
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 24px;
+    .mdc-list-item__primary-text{
+      p{
+        margin: 0px 4px 0;
+      }
+    }
+  }
+}

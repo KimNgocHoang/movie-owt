@@ -41,3 +41,28 @@
     }
   }
 }
+
+@media screen and (max-width: 739px) {
+  .navbar {
+    margin-bottom: 20px;
+    &-list {
+      padding: 0 20px;
+      &-item{
+        display: none;
+      }
+      &-item:last-child {
+        display: block;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1200px) {
+  .navbar-mobile{
+    display: none;
+  }
+}
+@media only screen and (max-width: 1024px) and (min-width: 740px) {
+  .navbar-mobile {
+    display: none;
+  }
+}

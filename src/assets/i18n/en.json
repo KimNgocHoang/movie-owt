@@ -9,6 +9,16 @@
         "inputText": "Search Movies or TV Shows",
         "inputPlaceholder": "eg."
       }
+    },
+    "movieDetails": {
+      "labels": {
+        "breadCrumb": "OWT / Movies",
+        "type": "Type",
+        "nameType": "Movie",
+        "releaseDate": "Release Date:",
+        "runTime": "Run time",
+        "genres": "Genres"
+      }
     }
   },
   "share": {

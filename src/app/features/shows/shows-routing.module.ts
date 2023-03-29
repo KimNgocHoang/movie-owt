@@ -1,18 +1,22 @@
 import { SuggestMeComponent } from './pages/suggest-me/suggest-me.component';
-import { MovieListComponent } from './pages/movie-list/movie-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { TvShowListComponent } from './pages/tv-show-list/tv-show-list.component';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 import { TvShowDetailsComponent } from './pages/tv-show-details/tv-show-details.component';
+import { MoviesComponent } from './pages/movies/movies.component';
+import { MovieListComponent } from './pages/movies/movie-list/movie-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   {
     path: 'movies',
-    component: MovieListComponent,
-    children: [{ path: ':id', component: MovieDetailsComponent }],
+    component: MoviesComponent,
+    children: [
+      { path: '', component: MovieListComponent },
+      { path: ':id', component: MovieDetailsComponent },
+    ],
   },
   {
     path: 'tv',

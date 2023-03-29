@@ -1,13 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { NotFoundComponent } from '../../not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-export function HttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient);
-}
 const routes: Routes = [
   { path: '', redirectTo: '/shows', pathMatch: 'full' },
   {

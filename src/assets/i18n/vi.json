@@ -9,6 +9,16 @@
         "inputText": "Tìm kiếm Phim hoặc Chương trình TV",
         "inputPlaceholder": "Ví dụ."
       }
+    },
+    "movieDetails": {
+      "labels": {
+        "breadCrumb": "OWT / Phim",
+        "type": "Loại",
+        "nameType": "Phim",
+        "releaseDate": "Ngày phát hành:",
+        "runTime": "Thời lượng",
+        "genres": "Thể loại"
+      }
     }
   },
   "share": {

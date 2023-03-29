@@ -1,10 +1,10 @@
-import { MovieService } from './../../movie.service';
-import { Movie } from './../../../../core/models/movie';
+import { MovieService } from '../../../movie.service';
+import { Movie } from '../../../../../core/models/movie';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { debounceTime } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
-import { SearchMoviesRequest } from '../../type/search-movies-request.type';
+import { SearchMoviesRequest } from '../../../type/search-movies-request.type';
 import { TranslateService } from '@ngx-translate/core';
 import { PageEvent } from '@angular/material/paginator';
 @Component({
@@ -32,7 +32,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
       this.search(results);
     });
     this.getMoviesByApiSub = this.route.queryParamMap.subscribe((results) => {
-      this.movies = this.getMoviesBySearch({
+      this.getMoviesBySearch({
         query: results.get('search'),
         page: +results.get('page') === 0 ? 1 : +results.get('page'),
       });
@@ -56,7 +56,6 @@ export class MovieListComponent implements OnInit, OnDestroy {
         this.totalPages = res.totalPages;
         this.loading = false;
       });
-    return this.movies;
   }
 
   pageChangeEvent(event: PageEvent) {
@@ -69,7 +68,6 @@ export class MovieListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.translate.onLangChange.unsubscribe();
     this.getMoviesByApiSub.unsubscribe();
   }
 }
