@@ -10,13 +10,17 @@
       }}</mat-button-toggle>
   </mat-button-toggle-group>
 </div>
-<div class="list" *ngIf="loading; else showTrendingListItem">
-  <app-movie-item-skeleton class="screenDesktop" *ngFor="let _ of [].constructor(4)"></app-movie-item-skeleton>
-  <app-movie-item-skeleton class="screenMobile" *ngFor="let _ of [].constructor(2)"></app-movie-item-skeleton>
-</div>
-<ng-template #showTrendingListItem>
-  <div class="list">
-    <app-show-list-item *ngFor="let show of showList"
-      [show]="show"></app-show-list-item>
+<div class="cont">
+  <div class="list" *ngIf="loading; else showTrendingListItem">
+    <app-movie-item-skeleton class="screenDesktop" *ngFor="let _ of [].constructor(4)"></app-movie-item-skeleton>
+    <app-movie-item-skeleton class="screenMobile" *ngFor="let _ of [].constructor(2)"></app-movie-item-skeleton>
   </div>
-</ng-template>
+
+  <ng-template #showTrendingListItem>
+    <div class="overlay"></div>
+    <div class="list">
+      <app-show-list-item *ngFor="let show of showList"
+      [show]="show"></app-show-list-item>
+    </div>
+  </ng-template>
+</div>

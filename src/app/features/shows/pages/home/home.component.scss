@@ -29,23 +29,33 @@
     color: $grey-300;
   }
 }
-
-.list {
+.cont{
   position: relative;
-  display: flex;
-  gap: 24px;
-  margin: 24px 0;
-
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-
-  &::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+  .overlay {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 5%;
+    background-color: rgba(18, 24, 41, 0.5);
   }
-  .screenMobile{
-    display: none
+  .list {
+    display: flex;
+    gap: 24px;
+    margin: 24px 0;
+
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+    .screenMobile{
+      display: none
+    }
   }
+
 }
 
 @media screen and (max-width: 739px) {
