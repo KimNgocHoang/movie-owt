@@ -14,6 +14,7 @@ import { MovieItemSkeletonComponent } from './components/movie-item-skeleton/mov
 import { FormsModule } from '@angular/forms';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { MovieDetailsSkeletonComponent } from './components/movie-details-skeleton/movie-details-skeleton.component';
+import { ShowListItemComponent } from './components/show-list-item/show-list-item.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MovieDetailsSkeletonComponent } from './components/movie-details-skelet
     MovieItemSkeletonComponent,
     MoviesComponent,
     MovieDetailsSkeletonComponent,
+    ShowListItemComponent,
   ],
   imports: [
     CommonModule,

@@ -11,7 +11,7 @@ import { MovieListComponent } from './pages/movies/movie-list/movie-list.compone
 const routes: Routes = [
   { path: '', component: HomeComponent },
   {
-    path: 'movies',
+    path: 'movie',
     component: MoviesComponent,
     children: [
       { path: '', component: MovieListComponent },

@@ -13,10 +13,7 @@
 </div>
 <ng-template #showMoviesListItem>
 <div class="list">
-  <app-movies-list-item
-  *ngFor="let movie of movies"
-  [movie]="movie"
-  ></app-movies-list-item>
+  <app-show-list-item *ngFor="let show of movies" [show]="show"></app-show-list-item>
 </div>
 </ng-template>
 <mat-paginator

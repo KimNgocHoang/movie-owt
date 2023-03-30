@@ -1,8 +1,7 @@
-import { MovieGenre } from './movie-genre.model';
+import { Genre } from './genre.model';
 
 export interface Movie {
   id: number;
-  genreIds: MovieGenre;
   date: string;
   title: string;
   overview: string;
@@ -12,5 +11,5 @@ export interface Movie {
   voteAverage: number;
   runtime: number;
   tagline: string;
-  genres?: MovieGenre[];
+  genres?: Genre[];
 }

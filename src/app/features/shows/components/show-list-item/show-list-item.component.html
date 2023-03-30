@@ -1,0 +1,42 @@
+<div *ngIf="router.url.includes('/movie'); else addSuffixes">
+  <a [routerLink]="[show.id]" routerLinkActive="active">
+    <div class="show-item">
+      <div class="show-item__rating">
+        <img src="/assets/image/star.svg" alt="">
+        {{ show.voteAverage.toFixed(1) }}
+      </div>
+      <div class="show-item__img-hover-zoom" *ngIf="show.posterPath; else no ">
+        <img src="https://image.tmdb.org/t/p/w500/{{ show.posterPath }}" alt="image-item">
+      </div>
+      <ng-template #no>
+        <div class="show-item__img-hover-zoom">
+          <img src="/assets/image/dummy-image-portrait.jpg" alt="image-item">
+        </div>
+      </ng-template>
+      <div class="show-item__name">
+        <p class="mat-headline-6">{{ show.title || show.name }}</p>
+      </div>
+    </div>
+  </a>
+</div>
+<ng-template #addSuffixes>
+  <a [routerLink]="['/shows/', show.mediaType, show.id]" routerLinkActive="active">
+    <div class="show-item">
+      <div class="show-item__rating">
+        <img src="/assets/image/star.svg" alt="">
+        {{ show.voteAverage.toFixed(1) }}
+      </div>
+      <div class="show-item__img-hover-zoom" *ngIf="show.posterPath; else no ">
+        <img src="https://image.tmdb.org/t/p/w500/{{ show.posterPath }}" alt="image-item">
+      </div>
+      <ng-template #no>
+        <div class="show-item__img-hover-zoom">
+          <img src="/assets/image/dummy-image-portrait.jpg" alt="image-item">
+        </div>
+      </ng-template>
+      <div class="show-item__name">
+        <p class="mat-headline-6">{{ show.title || show.name }}</p>
+      </div>
+    </div>
+  </a>
+</ng-template>

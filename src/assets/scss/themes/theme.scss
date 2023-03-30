@@ -5,6 +5,7 @@
 @use "/src/assets/scss/material/mat-icon-theme" as mat_icon;
 @use "/src/assets/scss/material/mat-paginator-theme" as mat_paginator;
 @use "/src/assets/scss/material/mat-menu-theme" as mat_menu;
+@use "/src/assets/scss/material/mat-button-toggle-group.theme" as mat_button_toggle_group;
 @include mat.core();
 @import "/src/assets/scss/variables/colors/colors";
 
@@ -28,8 +29,7 @@ $primary-palette: (
     600 : $grey-200,
     700 : $grey-200,
     800 : $grey-200,
-    900 : $grey-200
-  )
+    900 : $grey-200 )
 );
 
 $accent-palette: (
@@ -52,8 +52,7 @@ $accent-palette: (
     600 : #ffffff,
     700 : #ffffff,
     800 : #ffffff,
-    900 : #ffffff
-  )
+    900 : #ffffff)
 );
 
 $warn-palette: (
@@ -76,22 +75,19 @@ $warn-palette: (
     600 : #ffffff,
     700 : #ffffff,
     800 : #ffffff,
-    900 : #ffffff
-  )
+    900 : #ffffff)
 );
 
 $primary: mat.define-palette($primary-palette, 400);
 $accent: mat.define-palette($accent-palette);
 $warn: mat.define-palette($warn-palette);
 
-$theme: mat.define-dark-theme((
-  color: (
-    primary: $primary,
-    accent: $accent,
-    warn: $warn,
-  ),
-  typography: typography_config.$typography-config,
-));
+$theme: mat.define-dark-theme((color: (primary: $primary,
+        accent: $accent,
+        warn: $warn,
+      ),
+      typography: typography_config.$typography-config,
+    ));
 
 @include mat.all-component-themes($theme);
 @include mat.typography-hierarchy(typography_config.$typography-config);
@@ -100,3 +96,4 @@ $theme: mat.define-dark-theme((
 @include mat_icon.theme($theme);
 @include mat_paginator.theme($theme);
 @include mat_menu.theme($theme);
+@include mat_button_toggle_group.theme($theme);

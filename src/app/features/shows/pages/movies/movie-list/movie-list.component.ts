@@ -1,12 +1,12 @@
 import { MovieService } from '../../../movie.service';
-import { Movie } from '../../../../../core/models/movie';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { debounceTime } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
-import { SearchMoviesRequest } from '../../../type/search-movies-request.type';
 import { TranslateService } from '@ngx-translate/core';
 import { PageEvent } from '@angular/material/paginator';
+import { Movie } from 'src/app/core/models/movie.model';
+import { SearchRequest } from '../../../type/search-request.type';
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
@@ -47,7 +47,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
     });
   }
 
-  getMoviesBySearch(searchMoviesRes: SearchMoviesRequest) {
+  getMoviesBySearch(searchMoviesRes: SearchRequest) {
     this.loading = true;
     this.movieService
       .getPopularMoviesBySearch(searchMoviesRes)
