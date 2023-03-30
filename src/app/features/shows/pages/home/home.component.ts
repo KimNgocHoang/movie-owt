@@ -4,15 +4,18 @@ import { Show } from '../../models/show.model';
 import { ShowsService } from '../../shows.service';
 import { SearchRequest } from '../../type/search-request.type';
 
+export enum TimeWindow {
+  DAY = 'day',
+  WEEK = 'week',
+}
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  type = 'day';
+  type = TimeWindow.DAY;
   showList: Show[];
-  counter = 0;
   loading = true;
   constructor(
     private showsService: ShowsService,

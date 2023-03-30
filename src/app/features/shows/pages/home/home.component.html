@@ -10,7 +10,7 @@
       }}</mat-button-toggle>
   </mat-button-toggle-group>
 </div>
-<div class="cont">
+<div class="container">
   <div class="list" *ngIf="loading; else showTrendingListItem">
     <app-movie-item-skeleton class="screenDesktop" *ngFor="let _ of [].constructor(4)"></app-movie-item-skeleton>
     <app-movie-item-skeleton class="screenMobile" *ngFor="let _ of [].constructor(2)"></app-movie-item-skeleton>

@@ -16,11 +16,11 @@ export class ShowsService {
 
   getTrending(
     request: SearchRequest,
-    type: string
+    timeWindow: string
   ): Observable<ShowList<Show>> {
     const requestUrl = queryString.stringifyUrl(
       {
-        url: `${environment.apiHost}/trending/all/${type}`,
+        url: `${environment.apiHost}/trending/all/${timeWindow}`,
         query: request,
       },
       { skipNull: true }
