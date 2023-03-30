@@ -1,0 +1,45 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import "/src/assets/scss/variables/colors/colors";
+
+@mixin theme($theme) {
+  .mat-button-toggle-group {
+    padding: 0;
+    border-style: none;
+    background-color: $black-20;
+
+    .mat-button-toggle {
+      padding: 0px 10px;
+      border-radius: 40px;
+      color: $grey-200;
+      background-color: transparent;
+
+      &-checked {
+        background-color: $primary-400;
+        color: $primary-50;
+      }
+      &-button {
+        .mat-button-toggle-label-content {
+          line-height: 36px;
+        }
+      }
+    }
+  }
+  .mat-button-toggle-group-appearance-standard{
+    .mat-button-toggle+{
+      .mat-button-toggle{
+        border-left: none;
+      }
+    }
+  }
+  .mat-button-toggle-group-appearance-standard:not([class*=mat-elevation-z]){
+    border-radius: 40px;
+  }
+}
+@media screen and (max-width: 739px) {
+  .mat-button-toggle-group {
+    .mat-button-toggle{
+      font-size: 12px;
+    }
+  }
+}

@@ -1,10 +1,10 @@
-import { MovieGenre } from './movie-genre.model';
+import { Genre } from './genre.model';
 
-export interface Movie {
+export interface TvShow {
   id: number;
-  genreIds: MovieGenre;
   date: string;
-  title: string;
+  originalTitle: string;
+  originalName: string;
   overview: string;
   posterPath: string;
   backdropPath: string;
@@ -12,5 +12,5 @@ export interface Movie {
   voteAverage: number;
   runtime: number;
   tagline: string;
-  genres?: MovieGenre[];
+  genres?: Genre[];
 }

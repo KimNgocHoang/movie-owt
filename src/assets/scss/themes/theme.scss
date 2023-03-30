@@ -5,6 +5,7 @@
 @use "/src/assets/scss/material/mat-icon-theme" as mat_icon;
 @use "/src/assets/scss/material/mat-paginator-theme" as mat_paginator;
 @use "/src/assets/scss/material/mat-menu-theme" as mat_menu;
+@use "/src/assets/scss/material/mat-button-toggle-group.theme" as mat_button_toggle_group;
 @include mat.core();
 @import "/src/assets/scss/variables/colors/colors";
 
@@ -100,3 +101,4 @@ $theme: mat.define-dark-theme((
 @include mat_icon.theme($theme);
 @include mat_paginator.theme($theme);
 @include mat_menu.theme($theme);
+@include mat_button_toggle_group.theme($theme);

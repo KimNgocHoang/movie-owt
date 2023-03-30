@@ -1,5 +1,20 @@
 {
   "shows": {
+    "home": {
+      "title": "OWT",
+      "labels": {
+        "introduce": "Danh sách về phim và chương trình truyền hình 😉",
+        "itemTrending": "Xu hướng"
+      },
+      "actions": {
+        "inputText": "Tìm kiếm Phim hoặc Chương trình TV",
+        "inputPlaceholder": "Ví dụ.",
+        "matButtonToggleGroup": {
+          "today": "Hôm Nay",
+          "thisWeek": "Tuần Nay"
+        }
+      }
+    },
     "movieList": {
       "title": "Phim",
       "labels": {
@@ -11,6 +26,26 @@
       }
     },
     "movieDetails": {
+      "labels": {
+        "breadCrumb": "OWT / Phim",
+        "type": "Loại",
+        "nameType": "Phim",
+        "releaseDate": "Ngày phát hành:",
+        "runTime": "Thời lượng",
+        "genres": "Thể loại"
+      }
+    },
+    "tvShowsList": {
+      "title": "Chương trình truyền hình",
+      "labels": {
+        "itemQuantity": "mục"
+      },
+      "actions": {
+        "inputText": "Tìm kiếm Phim hoặc Chương trình TV",
+        "inputPlaceholder": "Ví dụ."
+      }
+    },
+    "tvShowDetails": {
       "labels": {
         "breadCrumb": "OWT / Phim",
         "type": "Loại",

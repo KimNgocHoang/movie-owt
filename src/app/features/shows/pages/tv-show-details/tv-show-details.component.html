@@ -1,1 +1,39 @@
-<p>tv-show-details works!</p>
+<div *ngIf="loading; else showMovieDetails">
+  <app-movie-details-skeleton></app-movie-details-skeleton>
+</div>
+<ng-template #showMovieDetails>
+  <div class="heading">
+    <img src="https://image.tmdb.org/t/p/w1280/{{ tvShow.backdropPath }}" alt="backdrop" class="heading__backdrop">
+    <div class="heading__title">
+      <div class="heading__breadcrumb mat-body-1">{{'shows.movieDetails.labels.breadCrumb' | translate }}</div>
+      <p class="mat-headline-3 heading__name">{{tvShow.name}}</p>
+    </div>
+  </div>
+  <div class="tvShow-info">
+    <img src="https://image.tmdb.org/t/p/w780/{{ tvShow.posterPath }}" alt="poster" class="tvShow-info__poster">
+    <div class="tvShow-info__tvShow-desc">
+      <p class="mat-headline-4 tvShow-info__title">{{tvShow.name}}.</p>
+      <p class="mat-subtitle-1 tvShow-info__overview">{{tvShow.overview}}</p>
+      <div class="tvShow-info__rating">
+        <img src="/assets/image/star.svg" alt="">
+        {{ tvShow.voteAverage.toFixed(1) }}
+      </div>
+      <div class="tvShow-info__type">
+        <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.type' | translate }}</p>
+        <p class="mat-subtitle-1">{{'shows.tvShowDetails.labels.nameType' | translate }}</p>
+      </div>
+      <div class="tvShow-info__release-date">
+        <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.releaseDate' | translate }}</p>
+        <p class="mat-subtitle-1">{{ tvShow.releaseDate }}</p>
+      </div>
+      <div class="tvShow-info__run-time">
+        <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.runTime' | translate }}</p>
+        <p class="mat-subtitle-1">{{ tvShow.runtime }} min</p>
+      </div>
+      <div class="tvShow-info__genres">
+        <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.genres' | translate }}</p>
+        <p class="mat-subtitle-1">{{genres}}</p>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,27 +1,28 @@
-import { MovieService } from '../../../movie.service';
-import { Movie } from '../../../../../core/models/movie.model';
-import { Component, OnInit, OnDestroy } from '@angular/core';
 import { debounceTime } from 'rxjs/operators';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
-import { SearchRequest } from '../../../type/search-request.type';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { TvShow } from 'src/app/core/models/tv.model';
+import { TvShowService } from '../../../tv.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { SearchRequest } from '../../../type/search-request.type';
 import { PageEvent } from '@angular/material/paginator';
+
 @Component({
-  selector: 'app-movie-list',
-  templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.scss'],
+  selector: 'app-tv-show-list',
+  templateUrl: './tv-show-list.component.html',
+  styleUrls: ['../../movies/movie-list/movie-list.component.scss'],
 })
-export class MovieListComponent implements OnInit, OnDestroy {
-  movies: Movie[];
+export class TvShowListComponent implements OnInit, OnDestroy {
+  tvShows: TvShow[];
   searchText: string;
   searchTextUpdate = new Subject<string>();
   loading = true;
-  getMoviesByApiSub: Subscription;
+  getTvShowsByApiSub: Subscription;
   totalPages: number;
   pageIndex: number;
   constructor(
-    private movieService: MovieService,
+    private tvShowService: TvShowService,
     private router: Router,
     private route: ActivatedRoute,
     public translate: TranslateService
@@ -31,8 +32,8 @@ export class MovieListComponent implements OnInit, OnDestroy {
     this.searchTextUpdate.pipe(debounceTime(1000)).subscribe((results) => {
       this.search(results);
     });
-    this.getMoviesByApiSub = this.route.queryParamMap.subscribe((results) => {
-      this.getMoviesBySearch({
+    this.getTvShowsByApiSub = this.route.queryParamMap.subscribe((results) => {
+      this.getTvShowsBySearch({
         query: results.get('search'),
         page: +results.get('page') === 0 ? 1 : +results.get('page'),
       });
@@ -47,12 +48,12 @@ export class MovieListComponent implements OnInit, OnDestroy {
     });
   }
 
-  getMoviesBySearch(searchMoviesRes: SearchRequest) {
+  getTvShowsBySearch(searchTvShowsRes: SearchRequest) {
     this.loading = true;
-    this.movieService
-      .getPopularMoviesBySearch(searchMoviesRes)
+    this.tvShowService
+      .getPopularTvShowsBySearch(searchTvShowsRes)
       .subscribe((res) => {
-        this.movies = res.results;
+        this.tvShows = res.results;
         this.totalPages = res.totalPages;
         this.loading = false;
       });
@@ -68,6 +69,6 @@ export class MovieListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.getMoviesByApiSub.unsubscribe();
+    this.getTvShowsByApiSub.unsubscribe();
   }
 }

@@ -1,26 +1,26 @@
-import { environment } from './../../../environments/environment';
-import { MovieList } from './../../core/models/movie-list.model';
-import { SearchRequest } from './type/search-request.type';
+import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import camelcaseKeys from 'camelcase-keys';
 import { HttpClient } from '@angular/common/http';
 import queryString from 'query-string';
-import { Movie } from '../../core/models/movie.model';
+import { SearchRequest } from './type/search-request.type';
+import { TvShowList } from 'src/app/core/models/tv-list.model.';
+import { TvShow } from 'src/app/core/models/tv.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MovieService {
+export class TvShowService {
   constructor(private http: HttpClient) {}
 
-  getPopularMoviesBySearch(request: SearchRequest): Observable<MovieList> {
+  getPopularTvShowsBySearch(request: SearchRequest): Observable<TvShowList> {
     let urlMain: string;
     if (request.query) {
       urlMain = queryString.stringifyUrl(
         {
-          url: `${environment.apiHost}/search/movie`,
+          url: `${environment.apiHost}/search/tv`,
           query: request,
         },
         { skipNull: true }
@@ -28,20 +28,20 @@ export class MovieService {
     } else {
       urlMain = queryString.stringifyUrl(
         {
-          url: `${environment.apiHost}/movie/popular`,
+          url: `${environment.apiHost}/tv/popular`,
           query: request,
         },
         { skipNull: true }
       );
     }
-    return this.http.get<MovieList>(urlMain).pipe(
+    return this.http.get<TvShowList>(urlMain).pipe(
       map((responseData) => {
         return camelcaseKeys(responseData, { deep: true });
       })
     );
   }
-  getMovieById(id: number): Observable<Movie> {
-    return this.http.get<Movie>(`${environment.apiHost}/movie/${id}`).pipe(
+  getTvShowById(id: number): Observable<TvShow> {
+    return this.http.get<TvShow>(`${environment.apiHost}/tv/${id}`).pipe(
       map((responseData) => {
         return camelcaseKeys(responseData, { deep: true });
       })

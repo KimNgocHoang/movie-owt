@@ -1,5 +1,20 @@
 {
   "shows": {
+    "home": {
+      "title": "OWT",
+      "labels": {
+        "introduce": "List of movies and TV Shows 😉",
+        "itemTrending": "Trending"
+      },
+      "actions": {
+        "inputText": "Search Movies or TV Shows",
+        "inputPlaceholder": "eg.",
+        "matButtonToggleGroup": {
+          "today": "Today",
+          "thisWeek": "This Week"
+        }
+      }
+    },
     "movieList": {
       "title": "Movies",
       "labels": {
@@ -11,6 +26,26 @@
       }
     },
     "movieDetails": {
+      "labels": {
+        "breadCrumb": "OWT / Movies",
+        "type": "Type",
+        "nameType": "Movie",
+        "releaseDate": "Release Date:",
+        "runTime": "Run time",
+        "genres": "Genres"
+      }
+    },
+    "tvShowsList": {
+      "title": "TV Shows",
+      "labels": {
+        "itemQuantity": "items"
+      },
+      "actions": {
+        "inputText": "Search Movies or TV Shows",
+        "inputPlaceholder": "eg."
+      }
+    },
+    "tvShowDetails": {
       "labels": {
         "breadCrumb": "OWT / Movies",
         "type": "Type",

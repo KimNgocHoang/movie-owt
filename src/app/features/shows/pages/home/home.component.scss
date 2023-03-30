@@ -1,0 +1,60 @@
+@import "/src/assets/scss/variables/colors/colors";
+
+.title {
+  max-width: 588px;
+
+  .mat-headline-1 {
+    margin-bottom: 0;
+    color: $grey-50;
+  }
+
+  .mat-subtitle-2 {
+    margin: 16px 0 80px;
+    color: $grey-300;
+
+    a {
+      color: $primary-300;
+      text-decoration: none;
+    }
+  }
+}
+.trending{
+  display: flex;
+  align-items: center;
+  .mat-headline-4{
+    margin-right: 16px;
+    margin-bottom: 0;
+    color: $grey-300;
+  }
+}
+.list{
+  position: relative;
+  display: flex;
+  gap: 12px;
+  margin: 24px 0;
+
+  overflow-x: hidden;
+}
+.btn{
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  &__NextMobile {
+    display: none
+  }
+}
+@media screen and (max-width: 739px) {
+  .trending{
+    .mat-headline-4{
+      font-size: 21px;
+    }
+  }
+  .btn{
+    &__NextDesktop {
+      display: none
+    }
+    &__NextMobile {
+      display: inline-flex
+    }
+  }
+}

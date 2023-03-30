@@ -1,0 +1,19 @@
+<a [routerLink]="['/shows/', trending.mediaType, trending.id]" routerLinkActive="active">
+  <div class="trending-item">
+    <div class="trending-item__rating">
+      <img src="/assets/image/star.svg" alt="">
+      {{ trending.voteAverage.toFixed(1) }}
+    </div>
+    <div class="trending-item__img-hover-zoom" *ngIf="trending.posterPath; else showImgTvShow ">
+      <img src="https://image.tmdb.org/t/p/w500/{{ trending.posterPath }}" alt="image-item">
+    </div>
+    <ng-template #showImgTvShow>
+      <div class="trending-item__img-hover-zoom">
+        <img src="/assets/image/dummy-image-portrait.jpg" alt="image-item">
+      </div>
+    </ng-template>
+    <div class="trending-item__name">
+      <p class="mat-headline-6">{{ trending.title || trending.name }}</p>
+    </div>
+  </div>
+</a>

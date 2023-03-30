@@ -11,6 +11,7 @@ import {
   MatPaginatorIntl,
   MatPaginatorModule,
 } from '@angular/material/paginator';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [],
@@ -23,6 +24,7 @@ import {
     MatSelectModule,
     MatPaginatorModule,
     MatMenuModule,
+    MatButtonToggleModule,
   ],
   providers: [{ provide: MatPaginatorIntl, useClass: TranslatedMatPaginator }],
 })

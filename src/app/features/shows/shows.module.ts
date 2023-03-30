@@ -5,7 +5,7 @@ import { MoviesListItemComponent } from './components/movies-list-item/movies-li
 import { HomeComponent } from './pages/home/home.component';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 import { TvShowDetailsComponent } from './pages/tv-show-details/tv-show-details.component';
-import { TvShowListComponent } from './pages/tv-show-list/tv-show-list.component';
+import { TvShowListComponent } from './pages/tv-shows/tv-show-list/tv-show-list.component';
 import { MovieListComponent } from './pages/movies/movie-list/movie-list.component';
 import { SuggestMeComponent } from './pages/suggest-me/suggest-me.component';
 import { ShowsRoutingModule } from './shows-routing.module';
@@ -14,6 +14,10 @@ import { MovieItemSkeletonComponent } from './components/movie-item-skeleton/mov
 import { FormsModule } from '@angular/forms';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { MovieDetailsSkeletonComponent } from './components/movie-details-skeleton/movie-details-skeleton.component';
+import { TvShowsListItemComponent } from './components/tv-shows-list-item/tv-shows-list-item.component';
+import { TrendingListItemComponent } from './components/trending-list-item/trending-list-item.component';
+import { TrendingItemSkeletonComponent } from './components/trending-item-skeleton/trending-item-skeleton.component';
+import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { MovieDetailsSkeletonComponent } from './components/movie-details-skelet
     MovieItemSkeletonComponent,
     MoviesComponent,
     MovieDetailsSkeletonComponent,
+    TvShowsListItemComponent,
+    TrendingListItemComponent,
+    TrendingItemSkeletonComponent,
+    TvShowsComponent,
   ],
   imports: [
     CommonModule,
