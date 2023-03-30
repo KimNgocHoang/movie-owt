@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Show } from 'src/app/core/models/show.model';
+import { Show } from '../../models/show.model';
 import { ShowsService } from '../../shows.service';
 import { SearchRequest } from '../../type/search-request.type';
 

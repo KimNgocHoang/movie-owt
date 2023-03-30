@@ -11,7 +11,7 @@ import { MovieListComponent } from './pages/movies/movie-list/movie-list.compone
 const routes: Routes = [
   { path: '', component: HomeComponent },
   {
-    path: 'movie',
+    path: 'movies',
     component: MoviesComponent,
     children: [
       { path: '', component: MovieListComponent },
@@ -19,7 +19,7 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'tv',
+    path: 'tv-shows',
     component: TvShowListComponent,
     children: [{ path: ':id', component: TvShowDetailsComponent }],
   },

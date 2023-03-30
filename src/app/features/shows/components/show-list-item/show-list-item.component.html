@@ -1,4 +1,4 @@
-<div *ngIf="router.url.includes('/movie'); else addSuffixes">
+<div *ngIf="router.url.includes('/movies'); else addSuffixes">
   <a [routerLink]="[show.id]" routerLinkActive="active">
     <div class="show-item">
       <div class="show-item__rating">
@@ -20,7 +20,7 @@
   </a>
 </div>
 <ng-template #addSuffixes>
-  <a [routerLink]="['/shows/', show.mediaType, show.id]" routerLinkActive="active">
+  <a [routerLink]="['/shows/', show.mediaType==='movie' ? 'movies' : 'tv-shows', show.id]" routerLinkActive="active">
     <div class="show-item">
       <div class="show-item__rating">
         <img src="/assets/image/star.svg" alt="">

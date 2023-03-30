@@ -82,12 +82,14 @@ $primary: mat.define-palette($primary-palette, 400);
 $accent: mat.define-palette($accent-palette);
 $warn: mat.define-palette($warn-palette);
 
-$theme: mat.define-dark-theme((color: (primary: $primary,
-        accent: $accent,
-        warn: $warn,
-      ),
-      typography: typography_config.$typography-config,
-    ));
+$theme: mat.define-dark-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+  ),
+  typography: typography_config.$typography-config,
+));
 
 @include mat.all-component-themes($theme);
 @include mat.typography-hierarchy(typography_config.$typography-config);

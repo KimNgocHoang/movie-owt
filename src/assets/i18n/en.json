@@ -4,23 +4,19 @@
       "title": "OWT",
       "labels": {
         "introduce": "List of movies and TV Shows 😉",
-        "itemTrending": "Trending"
+        "itemTrending": "Trending",
+        "inputText": "Search Movies or TV Shows",
+        "inputPlaceholder": "eg."
       },
       "actions": {
-        "inputText": "Search Movies or TV Shows",
-        "inputPlaceholder": "eg.",
-        "matButtonToggleGroup": {
-          "today": "Today",
-          "thisWeek": "This Week"
-        }
+        "today": "Today",
+        "thisWeek": "This Week"
       }
     },
     "movieList": {
       "title": "Movies",
       "labels": {
-        "itemQuantity": "items"
-      },
-      "actions": {
+        "itemQuantity": "items",
         "inputText": "Search Movies or TV Shows",
         "inputPlaceholder": "eg."
       }

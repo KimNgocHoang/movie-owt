@@ -5,9 +5,9 @@ import { map } from 'rxjs/operators';
 import camelcaseKeys from 'camelcase-keys';
 import { HttpClient } from '@angular/common/http';
 import queryString from 'query-string';
-import { Movie } from 'src/app/core/models/movie.model';
-import { ShowList } from 'src/app/core/models/show-list.model';
 import { SearchRequest } from './type/search-request.type';
+import { Movie } from './models/movie.model';
+import { ShowList } from './models/show-list.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,9 +18,9 @@ export class MovieService {
   getPopularMoviesBySearch(
     request: SearchRequest
   ): Observable<ShowList<Movie>> {
-    let urlMain: string;
+    let requestUrl: string;
     if (request.query) {
-      urlMain = queryString.stringifyUrl(
+      requestUrl = queryString.stringifyUrl(
         {
           url: `${environment.apiHost}/search/movie`,
           query: request,
@@ -28,7 +28,7 @@ export class MovieService {
         { skipNull: true }
       );
     } else {
-      urlMain = queryString.stringifyUrl(
+      requestUrl = queryString.stringifyUrl(
         {
           url: `${environment.apiHost}/movie/popular`,
           query: request,
@@ -36,7 +36,7 @@ export class MovieService {
         { skipNull: true }
       );
     }
-    return this.http.get<ShowList<Movie>>(urlMain).pipe(
+    return this.http.get<ShowList<Movie>>(requestUrl).pipe(
       map((responseData) => {
         return camelcaseKeys(responseData, { deep: true });
       })

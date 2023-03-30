@@ -5,8 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { PageEvent } from '@angular/material/paginator';
-import { Movie } from 'src/app/core/models/movie.model';
 import { SearchRequest } from '../../../type/search-request.type';
+import { Movie } from '../../../models/movie.model';
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',

@@ -1,6 +1,6 @@
-import { Show } from 'src/app/core/models/show.model';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Show } from '../../models/show.model';
 
 @Component({
   selector: 'app-show-list-item',

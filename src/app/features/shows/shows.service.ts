@@ -5,8 +5,8 @@ import queryString from 'query-string';
 import { map, Observable } from 'rxjs';
 import camelcaseKeys from 'camelcase-keys';
 import { SearchRequest } from './type/search-request.type';
-import { ShowList } from 'src/app/core/models/show-list.model';
-import { Show } from 'src/app/core/models/show.model';
+import { ShowList } from './models/show-list.model';
+import { Show } from './models/show.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,14 +18,14 @@ export class ShowsService {
     request: SearchRequest,
     type: string
   ): Observable<ShowList<Show>> {
-    const urlMain = queryString.stringifyUrl(
+    const requestUrl = queryString.stringifyUrl(
       {
         url: `${environment.apiHost}/trending/all/${type}`,
         query: request,
       },
       { skipNull: true }
     );
-    return this.http.get<ShowList<Show>>(urlMain).pipe(
+    return this.http.get<ShowList<Show>>(requestUrl).pipe(
       map((responseData) => {
         return camelcaseKeys(responseData, { deep: true });
       })

@@ -3,8 +3,8 @@
 <div class="form-search">
   <mat-form-field appearance="outline">
     <mat-icon matPrefix>search</mat-icon>
-    <mat-label>{{'shows.movieList.actions.inputText' | translate }}</mat-label>
-    <input matInput placeholder="{{ 'shows.movieList.actions.inputPlaceholder' | translate }} Avenger" [(ngModel)]="searchText" (ngModelChange)="this.searchTextUpdate.next($event)">
+    <mat-label>{{'shows.movieList.labels.inputText' | translate }}</mat-label>
+    <input matInput placeholder="{{ 'shows.movieList.labels.inputPlaceholder' | translate }} Avenger" [(ngModel)]="searchText" (ngModelChange)="this.searchTextUpdate.next($event)">
   </mat-form-field>
 </div>
 <span class="mat-subtitle-2"> {{ loading ? 0 : movies.length }} {{'shows.movieList.labels.itemQuantity' | translate }}</span>
