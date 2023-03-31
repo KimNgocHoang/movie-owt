@@ -1,4 +1,4 @@
-import { ShowMediaType } from "../show-media-type.enum";
+import { ShowMediaType } from "../enum/show-media-type.enum";
 
 export interface Show {
   id: number;

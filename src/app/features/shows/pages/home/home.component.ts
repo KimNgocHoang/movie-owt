@@ -3,11 +3,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { Show } from '../../models/show.model';
 import { ShowsService } from '../../shows.service';
 import { SearchRequest } from '../../type/search-request.type';
+import { TimeWindow } from '../../enum/time-window.enum';
 
-export enum TimeWindow {
-  DAY = 'day',
-  WEEK = 'week',
-}
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -40,7 +37,7 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  getTrending(request: SearchRequest, type: string) {
+  getTrending(request: SearchRequest, type: TimeWindow) {
     this.loading = true;
     this.showsService.getTrending(request, type).subscribe((res) => {
       this.showList = res.results;

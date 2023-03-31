@@ -7,6 +7,7 @@ import camelcaseKeys from 'camelcase-keys';
 import { SearchRequest } from './type/search-request.type';
 import { ShowList } from './models/show-list.model';
 import { Show } from './models/show.model';
+import { TimeWindow } from './enum/time-window.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class ShowsService {
 
   getTrending(
     request: SearchRequest,
-    timeWindow: string
+    timeWindow: TimeWindow
   ): Observable<ShowList<Show>> {
     const requestUrl = queryString.stringifyUrl(
       {
