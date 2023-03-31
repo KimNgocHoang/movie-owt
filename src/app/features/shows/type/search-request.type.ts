@@ -1,4 +1,4 @@
-export type SearchMoviesRequest = {
+export type SearchRequest = {
   query?: string;
   page: number;
 };

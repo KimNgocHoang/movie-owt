@@ -1,11 +1,22 @@
 {
   "shows": {
+    "home": {
+      "title": "OWT",
+      "labels": {
+        "introduce": "List of movies and TV Shows 😉",
+        "itemTrending": "Trending",
+        "inputText": "Search Movies or TV Shows",
+        "inputPlaceholder": "eg."
+      },
+      "actions": {
+        "today": "Today",
+        "thisWeek": "This Week"
+      }
+    },
     "movieList": {
       "title": "Movies",
       "labels": {
-        "itemQuantity": "items"
-      },
-      "actions": {
+        "itemQuantity": "items",
         "inputText": "Search Movies or TV Shows",
         "inputPlaceholder": "eg."
       }

@@ -1,0 +1,75 @@
+@import "/src/assets/scss/variables/colors/colors";
+
+.title {
+  max-width: 588px;
+
+  .mat-headline-1 {
+    margin-bottom: 0;
+    color: $grey-50;
+  }
+
+  .mat-subtitle-2 {
+    margin: 16px 0 80px;
+    color: $grey-300;
+
+    a {
+      color: $primary-300;
+      text-decoration: none;
+    }
+  }
+}
+
+.trending {
+  display: flex;
+  align-items: center;
+
+  .mat-headline-4 {
+    margin-right: 16px;
+    margin-bottom: 0;
+    color: $grey-300;
+  }
+}
+.container{
+  position: relative;
+  .overlay {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 5%;
+    background: linear-gradient(to right, rgb(0 0 0 / 0%) 0%, $grey-900 100%);
+  }
+  .list {
+    display: flex;
+    gap: 24px;
+    margin: 24px 0;
+
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+    .screenMobile{
+      display: none
+    }
+  }
+
+}
+
+@media screen and (max-width: 739px) {
+  .trending {
+    .mat-headline-4 {
+      font-size: 21px;
+    }
+  }
+  .list{
+    .screenDesktop {
+      display: none
+    }
+    .screenMobile {
+      display: flex
+    }
+  }
+}

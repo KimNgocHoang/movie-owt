@@ -1,11 +1,22 @@
 {
   "shows": {
+    "home": {
+      "title": "OWT",
+      "labels": {
+        "introduce": "Danh sách về phim và chương trình truyền hình 😉",
+        "itemTrending": "Xu hướng",
+        "inputText": "Tìm kiếm Phim hoặc Chương trình TV",
+        "inputPlaceholder": "Ví dụ."
+      },
+      "actions": {
+        "today": "Hôm Nay",
+        "thisWeek": "Tuần Nay"
+      }
+    },
     "movieList": {
       "title": "Phim",
       "labels": {
-        "itemQuantity": "mục"
-      },
-      "actions": {
+        "itemQuantity": "mục",
         "inputText": "Tìm kiếm Phim hoặc Chương trình TV",
         "inputPlaceholder": "Ví dụ."
       }

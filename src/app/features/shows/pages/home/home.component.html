@@ -1,2 +1,26 @@
-<p>home work!</p>
+<div class="title">
+  <p class="mat-headline-1">OWT</p>
+  <p class="mat-subtitle-2">{{'shows.home.labels.introduce' | translate }}</p>
+</div>
+<div class="trending">
+  <p class="mat-headline-4">{{'shows.home.labels.itemTrending' | translate }}</p>
+  <mat-button-toggle-group [value]="type" (change)="onChange($event)">
+    <mat-button-toggle value="day">{{'shows.home.actions.today' | translate }}</mat-button-toggle>
+    <mat-button-toggle value="week">{{'shows.home.actions.thisWeek' | translate
+      }}</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+<div class="container">
+  <div class="list" *ngIf="loading; else showTrendingListItem">
+    <app-movie-item-skeleton class="screenDesktop" *ngFor="let _ of [].constructor(4)"></app-movie-item-skeleton>
+    <app-movie-item-skeleton class="screenMobile" *ngFor="let _ of [].constructor(2)"></app-movie-item-skeleton>
+  </div>
 
+  <ng-template #showTrendingListItem>
+    <div class="overlay"></div>
+    <div class="list">
+      <app-show-list-item *ngFor="let show of showList"
+      [show]="show"></app-show-list-item>
+    </div>
+  </ng-template>
+</div>

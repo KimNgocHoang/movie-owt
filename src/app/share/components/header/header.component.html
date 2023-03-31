@@ -4,7 +4,7 @@
   </a>
   <ul class="navbar-list">
     <li class="navbar-list-item mat-body-2"><a routerLink="movies">{{ 'share.header.labels.movies' | translate }}</a></li>
-    <li class="navbar-list-item mat-body-2"><a routerLink="tv">{{ 'share.header.labels.tvShows' | translate }}</a></li>
+    <li class="navbar-list-item mat-body-2"><a routerLink="tv-shows">{{ 'share.header.labels.tvShows' | translate }}</a></li>
     <li class="navbar-list-item mat-body-2">
       <a routerLink="suggest-me">
         <p>{{ 'share.header.labels.suggestMe' | translate }}</p>
@@ -27,7 +27,7 @@
     </button>
     <mat-menu #menu="matMenu" class="navbar-mobile__list">
       <a routerLink="movies" mat-menu-item>{{ 'share.header.labels.movies' | translate }}</a>
-      <a routerLink="movies" mat-menu-item>{{ 'share.header.labels.tvShows' | translate }}</a>
+      <a routerLink="tv-shows" mat-menu-item>{{ 'share.header.labels.tvShows' | translate }}</a>
       <a routerLink="suggest-me" mat-menu-item class="navbar-mobile__item">
         <p>{{ 'share.header.labels.suggestMe' | translate }}</p>
         <mat-icon matSuffix>arrow_right_alt</mat-icon>

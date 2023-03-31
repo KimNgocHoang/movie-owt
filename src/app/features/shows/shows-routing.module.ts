@@ -19,7 +19,7 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'tv',
+    path: 'tv-shows',
     component: TvShowListComponent,
     children: [{ path: ':id', component: TvShowDetailsComponent }],
   },
