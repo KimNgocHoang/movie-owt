@@ -1,25 +1,4 @@
-<span class="mat-body-1">OWT</span>
-<h1 class="mat-headline-1">{{ 'shows.movieList.title' | translate }}</h1>
-<div class="form-search">
-  <mat-form-field appearance="outline">
-    <mat-icon matPrefix>search</mat-icon>
-    <mat-label>{{'shows.movieList.labels.inputText' | translate }}</mat-label>
-    <input matInput placeholder="{{ 'shows.movieList.labels.inputPlaceholder' | translate }} Avenger" [(ngModel)]="searchText" (ngModelChange)="this.searchTextUpdate.next($event)">
-  </mat-form-field>
-</div>
-<span class="mat-subtitle-2"> {{ loading ? 0 : movies.length }} {{'shows.movieList.labels.itemQuantity' | translate }}</span>
-<div class="list" *ngIf="loading; else showMoviesListItem">
-  <app-movie-item-skeleton *ngFor="let _ of [].constructor(4)"></app-movie-item-skeleton>
-</div>
-<ng-template #showMoviesListItem>
-<div class="list">
+<app-show-list page="movieList" [searchText]="searchText" [searchTextUpdate]="searchTextUpdate"
+  [totalPages]="totalPages" [pageIndex]="pageIndex" [loading]="loading" [shows]="movies">
   <app-show-list-item *ngFor="let show of movies" [show]="show"></app-show-list-item>
-</div>
-</ng-template>
-<mat-paginator
-  [length]="totalPages"
-  [pageIndex]="pageIndex"
-  [pageSize]="loading ? 0 : movies.length"
-  (page)="pageChangeEvent($event)"
->
-</mat-paginator>
+</app-show-list>

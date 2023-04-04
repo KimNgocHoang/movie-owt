@@ -1,0 +1,4 @@
+<app-show-list page="tvShowsList" [searchText]="searchText" [searchTextUpdate]="searchTextUpdate"
+  [totalPages]="totalPages" [pageIndex]="pageIndex" [loading]="loading" [shows]="tvShows">
+  <app-show-list-item *ngFor="let show of tvShows" [show]="show"></app-show-list-item>
+</app-show-list>
