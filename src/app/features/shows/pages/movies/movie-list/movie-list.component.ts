@@ -55,6 +55,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
       .subscribe((res) => {
         this.movies = res.results;
         this.totalPages = res.totalPages;
+        this.totalResults = res.totalResults;
         this.loading = false;
       });
   }

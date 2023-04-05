@@ -17,7 +17,7 @@
 </div>
 </ng-template>
 <mat-paginator
-  [length]="totalPages"
+  [length]="totalResults"
   [pageIndex]="pageIndex"
   [pageSize]="loading ? 0 : movies.length"
   (page)="pageChangeEvent($event)"

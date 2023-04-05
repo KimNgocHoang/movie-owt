@@ -18,6 +18,6 @@
     <app-show-list-item *ngFor="let tv of tvShows" [show]="tv"></app-show-list-item>
   </div>
 </ng-template>
-<mat-paginator [length]="totalPages" [pageIndex]="pageIndex" [pageSize]="loading ? 0 : tvShows.length"
+<mat-paginator [length]="totalResults" [pageIndex]="pageIndex" [pageSize]="loading ? 0 : tvShows.length"
   (page)="pageChangeEvent($event)">
 </mat-paginator>
