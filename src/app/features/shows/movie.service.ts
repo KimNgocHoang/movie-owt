@@ -8,6 +8,7 @@ import queryString from 'query-string';
 import { SearchRequest } from './type/search-request.type';
 import { Movie } from './models/movie.model';
 import { ShowList } from './models/show-list.model';
+import { Show } from './models/show.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,9 +16,7 @@ import { ShowList } from './models/show-list.model';
 export class MovieService {
   constructor(private http: HttpClient) {}
 
-  getPopularMoviesBySearch(
-    request: SearchRequest
-  ): Observable<ShowList<Movie>> {
+  getPopularMoviesBySearch(request: SearchRequest): Observable<ShowList<Show>> {
     let requestUrl: string;
     if (request.query) {
       requestUrl = queryString.stringifyUrl(
@@ -36,7 +35,7 @@ export class MovieService {
         { skipNull: true }
       );
     }
-    return this.http.get<ShowList<Movie>>(requestUrl).pipe(
+    return this.http.get<ShowList<Show>>(requestUrl).pipe(
       map((responseData) => {
         return camelcaseKeys(responseData, { deep: true });
       })

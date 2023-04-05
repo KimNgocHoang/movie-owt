@@ -1,23 +1,4 @@
-<span class="mat-body-1">OWT</span>
-<h1 class="mat-headline-1">{{ 'shows.tvShowsList.title' | translate }}</h1>
-<div class="form-search">
-  <mat-form-field appearance="outline">
-    <mat-icon matPrefix>search</mat-icon>
-    <mat-label>{{'shows.tvShowsList.labels.inputText' | translate }}</mat-label>
-    <input matInput placeholder="{{ 'shows.tvShowsList.labels.inputPlaceholder' | translate }} Avenger"
-      [(ngModel)]="searchText" (ngModelChange)="this.searchTextUpdate.next($event)">
-  </mat-form-field>
-</div>
-<span class="mat-subtitle-2"> {{ loading ? 0 : tvShows.length }} {{'shows.tvShowsList.labels.itemQuantity' | translate
-  }}</span>
-<div class="list" *ngIf="loading; else showTvShowsListItem">
-  <app-movie-item-skeleton *ngFor="let _ of [].constructor(4)"></app-movie-item-skeleton>
-</div>
-<ng-template #showTvShowsListItem>
-  <div class="list">
-    <app-show-list-item *ngFor="let tv of tvShows" [show]="tv"></app-show-list-item>
-  </div>
-</ng-template>
-<mat-paginator [length]="totalPages" [pageIndex]="pageIndex" [pageSize]="loading ? 0 : tvShows.length"
-  (page)="pageChangeEvent($event)">
-</mat-paginator>
+<app-show-list listType="tvShowsList" [searchText]="searchText" [searchTextUpdate]="searchTextUpdate"
+  [totalPages]="totalPages" [totalResults]="totalResults" [pageIndex]="pageIndex" [loading]="loading" [shows]="tvShows">
+  <app-show-list-item *ngFor="let show of tvShows" [show]="show"></app-show-list-item>
+</app-show-list>

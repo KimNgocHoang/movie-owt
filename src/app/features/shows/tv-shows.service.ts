@@ -8,6 +8,7 @@ import queryString from 'query-string';
 import { SearchRequest } from './type/search-request.type';
 import { TvShow } from './models/tv-show.model';
 import { ShowList } from './models/show-list.model';
+import { Show } from './models/show.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,7 @@ export class TvShowService {
 
   getPopularTvShowsBySearch(
     request: SearchRequest
-  ): Observable<ShowList<TvShow>> {
+  ): Observable<ShowList<Show>> {
     let requestUrl: string;
     if (request.query) {
       requestUrl = queryString.stringifyUrl(
@@ -36,7 +37,7 @@ export class TvShowService {
         { skipNull: true }
       );
     }
-    return this.http.get<ShowList<TvShow>>(requestUrl).pipe(
+    return this.http.get<ShowList<Show>>(requestUrl).pipe(
       map((responseData) => {
         return camelcaseKeys(responseData, { deep: true });
       })
