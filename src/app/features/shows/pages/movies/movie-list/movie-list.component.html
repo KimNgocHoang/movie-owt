@@ -1,4 +1,4 @@
-<app-show-list page="movieList" [searchText]="searchText" [searchTextUpdate]="searchTextUpdate"
+<app-show-list listType="movieList" [searchText]="searchText" [searchTextUpdate]="searchTextUpdate"
   [totalPages]="totalPages" [totalResults]="totalResults" [pageIndex]="pageIndex" [loading]="loading" [shows]="movies">
   <app-show-list-item *ngFor="let show of movies" [show]="show"></app-show-list-item>
 </app-show-list>

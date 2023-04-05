@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./show-list.component.scss'],
 })
 export class ShowListComponent implements OnInit {
-  @Input() page: string;
+  @Input() listType: 'movieList' | 'tvShowList';
   @Input() totalPages: number;
   @Input() totalResults: number;
   @Input() pageIndex: number;
