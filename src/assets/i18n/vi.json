@@ -38,6 +38,21 @@
         "inputText": "Tìm kiếm Phim hoặc Chương trình TV",
         "inputPlaceholder": "Ví dụ."
       }
+    },
+    "tvShowDetails": {
+      "labels": {
+        "breadCrumb": "OWT / Phim",
+        "type": "Loại",
+        "status": "Trạng thái",
+        "firstAirDate": "Ngày phát sóng đầu tiên",
+        "lastAirDate": "Ngày phát sóng cuối cùng",
+        "numberOfEpisodes": "Số tập",
+        "numberOfSeasons": "Số mùa",
+        "nameType": "Phim",
+        "releaseDate": "Ngày phát hành:",
+        "runTime": "Thời lượng",
+        "genres": "Thể loại"
+      }
     }
   },
   "share": {

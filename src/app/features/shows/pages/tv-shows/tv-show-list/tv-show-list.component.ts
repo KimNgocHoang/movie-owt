@@ -20,6 +20,7 @@ export class TvShowListComponent implements OnInit, OnDestroy {
   loading = true;
   getTvShowsByApiSub: Subscription;
   totalPages: number;
+  totalResults: number;
   pageIndex: number;
   constructor(
     private tvShowService: TvShowService,
@@ -55,6 +56,7 @@ export class TvShowListComponent implements OnInit, OnDestroy {
       .subscribe((res) => {
         this.tvShows = res.results;
         this.totalPages = res.totalPages;
+        this.totalResults = res.totalResults;
         this.loading = false;
       });
   }

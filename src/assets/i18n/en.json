@@ -38,6 +38,21 @@
         "inputText": "Search Movies or TV Shows",
         "inputPlaceholder": "eg."
       }
+    },
+    "tvShowDetails": {
+      "labels": {
+        "breadCrumb": "OWT / Movies",
+        "type": "Type",
+        "status": "Status",
+        "firstAirDate": "First air date",
+        "lastAirDate": "Fast air date",
+        "numberOfEpisodes": "No. of episodes",
+        "numberOfSeasons": "No. of seasons",
+        "nameType": "Movie",
+        "releaseDate": "Release Date:",
+        "runTime": "Run time",
+        "genres": "Genres"
+      }
     }
   },
   "share": {

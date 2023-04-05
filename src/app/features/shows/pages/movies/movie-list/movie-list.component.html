@@ -7,7 +7,7 @@
     <input matInput placeholder="{{ 'shows.movieList.labels.inputPlaceholder' | translate }} Avenger" [(ngModel)]="searchText" (ngModelChange)="this.searchTextUpdate.next($event)">
   </mat-form-field>
 </div>
-<span class="mat-subtitle-2"> {{ loading ? 0 : movies.length }} {{'shows.movieList.labels.itemQuantity' | translate }}</span>
+<span class="mat-subtitle-2"> {{ loading ? 0 : totalResults }} {{'shows.movieList.labels.itemQuantity' | translate }}</span>
 <div class="list" *ngIf="loading; else showMoviesListItem">
   <app-movie-item-skeleton *ngFor="let _ of [].constructor(4)"></app-movie-item-skeleton>
 </div>

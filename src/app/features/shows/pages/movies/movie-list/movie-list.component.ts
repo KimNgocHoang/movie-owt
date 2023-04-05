@@ -19,6 +19,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
   loading = true;
   getMoviesByApiSub: Subscription;
   totalPages: number;
+  totalResults: number;
   pageIndex: number;
   constructor(
     private movieService: MovieService,
