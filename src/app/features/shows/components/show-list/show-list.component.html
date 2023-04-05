@@ -17,6 +17,6 @@
     <ng-content></ng-content>
   </div>
 </ng-template>
-<mat-paginator [length]="totalPages" [pageIndex]="pageIndex" [pageSize]="loading ? 0 : shows.length"
+<mat-paginator [length]="totalResults" [pageIndex]="pageIndex" [pageSize]="loading ? 0 : shows.length"
   (page)="pageChangeEvent($event)">
 </mat-paginator>
