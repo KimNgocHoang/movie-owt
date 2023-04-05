@@ -30,6 +30,14 @@
         "runTime": "Run time",
         "genres": "Genres"
       }
+    },
+    "tvShowsList": {
+      "title": "TV Shows",
+      "labels": {
+        "itemQuantity": "items",
+        "inputText": "Search Movies or TV Shows",
+        "inputPlaceholder": "eg."
+      }
     }
   },
   "share": {

@@ -30,6 +30,14 @@
         "runTime": "Thời lượng",
         "genres": "Thể loại"
       }
+    },
+    "tvShowsList": {
+      "title": "Chương trình truyền hình",
+      "labels": {
+        "itemQuantity": "mục",
+        "inputText": "Tìm kiếm Phim hoặc Chương trình TV",
+        "inputPlaceholder": "Ví dụ."
+      }
     }
   },
   "share": {
