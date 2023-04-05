@@ -51,7 +51,8 @@
         "nameType": "Movie",
         "releaseDate": "Release Date:",
         "runTime": "Run time",
-        "genres": "Genres"
+        "genres": "Genres",
+        "seasons": "Seasons"
       }
     }
   },

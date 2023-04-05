@@ -1,5 +1,11 @@
 import { Genre } from './genre.model';
 
+export interface Season {
+  id: number;
+  name: string;
+  posterPath: string;
+}
+
 export interface TvShow {
   id: number;
   firstAirDate: string;
@@ -14,4 +20,5 @@ export interface TvShow {
   voteAverage: number;
   episodeRunTime: number[];
   genres?: Genre[];
+  seasons: Season[];
 }

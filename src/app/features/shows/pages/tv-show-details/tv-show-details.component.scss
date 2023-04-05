@@ -31,7 +31,7 @@
 
 .tvShow-info {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 520px 520px;
   padding: 80px;
   gap: 80px;
 
@@ -40,7 +40,7 @@
     border-radius: 24px;
   }
 
-  &__tvShow-desc {
+  &__tvShow-description {
     .mat-headline-4 {
       color: $grey-50;
       margin-bottom: 24px;
@@ -86,7 +86,8 @@
     }
 
     .tvShow-info__run-time,
-    .tvShow-info__genres {
+    .tvShow-info__genres,
+    .tvShow-info__season-list {
       .mat-subtitle-2 {
         color: $grey-400;
       }
@@ -94,6 +95,33 @@
       .mat-subtitle-1 {
         margin-right: 8px;
         color: $grey-100;
+      }
+    }
+    .tvShow-info__season-list {
+      position: relative;
+      .tvShow-info__overlay {
+        margin-right: -2px;
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 5%;
+        background: linear-gradient(to right, rgb(0 0 0 / 0%) 0%, $grey-900 100%);
+      }
+
+      &-item {
+        display: flex;
+        gap: 12px;
+        margin: 12px 0;
+
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+
+        &::-webkit-scrollbar {
+          width: 0px;
+          background: transparent;
+        }
       }
     }
   }
@@ -105,7 +133,7 @@
   }
 
   .tvShow-info {
-    grid-template-columns: 1fr;
+    grid-template-columns: 310px;
     padding: 10px;
     gap: 40px;
   }
@@ -120,6 +148,7 @@
   }
 
   .tvShow-info {
+    grid-template-columns: 350px 350px;
     margin-top: 40px;
     padding: 20px;
     width: 100%;

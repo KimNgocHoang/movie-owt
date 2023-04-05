@@ -1,0 +1,48 @@
+@import "/src/assets/scss/variables/colors/colors";
+
+.season-item {
+  min-width: 100px;
+  background: $grey-1000;
+  border-radius: 12px;
+  padding: 8px;
+  max-height: 180px;
+
+  &__img-hover-zoom {
+    overflow: hidden;
+
+    img {
+      max-height: 150px;
+      transition: .5s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__name {
+    padding: 0 4px 4px;
+    color: $grey-50;
+
+    p {
+      font-size: 12px;
+      overflow: hidden;
+      display: block;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 739px) {
+  .season-item {
+    &__img-hover-zoom {
+      img {
+        min-height: 80px;
+        width: 100%;
+      }
+    }
+  }
+}

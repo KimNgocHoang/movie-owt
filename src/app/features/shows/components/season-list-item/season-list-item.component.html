@@ -1,0 +1,13 @@
+<div class="season-item">
+  <div class="season-item__img-hover-zoom" *ngIf="season.posterPath; else seasonPosterPath ">
+    <img src="https://image.tmdb.org/t/p/w500/{{ season.posterPath }}" alt="image-item">
+  </div>
+  <ng-template #seasonPosterPath>
+    <div class="season-item__img-hover-zoom">
+      <img src="/assets/image/dummy-image-portrait.jpg" alt="image-item">
+    </div>
+  </ng-template>
+  <div class="season-item__name">
+    <p class="mat-headline-6">{{ season.name }}</p>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { TvShow } from '../../models/tv-show.model';
+import { Season, TvShow } from '../../models/tv-show.model';
 import { TvShowService } from '../../tv-shows.service';
 
 @Component({
@@ -12,6 +12,7 @@ import { TvShowService } from '../../tv-shows.service';
 export class TvShowDetailsComponent implements OnInit, OnDestroy {
   tvShow: TvShow;
   genres: string;
+  seasons: Season[];
   loading = true;
   getTvShowByApiSub: Subscription;
 
@@ -31,6 +32,7 @@ export class TvShowDetailsComponent implements OnInit, OnDestroy {
     this.tvShowService.getTvShowById(id).subscribe((res) => {
       this.tvShow = res;
       this.genres = res.genres.map((genre) => genre.name).join(', ');
+      this.seasons = res.seasons
       this.loading = false;
     });
   }
