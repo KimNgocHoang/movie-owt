@@ -1,6 +1,6 @@
 import { MovieService } from '../../../movie.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { SearchRequest } from '../../../type/search-request.type';
@@ -17,10 +17,10 @@ export class MovieListComponent implements OnInit, OnDestroy {
   loading = true;
   getMoviesByApiSub: Subscription;
   totalPages: number;
+  totalResults: number;
   pageIndex: number;
   constructor(
     private movieService: MovieService,
-    private router: Router,
     private route: ActivatedRoute,
     public translate: TranslateService
   ) {}
@@ -41,6 +41,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
       .subscribe((res) => {
         this.movies = res.results;
         this.totalPages = res.totalPages;
+        this.totalResults = res.totalResults;
         this.loading = false;
       });
   }

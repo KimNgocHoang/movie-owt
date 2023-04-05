@@ -14,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ShowListComponent implements OnInit {
   @Input() page: string;
   @Input() totalPages: number;
+  @Input() totalResults: number;
   @Input() pageIndex: number;
   @Input() shows: Show[];
   @Input() loading: boolean;

@@ -8,7 +8,7 @@
       [(ngModel)]="searchText" (ngModelChange)="this.searchTextUpdate.next($event)">
   </mat-form-field>
 </div>
-<span class="mat-subtitle-2"> {{ loading ? 0 : shows.length }} {{ 'shows.' + page + '.labels.itemQuantity' | translate }}</span>
+<span class="mat-subtitle-2"> {{ loading ? 0 : totalResults }} {{ 'shows.' + page + '.labels.itemQuantity' | translate }}</span>
 <div class="list" *ngIf="loading; else showMoviesListItem">
   <app-movie-item-skeleton *ngFor="let _ of [].constructor(4)"></app-movie-item-skeleton>
 </div>
