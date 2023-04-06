@@ -1,17 +1,15 @@
 @import "/src/assets/scss/variables/colors/colors";
 
 .season-item {
-  min-width: 130px;
   background: $grey-1000;
   border-radius: 12px;
   padding: 8px;
-  max-height: 230px;
 
   &__img-hover-zoom {
     overflow: hidden;
 
     img {
-      max-height: 200px;
+      max-width: 134px;
       transition: .5s ease;
 
       &:hover {

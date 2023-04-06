@@ -10,7 +10,6 @@ a {
     border-radius: 12px;
     position: relative;
     padding: 8px;
-    min-height: 250px;
 
     &__rating {
       position: absolute;
@@ -36,9 +35,8 @@ a {
 
     &__img-hover-zoom {
       overflow: hidden;
-      min-height: 250px;
+      min-height: 300px;
       img {
-        min-height: 300px;
         width: 100%;
         transition: .5s ease;
 
