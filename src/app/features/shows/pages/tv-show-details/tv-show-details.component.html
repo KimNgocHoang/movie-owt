@@ -1,1 +1,70 @@
-<p>tv-show-details works!</p>
+<div *ngIf="loading; else showTvShowsDetails">
+  <app-movie-details-skeleton></app-movie-details-skeleton>
+</div>
+<ng-template #showTvShowsDetails>
+  <div class="heading">
+    <img src="https://image.tmdb.org/t/p/w1280/{{ tvShow.backdropPath }}" alt="backdrop" class="heading__backdrop">
+    <div class="heading__title">
+      <div class="heading__breadcrumb mat-body-1">{{'shows.movieDetails.labels.breadCrumb' | translate }}</div>
+      <p class="mat-headline-3 heading__name">{{tvShow.name}}</p>
+    </div>
+  </div>
+  <div class="tvShow-info">
+    <div class="tvShow-info__main">
+      <img src="https://image.tmdb.org/t/p/w780/{{ tvShow.posterPath }}" alt="poster" class="tvShow-info__poster">
+      <div class="tvShow-info__tvShow-description">
+        <p class="mat-headline-4 tvShow-info__title">{{tvShow.name}}.</p>
+        <p class="mat-subtitle-1 tvShow-info__overview">{{tvShow.overview}}</p>
+        <div class="tvShow-info__rating">
+          <img src="/assets/image/star.svg" alt="">
+          {{ tvShow.voteAverage.toFixed(1) }}
+        </div>
+        <div class="row">
+          <div class="tvShow-info__type">
+            <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.type' | translate }}</p>
+            <p class="mat-subtitle-1">{{'shows.tvShowDetails.labels.nameType' | translate }}</p>
+          </div>
+          <div class="tvShow-info__status">
+            <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.status' | translate }}</p>
+            <p class="mat-subtitle-1">{{ tvShow.status }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="tvShow-info__first-air-date">
+            <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.firstAirDate' | translate }}</p>
+            <p class="mat-subtitle-1">{{ tvShow.firstAirDate }}</p>
+          </div>
+          <div class="tvShow-info__last-air-date">
+            <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.lastAirDate' | translate }}</p>
+            <p class="mat-subtitle-1">{{ tvShow.lastAirDate }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="tvShow-info__seasons">
+            <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.numberOfSeasons' | translate }}</p>
+            <p class="mat-subtitle-1">{{ tvShow.numberOfSeasons }}</p>
+          </div>
+          <div class="tvShow-info__episodes">
+            <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.numberOfEpisodes' | translate }}</p>
+            <p class="mat-subtitle-1">{{ tvShow.numberOfEpisodes }}</p>
+          </div>
+        </div>
+        <div class="tvShow-info__run-time">
+          <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.runTime' | translate }}</p>
+          <p class="mat-subtitle-1">{{ tvShow.episodeRunTime }} min</p>
+        </div>
+        <div class="tvShow-info__genres">
+          <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.genres' | translate }}</p>
+          <p class="mat-subtitle-1">{{genres}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="tvShow-info__season-list">
+      <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.seasons' | translate }}</p>
+      <div class="tvShow-info__overlay"></div>
+      <div class="tvShow-info__season-list-item">
+        <app-season-list-item *ngFor="let season of seasons" [season]="season"></app-season-list-item>
+      </div>
+    </div>
+  </div>
+</ng-template>

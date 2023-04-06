@@ -10,8 +10,8 @@ export class TranslatedMatPaginator extends MatPaginatorIntl {
 
   getRangeLabel = (page: number, pageSize: number, length: number) => {
     this.getAndInitTranslations();
-    const newTotalPage = Math.round(length / pageSize);
     const newPage = (length === 0 || pageSize === 0) ? 0 : page + 1;
+    const newTotalPage = Math.round(length / pageSize);
     return this.translateService.instant('material.matPaginator.labels.page', {
       page: newPage,
       totalPage: newTotalPage,

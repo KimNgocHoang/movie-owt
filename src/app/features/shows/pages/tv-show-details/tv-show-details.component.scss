@@ -1,0 +1,176 @@
+@import "/src/assets/scss/variables/colors/colors";
+
+.heading {
+  &__backdrop {
+    width: 100%;
+    border-radius: 40px;
+    min-width: 700px;
+    min-height: 700px;
+  }
+
+  &__title {
+    width: 40%;
+    min-width: 500px;
+    margin: -80px 0 0 80px;
+    padding: 40px;
+    background: rgba(32, 40, 62, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+
+    .mat-body-1 {
+      margin-bottom: 8px;
+      color: $primary-200;
+    }
+
+    .mat-headline-3 {
+      margin-bottom: 0;
+      color: $grey-50;
+    }
+  }
+}
+
+.tvShow-info {
+  padding: 80px;
+
+  &__main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+
+    .tvShow-info__poster {
+      width: 100%;
+      border-radius: 24px;
+    }
+
+    .tvShow-info__tvShow-description {
+      .mat-headline-4 {
+        color: $grey-50;
+        margin-bottom: 24px;
+      }
+
+      .mat-subtitle-1 {
+        color: $grey-300;
+        margin-bottom: 24px;
+      }
+
+      .tvShow-info__rating {
+        display: flex;
+        width: 40px;
+        align-items: center;
+        color: $warning-500;
+        padding: 4px 12px 4px 8px;
+        gap: 4px;
+        border-radius: 8px;
+        background: $black-65;
+        margin-bottom: 24px;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .tvShow-info__type,
+        .tvShow-info__status,
+        .tvShow-info__first-air-date,
+        .tvShow-info__last-air-date,
+        .tvShow-info__seasons,
+        .tvShow-info__episodes {
+          .mat-subtitle-2 {
+            color: $grey-400;
+            margin-bottom: 8px;
+          }
+
+          .mat-subtitle-1 {
+            margin-right: 8px;
+            color: $grey-100;
+          }
+        }
+      }
+
+      .tvShow-info__run-time,
+      .tvShow-info__genres {
+        .mat-subtitle-2 {
+          color: $grey-400;
+        }
+
+        .mat-subtitle-1 {
+          margin-right: 8px;
+          color: $grey-100;
+        }
+      }
+    }
+  }
+  &__season-list {
+    margin-top: 40px;
+    position: relative;
+
+    .mat-subtitle-2 {
+      color: $grey-400;
+    }
+
+    .mat-subtitle-1 {
+      margin-right: 8px;
+      color: $grey-100;
+    }
+
+
+    .tvShow-info__overlay {
+      margin-right: -2px;
+      position: absolute;
+      z-index: 4;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 5%;
+      background: linear-gradient(to right, rgb(0 0 0 / 0%) 0%, $grey-900 100%);
+    }
+
+    &-item {
+      display: flex;
+      gap: 12px;
+      margin: 24px 0;
+
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+
+      &::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+      }
+    }
+  }
+
+
+}
+
+@media screen and (max-width: 739px) {
+  .heading {
+    display: none;
+  }
+
+  .tvShow-info {
+    padding: 10px;
+    &__main {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 740px) {
+  .heading {
+    &__backdrop {
+      border-radius: 40px;
+      min-width: 100%;
+    }
+  }
+
+  .tvShow-info {
+    padding: 20px;
+    &__main {
+      margin-top: 40px;
+      width: 100%;
+      gap: 40px;
+    }
+  }
+}

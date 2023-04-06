@@ -17,6 +17,7 @@ import { MovieDetailsSkeletonComponent } from './components/movie-details-skelet
 import { ShowListItemComponent } from './components/show-list-item/show-list-item.component';
 import { ShowListComponent } from './components/show-list/show-list.component';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
+import { SeasonListItemComponent } from './components/season-list-item/season-list-item.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
     ShowListItemComponent,
     ShowListComponent,
     TvShowsComponent,
+    SeasonListItemComponent,
   ],
   imports: [
     CommonModule,
