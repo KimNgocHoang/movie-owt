@@ -10,7 +10,16 @@
     </div>
   </div>
   <div class="tvShow-info">
-    <img src="https://image.tmdb.org/t/p/w780/{{ tvShow.posterPath }}" alt="poster" class="tvShow-info__poster">
+    <div class="tvShow-info__images">
+      <img src="https://image.tmdb.org/t/p/w780/{{ tvShow.posterPath }}" alt="poster" class="tvShow-info__poster">
+      <div class="tvShow-info__season-list">
+        <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.seasons' | translate }}</p>
+        <div class="tvShow-info__overlay"></div>
+        <div class="tvShow-info__season-list-item">
+          <app-season-list-item *ngFor="let season of seasons" [season]="season"></app-season-list-item>
+        </div>
+      </div>
+    </div>
     <div class="tvShow-info__tvShow-description">
       <p class="mat-headline-4 tvShow-info__title">{{tvShow.name}}.</p>
       <p class="mat-subtitle-1 tvShow-info__overview">{{tvShow.overview}}</p>
@@ -55,13 +64,6 @@
       <div class="tvShow-info__genres">
         <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.genres' | translate }}</p>
         <p class="mat-subtitle-1">{{genres}}</p>
-      </div>
-      <div class="tvShow-info__season-list">
-        <p class="mat-subtitle-2">{{'shows.tvShowDetails.labels.seasons' | translate }}</p>
-        <div class="tvShow-info__overlay"></div>
-        <div class="tvShow-info__season-list-item">
-          <app-season-list-item *ngFor="let season of seasons" [season]="season"></app-season-list-item>
-        </div>
       </div>
     </div>
   </div>

@@ -35,9 +35,50 @@
   padding: 80px;
   gap: 80px;
 
-  &__poster {
-    width: 100%;
-    border-radius: 24px;
+  &__images{
+    .tvShow-info__poster {
+      width: 100%;
+      border-radius: 24px;
+    }
+
+    .tvShow-info__season-list {
+      margin-top: 24px;
+      .mat-subtitle-2 {
+        color: $grey-400;
+      }
+
+      .mat-subtitle-1 {
+        margin-right: 8px;
+        color: $grey-100;
+      }
+
+      position: relative;
+
+      .tvShow-info__overlay {
+        margin-right: -2px;
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 5%;
+        background: linear-gradient(to right, rgb(0 0 0 / 0%) 0%, $grey-900 100%);
+      }
+
+      &-item {
+        display: flex;
+        gap: 12px;
+        margin: 12px 0;
+
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+
+        &::-webkit-scrollbar {
+          width: 0px;
+          background: transparent;
+        }
+      }
+    }
   }
 
   &__tvShow-description {
@@ -86,8 +127,7 @@
     }
 
     .tvShow-info__run-time,
-    .tvShow-info__genres,
-    .tvShow-info__season-list {
+    .tvShow-info__genres {
       .mat-subtitle-2 {
         color: $grey-400;
       }
@@ -95,33 +135,6 @@
       .mat-subtitle-1 {
         margin-right: 8px;
         color: $grey-100;
-      }
-    }
-    .tvShow-info__season-list {
-      position: relative;
-      .tvShow-info__overlay {
-        margin-right: -2px;
-        position: absolute;
-        z-index: 4;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        width: 5%;
-        background: linear-gradient(to right, rgb(0 0 0 / 0%) 0%, $grey-900 100%);
-      }
-
-      &-item {
-        display: flex;
-        gap: 12px;
-        margin: 12px 0;
-
-        overflow-x: scroll;
-        scroll-behavior: smooth;
-
-        &::-webkit-scrollbar {
-          width: 0px;
-          background: transparent;
-        }
       }
     }
   }
