@@ -38,8 +38,7 @@
   .season-item {
     &__img-hover-zoom {
       img {
-        min-height: 80px;
-        width: 100%;
+        max-width: 80px;
       }
     }
   }
