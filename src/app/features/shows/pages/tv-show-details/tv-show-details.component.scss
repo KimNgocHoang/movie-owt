@@ -101,6 +101,9 @@
     }
   }
   &__season-list {
+    margin-top: 40px;
+    position: relative;
+
     .mat-subtitle-2 {
       color: $grey-400;
     }
@@ -110,7 +113,6 @@
       color: $grey-100;
     }
 
-    position: relative;
 
     .tvShow-info__overlay {
       margin-right: -2px;
