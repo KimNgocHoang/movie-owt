@@ -1,0 +1,20 @@
+@import "/src/assets/scss/variables/colors/colors";
+
+.card {
+  margin-top: 24px;
+  width: 200px;
+  background: $grey-1000;
+  border-radius: 5px;
+  box-shadow: 0 0 10px $skeleton-shadow;
+
+  .content {
+    padding: 15px 30px;
+  }
+}
+
+@media screen and (max-width: 739px) {
+  .card {
+    width: 100%;
+    min-width: 150px;
+  }
+}

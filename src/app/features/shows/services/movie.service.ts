@@ -1,14 +1,14 @@
-import { environment } from './../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import camelcaseKeys from 'camelcase-keys';
 import { HttpClient } from '@angular/common/http';
 import queryString from 'query-string';
-import { SearchRequest } from './type/search-request.type';
-import { Movie } from './models/movie.model';
-import { ShowList } from './models/show-list.model';
-import { Show } from './models/show.model';
+import { SearchRequest } from '../type/search-request.type';
+import { Movie } from '../models/movie.model';
+import { ShowList } from '../models/show-list.model';
+import { Show } from '../models/show.model';
 
 @Injectable({
   providedIn: 'root',

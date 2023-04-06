@@ -7,7 +7,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 import { TvShowDetailsComponent } from './pages/tv-show-details/tv-show-details.component';
 import { MovieListComponent } from './pages/movies/movie-list/movie-list.component';
-import { SuggestMeComponent } from './pages/suggest-me/suggest-me.component';
 import { ShowsRoutingModule } from './shows-routing.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { MovieItemSkeletonComponent } from './components/movie-item-skeleton/movie-item-skeleton.component';
@@ -27,7 +26,6 @@ import { SeasonListItemComponent } from './components/season-list-item/season-li
     TvShowDetailsComponent,
     TvShowListComponent,
     MovieListComponent,
-    SuggestMeComponent,
     MovieItemSkeletonComponent,
     MoviesComponent,
     MovieDetailsSkeletonComponent,

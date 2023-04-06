@@ -56,6 +56,31 @@
       }
     }
   },
+  "myLists": {
+    "title": "Danh sách của tôi",
+    "actions": {
+      "createList": "Tạo danh sách mới"
+    },
+    "listsItem": {
+      "title": "Tên danh sách:",
+      "labels": {
+        "itemQuantity": "mục",
+        "inputText": "Tìm kiếm Phim hoặc Chương trình TV",
+        "inputPlaceholder": "Ví dụ."
+      }
+    },
+    "createList": {
+      "title": "Tạo mới",
+      "labels": {
+        "inputName": "Tên danh sách",
+        "inputDescription": "Mô tả danh sách"
+      },
+      "actions": {
+        "backLists": "Quay lại danh sách",
+        "createList": "Tạo mới"
+      }
+    }
+  },
   "share": {
     "header": {
       "labels": {

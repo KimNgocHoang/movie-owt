@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MyListsModule } from './features/my-lists/my-lists.module';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -35,6 +36,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       isolate: false,
     }),
     ShareModule,
+    MyListsModule,
     ShowsModule,
     CoreModule,
     MaterialModule,

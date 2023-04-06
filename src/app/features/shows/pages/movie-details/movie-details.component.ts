@@ -1,7 +1,7 @@
 import { Subscription } from 'rxjs';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { MovieService } from '../../movie.service';
+import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../models/movie.model';
 
 @Component({

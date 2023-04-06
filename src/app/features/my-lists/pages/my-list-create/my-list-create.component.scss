@@ -1,0 +1,16 @@
+@import "/src/assets/scss/variables/colors/colors";
+.heading {
+  display: flex;
+  justify-content: space-between;
+  .mat-headline-4{
+    color: $grey-50;
+  }
+}
+.form-create-list{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  button{
+    width: 15%;
+  }
+}
