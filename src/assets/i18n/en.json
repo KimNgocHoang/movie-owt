@@ -61,12 +61,20 @@
     "actions": {
       "createList": "Create List"
     },
-    "listsItem": {
+    "listDetails": {
       "title": "List Name:",
       "labels": {
         "itemQuantity": "items",
         "inputText": "Search Movies or TV Shows",
-        "inputPlaceholder": "eg."
+        "inputPlaceholder": "eg.",
+        "titleModal": "Thank you for your suggestion",
+        "descriptionModal": "Your suggestion has been succesfully added to my watchlist, I will manage sometime to watch your suggestion. ❤"
+      }
+    },
+    "listItem": {
+      "labels": {
+        "suggestThis": "Suggest this",
+        "alreadyAdded": "Already added"
       }
     },
     "createList": {

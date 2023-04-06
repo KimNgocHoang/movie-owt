@@ -61,12 +61,20 @@
     "actions": {
       "createList": "Tạo danh sách mới"
     },
-    "listsItem": {
+    "listDetails": {
       "title": "Tên danh sách:",
       "labels": {
         "itemQuantity": "mục",
         "inputText": "Tìm kiếm Phim hoặc Chương trình TV",
-        "inputPlaceholder": "Ví dụ."
+        "inputPlaceholder": "Ví dụ.",
+        "titleModal": "Cảm ơn bạn đã gợi ý",
+        "descriptionModal": "Đề xuất của bạn đã được thêm thành công vào danh sách theo dõi của tôi, đôi khi tôi sẽ quản lý để xem đề xuất của bạn. ❤"
+      }
+    },
+    "listItem": {
+      "labels": {
+        "suggestThis": "Gợi ý phim",
+        "alreadyAdded": "Đã thêm"
       }
     },
     "createList": {

@@ -1,17 +1,17 @@
-<h1 class="mat-headline-1">{{ 'myLists.listsItem.title' | translate }} {{ loading ? "" : myList.name }}</h1>
+<h1 class="mat-headline-1">{{ 'myLists.listDetails.title' | translate }} {{ loading ? "" : myList.name }}</h1>
 <div class="form-search">
   <mat-form-field appearance="outline">
     <mat-icon matPrefix>search</mat-icon>
-    <mat-label>{{'myLists.listsItem.labels.inputText' | translate }}</mat-label>
-    <input matInput placeholder="{{ 'myLists.listsItem.labels.inputPlaceholder' | translate }} Avenger"
+    <mat-label>{{'myLists.listDetails.labels.inputText' | translate }}</mat-label>
+    <input matInput placeholder="{{ 'myLists.listDetails.labels.inputPlaceholder' | translate }} Avenger"
       [(ngModel)]="searchText" (ngModelChange)="this.searchTextUpdate.next($event)">
   </mat-form-field>
 </div>
-<span class="mat-subtitle-2"> {{ loading ? 0 : totalResults }} {{ 'myLists.listsItem.labels.itemQuantity' | translate }}</span>
-<div class="list" *ngIf="loading; else showMoviesListItem">
+<span class="mat-subtitle-2"> {{ loading ? 0 : totalResults }} {{ 'myLists.listDetails.labels.itemQuantity' | translate }}</span>
+<div class="list" *ngIf="loading; else showMovieslistDetails">
   <app-movie-item-skeleton *ngFor="let _ of [].constructor(4)"></app-movie-item-skeleton>
 </div>
-<ng-template #showMoviesListItem>
+<ng-template #showMovieslistDetails>
   <div class="list">
     <app-my-list-item *ngFor="let show of movies" [movies]="show" [listId]="listId" (modalOpen)="onIsSuggestChange($event)"></app-my-list-item>
   </div>
@@ -21,7 +21,7 @@
   <div class="container">
     <button mat-flat-button (click)="closeModal()"><mat-icon>close</mat-icon></button>
     <img src="/assets/image/heart.png" alt="">
-    <p class="mat-headline-4">{{'shows.suggestMovie.message.titleModal' | translate }}</p>
-    <p class="mat-subtitle-2">{{'shows.suggestMovie.message.descModal' | translate }}</p>
+    <p class="mat-headline-4">{{ 'myLists.listDetails.labels.titleModal' | translate }}</p>
+    <p class="mat-subtitle-2">{{ 'myLists.listDetails.labels.descriptionModal' | translate }}</p>
   </div>
 </div>

@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Show } from 'src/app/features/shows/models/show.model';
 import { MyListsService } from '../../services/my-lists.service';
 import { ParamsRequest } from '../../type/params-request.type';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-my-list-item',
@@ -13,10 +14,13 @@ export class MyListItemComponent implements OnInit {
   @Input() listId: number;
   @Output() modalOpen = new EventEmitter<boolean>();
   isSuggest = false;
-  constructor(private myListService: MyListsService) {}
+  constructor(
+    private myListService: MyListsService,
+    public translate: TranslateService
+  ) {}
 
   ngOnInit(): void {
-    this.checkItem({mediaId: this.movies.id, listId: this.listId});
+    this.checkItem({ mediaId: this.movies.id, listId: this.listId });
   }
 
   addItem(paramsRequest: ParamsRequest) {
