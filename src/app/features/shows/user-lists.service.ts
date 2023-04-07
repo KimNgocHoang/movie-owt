@@ -10,7 +10,7 @@ import { CreateUserListRequest } from './type/create-user-list-request.type';
 @Injectable({
   providedIn: 'root',
 })
-export class UserListService {
+export class UserListsService {
   constructor(private http: HttpClient) {}
 
   getUserLists(): Observable<ShowList<UserMovieList>> {

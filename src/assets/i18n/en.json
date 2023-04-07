@@ -68,7 +68,7 @@
         "inputDescription": "Description"
       },
       "actions": {
-        "cancer": "Cancer",
+        "cancel": "Cancel",
         "create": "Create"
       }
     }

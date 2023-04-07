@@ -1,4 +1,5 @@
 @import "/src/assets/scss/variables/colors/colors";
+
 .heading {
   display: flex;
   justify-content: space-between;
@@ -8,6 +9,7 @@
     margin-bottom: 40px;
   }
 }
+
 .list {
   gap: 24px;
   display: grid;

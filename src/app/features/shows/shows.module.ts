@@ -20,9 +20,9 @@ import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 import { SeasonListItemComponent } from './components/season-list-item/season-list-item.component';
 import { ListsItemSkeletonComponent } from './components/lists-item-skeleton/lists-item-skeleton.component';
 import { ToastComponent } from './components/toast/toast.component';
-import { UserMovieListsComponent } from './pages/suggest-me/my-lists/my-lists.component';
-import { UserMovieListCreateComponent } from './pages/my-list-create/my-list-create.component';
-import { UserMovieListsItemComponent } from './components/my-lists-item/my-lists-item.component';
+import { CreateUserMovieListDialogComponent } from './components/create-user-movie-list-dialog/create-user-movie-list-dialog.component';
+import { UserMovieListsComponent } from './pages/suggest-me/user-movie-lists/user-movie-lists.component';
+import { UserMovieListsItemComponent } from './components/user-movie-lists-item/user-movie-lists-item.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +40,11 @@ import { UserMovieListsItemComponent } from './components/my-lists-item/my-lists
     ShowListComponent,
     TvShowsComponent,
     SeasonListItemComponent,
-    UserMovieListsComponent,
     UserMovieListsItemComponent,
-    UserMovieListCreateComponent,
     ListsItemSkeletonComponent,
     ToastComponent,
+    UserMovieListsComponent,
+    CreateUserMovieListDialogComponent,
   ],
   imports: [
     CommonModule,

@@ -68,7 +68,7 @@
         "inputDescription": "Mô tả danh sách"
       },
       "actions": {
-        "cancer": "Hủy",
+        "cancel": "Hủy",
         "create": "Tạo mới"
       }
     }

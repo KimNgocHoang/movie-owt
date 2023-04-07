@@ -5,14 +5,15 @@
   color: $grey-50;
 }
 
-mat-dialog-content{
+mat-dialog-content {
   .form-create-list {
     min-width: 300px;
     display: flex;
     flex-direction: column;
     gap: 24px;
-    mat-form-field{
-      mat-label{
+
+    mat-form-field {
+      mat-label {
         color: $grey-50;
       }
     }

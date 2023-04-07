@@ -10,7 +10,8 @@
       <input matInput formControlName="description">
     </mat-form-field>
     <mat-dialog-actions>
-      <button mat-flat-button color="primary" mat-dialog-close>{{ 'shows.createList.actions.cancer' | translate }}</button>
+      <button mat-flat-button color="primary" mat-dialog-close>{{ 'shows.createList.actions.cancel' | translate
+        }}</button>
       <button mat-flat-button color="primary" [mat-dialog-close]="true" type="submit" [disabled]="!formCreate.valid">{{
         'shows.createList.actions.create' | translate }}</button>
     </mat-dialog-actions>
