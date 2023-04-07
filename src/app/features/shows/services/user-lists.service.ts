@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import camelcaseKeys from 'camelcase-keys';
-import { ShowList } from './models/show-list.model';
-import { UserMovieList } from './models/user-movie-list.model';
-import { CreateUserListRequest } from './type/create-user-list-request.type';
+import { ShowList } from '../models/show-list.model';
+import { UserMovieList } from '../models/user-movie-list.model';
+import { CreateUserListRequest } from '../type/create-user-list-request.type';
 
 @Injectable({
   providedIn: 'root',

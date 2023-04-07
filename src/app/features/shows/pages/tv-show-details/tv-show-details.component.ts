@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Season, TvShow } from '../../models/tv-show.model';
-import { TvShowService } from '../../tv-shows.service';
+import { TvShowService } from '../../services/tv-shows.service';
 
 @Component({
   selector: 'app-tv-show-details',

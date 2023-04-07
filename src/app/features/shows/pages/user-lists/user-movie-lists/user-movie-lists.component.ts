@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserMovieList } from '../../../models/user-movie-list.model';
-import { UserListsService } from '../../../user-lists.service';
 import { TranslateService } from '@ngx-translate/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUserMovieListDialogComponent } from '../../../components/create-user-movie-list-dialog/create-user-movie-list-dialog.component';
+import { UserListsService } from '../../../services/user-lists.service';
 
 @Component({
   selector: 'app-user-movie-lists',

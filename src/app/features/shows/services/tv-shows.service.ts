@@ -1,14 +1,14 @@
-import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import camelcaseKeys from 'camelcase-keys';
 import { HttpClient } from '@angular/common/http';
 import queryString from 'query-string';
-import { SearchRequest } from './type/search-request.type';
-import { TvShow } from './models/tv-show.model';
-import { ShowList } from './models/show-list.model';
-import { Show } from './models/show.model';
+import { SearchRequest } from '../type/search-request.type';
+import { ShowList } from '../models/show-list.model';
+import { Show } from '../models/show.model';
+import { environment } from 'src/environments/environment';
+import { TvShow } from '../models/tv-show.model';
 
 @Injectable({
   providedIn: 'root',
