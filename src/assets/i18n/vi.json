@@ -62,14 +62,14 @@
       }
     },
     "createList": {
-      "title": "Tạo mới",
+      "title": "Tạo danh sách mới",
       "labels": {
         "inputName": "Tên danh sách",
         "inputDescription": "Mô tả danh sách"
       },
       "actions": {
-        "backLists": "Quay lại danh sách",
-        "createList": "Tạo mới"
+        "cancer": "Hủy",
+        "create": "Tạo mới"
       }
     }
   },

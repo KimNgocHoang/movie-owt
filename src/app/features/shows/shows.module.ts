@@ -18,10 +18,11 @@ import { ShowListItemComponent } from './components/show-list-item/show-list-ite
 import { ShowListComponent } from './components/show-list/show-list.component';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 import { SeasonListItemComponent } from './components/season-list-item/season-list-item.component';
-import { MyListsComponent } from './pages/suggest-me/my-lists/my-lists.component';
-import { MyListsItemComponent } from './components/my-lists-item/my-lists-item.component';
-import { MyListCreateComponent } from './pages/my-list-create/my-list-create.component';
 import { ListsItemSkeletonComponent } from './components/lists-item-skeleton/lists-item-skeleton.component';
+import { ToastComponent } from './components/toast/toast.component';
+import { UserMovieListsComponent } from './pages/suggest-me/my-lists/my-lists.component';
+import { UserMovieListCreateComponent } from './pages/my-list-create/my-list-create.component';
+import { UserMovieListsItemComponent } from './components/my-lists-item/my-lists-item.component';
 
 @NgModule({
   declarations: [
@@ -39,10 +40,11 @@ import { ListsItemSkeletonComponent } from './components/lists-item-skeleton/lis
     ShowListComponent,
     TvShowsComponent,
     SeasonListItemComponent,
-    MyListsComponent,
-    MyListsItemComponent,
-    MyListCreateComponent,
+    UserMovieListsComponent,
+    UserMovieListsItemComponent,
+    UserMovieListCreateComponent,
     ListsItemSkeletonComponent,
+    ToastComponent,
   ],
   imports: [
     CommonModule,

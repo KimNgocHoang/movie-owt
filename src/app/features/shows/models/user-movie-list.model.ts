@@ -1,4 +1,4 @@
-export interface MyLists {
+export interface UserMovieList {
   id: number;
   description: string;
   name: string;

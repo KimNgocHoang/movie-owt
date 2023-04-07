@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { MyListsService } from '../../my-lists.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserListService } from '../../user-lists.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-my-list-create',
   templateUrl: './my-list-create.component.html',
   styleUrls: ['./my-list-create.component.scss'],
 })
-export class MyListCreateComponent implements OnInit {
+export class UserMovieListCreateComponent implements OnInit {
   formCreate: FormGroup;
+  statusMessage: string;
   constructor(
-    private location: Location,
-    private myListService: MyListsService,
-    public translate: TranslateService
+    private userListService: UserListService,
+    public translate: TranslateService,
+    private _snackBar: MatSnackBar,
+    public dialogRef: MatDialogRef<UserMovieListCreateComponent>,
   ) {}
 
   ngOnInit() {
     this.initForm();
-  }
-  onBackList() {
-    this.location.back();
   }
 
   initForm() {
@@ -34,8 +34,16 @@ export class MyListCreateComponent implements OnInit {
   onSubmit(form: FormGroup) {
     const data = { ...form.value };
     if (this.formCreate.valid) {
-      this.myListService.createList(data).subscribe((response) => {
-        response.success ? this.onBackList() : console.log('loi');
+      this.userListService.createList(data).subscribe((response) => {
+        if (response.success) {
+          this.statusMessage = 'Them thanh cong';
+        } else {
+          this.statusMessage = 'Them that bai';
+        }
+        this._snackBar.open(this.statusMessage, 'OK', {
+          horizontalPosition: 'end',
+          verticalPosition: 'top',
+        });
       });
     }
   }

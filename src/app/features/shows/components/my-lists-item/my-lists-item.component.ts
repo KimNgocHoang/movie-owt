@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { MyLists } from '../../models/my-lists.model';
+import { UserMovieList } from '../../models/user-movie-list.model';
 
 @Component({
   selector: 'app-my-lists-item',
   templateUrl: './my-lists-item.component.html',
   styleUrls: ['./my-lists-item.component.scss'],
 })
-export class MyListsItemComponent {
-  @Input() myLists: MyLists;
+export class UserMovieListsItemComponent {
+  @Input() userMovieList: UserMovieList;
 }

@@ -8,6 +8,6 @@
 </div>
 <ng-template #showListsItem>
   <div class="list">
-    <app-my-lists-item *ngFor="let lists of myLists" [myLists]="lists"></app-my-lists-item>
+    <app-my-lists-item *ngFor="let list of lists" [userMovieList]="list"></app-my-lists-item>
   </div>
 </ng-template>

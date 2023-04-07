@@ -62,14 +62,14 @@
       }
     },
     "createList": {
-      "title": "Create New List",
+      "title": "Create a new List",
       "labels": {
         "inputName": "Name",
         "inputDescription": "Description"
       },
       "actions": {
-        "backLists": "Back Lists",
-        "createList": "Create List"
+        "cancer": "Cancer",
+        "create": "Create"
       }
     }
   },

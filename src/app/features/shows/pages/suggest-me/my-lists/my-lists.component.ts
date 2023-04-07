@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { MyLists } from '../../../models/my-lists.model';
-import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { MyListsService } from '../../../my-lists.service';
+import { UserMovieList } from '../../../models/user-movie-list.model';
+import { UserListService } from '../../../user-lists.service';
+import { MatDialog } from '@angular/material/dialog';
+import { UserMovieListCreateComponent } from '../../my-list-create/my-list-create.component';
 
 @Component({
   selector: 'app-my-lists',
   templateUrl: './my-lists.component.html',
   styleUrls: ['./my-lists.component.scss'],
 })
-export class MyListsComponent implements OnInit {
-  myLists: MyLists[];
+export class UserMovieListsComponent implements OnInit {
+  lists: UserMovieList[];
   loading = true;
   constructor(
-    private myListService: MyListsService,
-    private route: ActivatedRoute,
-    private router: Router,
-    public translate: TranslateService
+    private userListService: UserListService,
+    public translate: TranslateService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -25,15 +25,13 @@ export class MyListsComponent implements OnInit {
 
   getList() {
     this.loading = true;
-    this.myListService.getMyLists().subscribe((res) => {
-      this.myLists = res.results;
+    this.userListService.getUserLists().subscribe((res) => {
+      this.lists = res.results;
       this.loading = false;
     });
   }
 
   onCreateList() {
-    this.router.navigate(['create-list'], {
-      relativeTo: this.route,
-    });
+    this.dialog.open(UserMovieListCreateComponent);
   }
 }

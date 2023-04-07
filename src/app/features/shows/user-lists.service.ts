@@ -4,17 +4,20 @@ import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import camelcaseKeys from 'camelcase-keys';
 import { ShowList } from './models/show-list.model';
-import { MyLists } from './models/my-lists.model';
+import { UserMovieList } from './models/user-movie-list.model';
+import { CreateUserListRequest } from './type/create-user-list-request.type';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MyListsService {
+export class UserListService {
   constructor(private http: HttpClient) {}
 
-  getMyLists(): Observable<ShowList<MyLists>> {
+  getUserLists(): Observable<ShowList<UserMovieList>> {
     return this.http
-      .get<ShowList<MyLists>>(`${environment.apiHost}/account/hkncjoc/lists`)
+      .get<ShowList<UserMovieList>>(
+        `${environment.apiHost}/account/hkncjoc/lists`
+      )
       .pipe(
         map((responseData) => {
           return camelcaseKeys(responseData, { deep: true });
@@ -22,13 +25,12 @@ export class MyListsService {
       );
   }
 
-  createList(request: {
-    name: string;
-    description: string;
-  }): Observable<{ success: number; status_message: string }> {
-    return this.http.post<{ success: number; status_message: string }>(
+  createList(
+    createUserListRequest: CreateUserListRequest
+  ): Observable<{ success: number}> {
+    return this.http.post<{ success: number}>(
       `${environment.apiHost}/list`,
-      request
+      createUserListRequest
     );
   }
 }
