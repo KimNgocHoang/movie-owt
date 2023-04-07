@@ -1,0 +1,23 @@
+@import "/src/assets/scss/variables/colors/colors";
+.toast{
+  background: $grey-1000;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 4px;
+  .success {
+    mat-icon{
+      color: $success-500;
+    }
+  }
+  .error {
+    mat-icon {
+      color: $error-500;
+    }
+  }
+  .mat-headline-5{
+    margin-bottom: 0;
+    color: $grey-50;
+  }
+}

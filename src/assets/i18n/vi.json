@@ -55,8 +55,12 @@
         "seasons": "Mùa"
       }
     },
-    "myLists": {
+    "userLists": {
       "title": "Danh sách của tôi",
+      "labels": {
+        "success": "Thêm thành công",
+        "error": "Thêm thất bại"
+      },
       "actions": {
         "createList": "Tạo danh sách mới"
       }

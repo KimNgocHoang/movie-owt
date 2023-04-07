@@ -55,8 +55,12 @@
         "seasons": "Seasons"
       }
     },
-    "myLists": {
+    "userLists": {
       "title": "My Lists",
+      "labels": {
+        "success": "Add successfully",
+        "error": "Add failed"
+      },
       "actions": {
         "createList": "Create List"
       }

@@ -4,6 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef } from '@angular/material/dialog';
 import { UserListsService } from '../../services/user-lists.service';
+import { ToastComponent } from '../toast/toast.component';
+import { messageStatus } from '../../enum/message-status.enum';
 
 @Component({
   selector: 'app-create-user-movie-list-dialog',
@@ -12,7 +14,7 @@ import { UserListsService } from '../../services/user-lists.service';
 })
 export class CreateUserMovieListDialogComponent implements OnInit {
   formCreate: FormGroup;
-  statusMessage: string;
+  message: string;
   constructor(
     private userListsService: UserListsService,
     public translate: TranslateService,
@@ -36,11 +38,13 @@ export class CreateUserMovieListDialogComponent implements OnInit {
     if (this.formCreate.valid) {
       this.userListsService.createList(data).subscribe((response) => {
         if (response.success) {
-          this.statusMessage = 'Them thanh cong';
+          this.message = messageStatus.SUCCESS;
         } else {
-          this.statusMessage = 'Them that bai';
+          this.message = messageStatus.ERROR;
         }
-        this._snackBar.open(this.statusMessage, 'OK', {
+        this._snackBar.openFromComponent(ToastComponent, {
+          duration: 2000,
+          data: this.message,
           horizontalPosition: 'end',
           verticalPosition: 'top',
         });
