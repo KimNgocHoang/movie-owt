@@ -8,6 +8,8 @@ import { TvShowDetailsComponent } from './pages/tv-show-details/tv-show-details.
 import { MoviesComponent } from './pages/movies/movies.component';
 import { MovieListComponent } from './pages/movies/movie-list/movie-list.component';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
+import { MyListsComponent } from './pages/suggest-me/my-lists/my-lists.component';
+import { MyListCreateComponent } from './pages/my-list-create/my-list-create.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +32,10 @@ const routes: Routes = [
   {
     path: 'suggest-me',
     component: SuggestMeComponent,
+    children: [
+      { path: '', component: MyListsComponent },
+      { path: 'create-list', component: MyListCreateComponent },
+    ],
   },
 ];
 

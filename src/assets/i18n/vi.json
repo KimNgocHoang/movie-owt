@@ -54,6 +54,23 @@
         "genres": "Thể loại",
         "seasons": "Mùa"
       }
+    },
+    "myLists": {
+      "title": "Danh sách của tôi",
+      "actions": {
+        "createList": "Tạo danh sách mới"
+      }
+    },
+    "createList": {
+      "title": "Tạo mới",
+      "labels": {
+        "inputName": "Tên danh sách",
+        "inputDescription": "Mô tả danh sách"
+      },
+      "actions": {
+        "backLists": "Quay lại danh sách",
+        "createList": "Tạo mới"
+      }
     }
   },
   "share": {

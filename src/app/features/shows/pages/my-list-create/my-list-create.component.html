@@ -1,0 +1,17 @@
+<div class="heading">
+  <p class="mat-headline-4">{{ 'shows.createList.title' | translate }}</p>
+  <button mat-flat-button color="primary" (click)="onBackList()">{{ 'shows.createList.actions.backLists' | translate
+    }}</button>
+</div>
+<form class="form-create-list" [formGroup]="formCreate" (ngSubmit)="onSubmit(formCreate)">
+  <mat-form-field appearance="fill">
+    <mat-label>{{ 'shows.createList.labels.inputName' | translate }}</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>{{ 'shows.createList.labels.inputDescription' | translate }}</mat-label>
+    <input matInput formControlName="description">
+  </mat-form-field>
+  <button mat-flat-button color="primary" type="submit" [disabled]="!formCreate.valid">{{
+    'shows.createList.actions.createList' | translate }}</button>
+</form>

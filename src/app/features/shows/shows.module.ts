@@ -11,13 +11,17 @@ import { SuggestMeComponent } from './pages/suggest-me/suggest-me.component';
 import { ShowsRoutingModule } from './shows-routing.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { MovieItemSkeletonComponent } from './components/movie-item-skeleton/movie-item-skeleton.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { MovieDetailsSkeletonComponent } from './components/movie-details-skeleton/movie-details-skeleton.component';
 import { ShowListItemComponent } from './components/show-list-item/show-list-item.component';
 import { ShowListComponent } from './components/show-list/show-list.component';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 import { SeasonListItemComponent } from './components/season-list-item/season-list-item.component';
+import { MyListsComponent } from './pages/suggest-me/my-lists/my-lists.component';
+import { MyListsItemComponent } from './components/my-lists-item/my-lists-item.component';
+import { MyListCreateComponent } from './pages/my-list-create/my-list-create.component';
+import { ListsItemSkeletonComponent } from './components/lists-item-skeleton/lists-item-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,10 @@ import { SeasonListItemComponent } from './components/season-list-item/season-li
     ShowListComponent,
     TvShowsComponent,
     SeasonListItemComponent,
+    MyListsComponent,
+    MyListsItemComponent,
+    MyListCreateComponent,
+    ListsItemSkeletonComponent,
   ],
   imports: [
     CommonModule,
@@ -42,6 +50,7 @@ import { SeasonListItemComponent } from './components/season-list-item/season-li
     ShareModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class ShowsModule {}

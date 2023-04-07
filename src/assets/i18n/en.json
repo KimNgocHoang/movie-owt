@@ -54,6 +54,23 @@
         "genres": "Genres",
         "seasons": "Seasons"
       }
+    },
+    "myLists": {
+      "title": "My Lists",
+      "actions": {
+        "createList": "Create List"
+      }
+    },
+    "createList": {
+      "title": "Create New List",
+      "labels": {
+        "inputName": "Name",
+        "inputDescription": "Description"
+      },
+      "actions": {
+        "backLists": "Back Lists",
+        "createList": "Create List"
+      }
     }
   },
   "share": {
