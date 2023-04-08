@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import queryString from 'query-string';
 import { map, Observable } from 'rxjs';
 import camelcaseKeys from 'camelcase-keys';
-import { SearchRequest } from '../type/search-request.type';
+import { SearchRequest } from '../types/search-request.type';
 import { ShowList } from '../models/show-list.model';
 import { Show } from '../models/show.model';
 import { TimeWindow } from '../enum/time-window.enum';

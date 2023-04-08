@@ -33,11 +33,13 @@ export class UserMovieListsComponent implements OnInit {
 
   onCreateList() {
     const dialogRef = this.dialog.open(CreateUserMovieListDialogComponent);
-    dialogRef.afterClosed().subscribe((newList: UserMovieList) => {
-      if(newList){
-        this.handleAddListSuccess(newList);
+    dialogRef.componentInstance.addListSuccess.subscribe(
+      (newList: UserMovieList) => {
+        if (newList) {
+          this.handleAddListSuccess(newList);
+        }
       }
-    })
+    );
   }
 
   handleAddListSuccess(newList: UserMovieList) {

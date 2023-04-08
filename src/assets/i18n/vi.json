@@ -59,10 +59,12 @@
       "title": "Danh sách của tôi",
       "labels": {
         "success": "Thêm thành công",
-        "error": "Thêm thất bại"
+        "error": "Thêm thất bại",
+        "itemCount": "mục"
       },
       "actions": {
-        "createList": "Tạo danh sách mới"
+        "createList": "Tạo danh sách mới",
+        "delete": "Xóa"
       }
     },
     "createList": {

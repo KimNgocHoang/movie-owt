@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import camelcaseKeys from 'camelcase-keys';
 import { HttpClient } from '@angular/common/http';
 import queryString from 'query-string';
-import { SearchRequest } from '../type/search-request.type';
+import { SearchRequest } from '../types/search-request.type';
 import { ShowList } from '../models/show-list.model';
 import { Show } from '../models/show.model';
 import { environment } from 'src/environments/environment';

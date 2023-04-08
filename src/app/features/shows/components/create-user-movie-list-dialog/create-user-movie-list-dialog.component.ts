@@ -1,11 +1,11 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { UserListsService } from '../../services/user-lists.service';
 import { ToastComponent } from '../toast/toast.component';
-import { messageStatus } from '../../enum/message-status.enum';
+import { MessageStatus } from '../../enum/message-status.enum';
 import { UserMovieList } from '../../models/user-movie-list.model';
 
 @Component({
@@ -16,12 +16,12 @@ import { UserMovieList } from '../../models/user-movie-list.model';
 export class CreateUserMovieListDialogComponent implements OnInit {
   formCreate: FormGroup;
   message: string;
+  @Output() addListSuccess = new EventEmitter<UserMovieList>();
   constructor(
     private userListsService: UserListsService,
     public translate: TranslateService,
     private _snackBar: MatSnackBar,
-    public dialogRef: MatDialogRef<CreateUserMovieListDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: UserMovieList
+    public dialogRef: MatDialogRef<CreateUserMovieListDialogComponent>
   ) {}
 
   ngOnInit() {
@@ -40,15 +40,16 @@ export class CreateUserMovieListDialogComponent implements OnInit {
     if (this.formCreate.valid) {
       this.userListsService.createList(data).subscribe((response) => {
         if (response.success) {
-          this.message = messageStatus.SUCCESS;
+          this.message = MessageStatus.SUCCESS;
           this.userListsService
             .getUserListDetails(response.list_id)
             .subscribe((response) => {
               const newList: UserMovieList = response;
-              this.dialogRef.close(newList);
+              this.addListSuccess.emit(newList);
             });
+          this.initForm()
         } else {
-          this.message = messageStatus.ERROR;
+          this.message = MessageStatus.ERROR;
         }
         this._snackBar.openFromComponent(ToastComponent, {
           duration: 2000,

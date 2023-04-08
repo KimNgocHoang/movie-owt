@@ -59,10 +59,12 @@
       "title": "My Lists",
       "labels": {
         "success": "Add successfully",
-        "error": "Add failed"
+        "error": "Add failed",
+        "itemCount": "item"
       },
       "actions": {
-        "createList": "Create List"
+        "createList": "Create List",
+        "delete": "Delete"
       }
     },
     "createList": {

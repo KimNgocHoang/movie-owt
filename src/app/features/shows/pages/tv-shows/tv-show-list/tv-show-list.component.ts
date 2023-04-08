@@ -2,7 +2,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { SearchRequest } from '../../../type/search-request.type';
+import { SearchRequest } from '../../../types/search-request.type';
 import { Show } from '../../../models/show.model';
 import { TvShowService } from '../../../services/tv-shows.service';
 
