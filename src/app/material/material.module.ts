@@ -13,7 +13,7 @@ import {
 } from '@angular/material/paginator';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -30,6 +30,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSnackBarModule,
     MatDialogModule,
   ],
-  providers: [{ provide: MatPaginatorIntl, useClass: TranslatedMatPaginator }],
+  providers: [
+    { provide: MatPaginatorIntl, useClass: TranslatedMatPaginator },
+    { provide: MatDialogRef, useValue: {} },
+  ],
 })
 export class MaterialModule {}

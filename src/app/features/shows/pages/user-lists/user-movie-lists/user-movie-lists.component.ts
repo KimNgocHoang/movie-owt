@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
 import { UserMovieList } from '../../../models/user-movie-list.model';
 import { TranslateService } from '@ngx-translate/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -32,6 +32,15 @@ export class UserMovieListsComponent implements OnInit {
   }
 
   onCreateList() {
-    this.dialog.open(CreateUserMovieListDialogComponent);
+    const dialogRef = this.dialog.open(CreateUserMovieListDialogComponent);
+    dialogRef.afterClosed().subscribe((newList: UserMovieList) => {
+      if(newList){
+        this.handleAddListSuccess(newList);
+      }
+    })
+  }
+
+  handleAddListSuccess(newList: UserMovieList) {
+    this.lists = [newList, ...this.lists];
   }
 }

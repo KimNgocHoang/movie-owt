@@ -6,14 +6,12 @@
   padding: 12px;
   gap: 12px;
   border-radius: 4px;
+  mat-icon {
+    color: $error-500;
+  }
   .success {
     mat-icon{
       color: $success-500;
-    }
-  }
-  .error {
-    mat-icon {
-      color: $error-500;
     }
   }
   .mat-headline-5{

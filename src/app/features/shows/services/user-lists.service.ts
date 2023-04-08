@@ -27,10 +27,20 @@ export class UserListsService {
 
   createList(
     createUserListRequest: CreateUserListRequest
-  ): Observable<{ success: number}> {
-    return this.http.post<{ success: number}>(
+  ): Observable<{ success: number, list_id: number}> {
+    return this.http.post<{ success: number; list_id: number }>(
       `${environment.apiHost}/list`,
       createUserListRequest
     );
+  }
+
+  getUserListDetails(id: number): Observable<UserMovieList> {
+    return this.http
+      .get<UserMovieList>(`${environment.apiHost}/list/${id}`)
+      .pipe(
+        map((responseData) => {
+          return camelcaseKeys(responseData, { deep: true });
+        })
+      );
   }
 }
