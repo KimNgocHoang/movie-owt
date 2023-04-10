@@ -9,6 +9,7 @@ import { MovieListComponent } from './pages/movies/movie-list/movie-list.compone
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 import { UserMovieListsComponent } from './pages/user-lists/user-movie-lists/user-movie-lists.component';
 import { UserListsComponent } from './pages/user-lists/user-lists.component';
+import { UserMovieListDetailsComponent } from './pages/user-movie-list-details/user-movie-list-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,7 +32,10 @@ const routes: Routes = [
   {
     path: 'my-lists',
     component: UserListsComponent,
-    children: [{ path: '', component: UserMovieListsComponent }],
+    children: [
+      { path: '', component: UserMovieListsComponent },
+      { path: ':id', component: UserMovieListDetailsComponent },
+    ],
   },
 ];
 

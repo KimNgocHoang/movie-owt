@@ -77,6 +77,21 @@
         "cancel": "Cancel",
         "create": "Create"
       }
+    },
+    "userListDetails": {
+      "title": "List Name:",
+      "labels": {
+        "itemQuantity": "items",
+        "inputText": "Search Movies or TV Shows",
+        "inputPlaceholder": "eg.",
+        "titleModal": "Thank you for your suggestion",
+        "descriptionModal": "Your suggestion has been succesfully added to my watchlist, I will manage sometime to watch your suggestion. ❤",
+        "suggestThis": "Suggest this",
+        "alreadyAdded": "Already added"
+      },
+      "actions": {
+        "backToMyLists": "Back to my lists"
+      }
     }
   },
   "share": {

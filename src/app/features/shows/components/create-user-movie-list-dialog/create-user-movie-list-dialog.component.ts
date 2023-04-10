@@ -6,7 +6,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { UserListsService } from '../../services/user-lists.service';
 import { ToastComponent } from '../toast/toast.component';
 import { MessageStatus } from '../../enum/message-status.enum';
-import { UserMovieList } from '../../models/user-movie-list.model';
+import { UserMovieListItem } from '../../models/user-movie-list-item.model';
 
 @Component({
   selector: 'app-create-user-movie-list-dialog',
@@ -16,7 +16,7 @@ import { UserMovieList } from '../../models/user-movie-list.model';
 export class CreateUserMovieListDialogComponent implements OnInit {
   formCreate: FormGroup;
   message: string;
-  @Output() addListSuccess = new EventEmitter<UserMovieList>();
+  @Output() addListSuccess = new EventEmitter<UserMovieListItem>();
   constructor(
     private userListsService: UserListsService,
     public translate: TranslateService,
@@ -42,12 +42,12 @@ export class CreateUserMovieListDialogComponent implements OnInit {
         if (response.success) {
           this.message = MessageStatus.SUCCESS;
           this.userListsService
-            .getUserListDetails(response.list_id)
+            .getUserListDetails({ listId: response.list_id})
             .subscribe((response) => {
-              const newList: UserMovieList = response;
+              const newList: UserMovieListItem = response;
               this.addListSuccess.emit(newList);
             });
-          this.initForm()
+          this.initForm();
         } else {
           this.message = MessageStatus.ERROR;
         }

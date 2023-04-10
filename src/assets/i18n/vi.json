@@ -77,6 +77,21 @@
         "cancel": "Hủy",
         "create": "Tạo mới"
       }
+    },
+    "userListDetails": {
+      "title": "Tên danh sách:",
+      "labels": {
+        "itemQuantity": "mục",
+        "inputText": "Tìm kiếm Phim hoặc Chương trình TV",
+        "inputPlaceholder": "Ví dụ.",
+        "titleModal": "Cảm ơn bạn đã gợi ý",
+        "descriptionModal": "Đề xuất của bạn đã được thêm thành công vào danh sách theo dõi của tôi, đôi khi tôi sẽ quản lý để xem đề xuất của bạn. ❤",
+        "suggestThis": "Gợi ý phim",
+        "alreadyAdded": "Đã thêm"
+      },
+      "actions": {
+        "backToMyLists": "Quay lại danh sách"
+      }
     }
   },
   "share": {

@@ -1,0 +1,33 @@
+<div class="user-movie-list-item">
+  <div class="user-movie-list-item__rating">
+    <img src="/assets/image/star.svg" alt="">
+    {{ movies.voteAverage.toFixed(1) }}
+  </div>
+  <div class="user-movie-list-item__img-hover-zoom" *ngIf="movies.posterPath; else showDummyImg ">
+    <img src="https://image.tmdb.org/t/p/w500/{{ movies.posterPath }}" alt="image-item">
+  </div>
+  <ng-template #showDummyImg>
+    <div class="user-movie-list-item__img-hover-zoom">
+      <img src="/assets/image/dummy-image-portrait.jpg" alt="image-item">
+    </div>
+  </ng-template>
+  <div class="user-movie-list-item__name">
+    <p class="mat-headline-6">{{ movies.title }}</p>
+  </div>
+  <a class="user-movie-list-item__add not-check" (click)="addItem({mediaId: movies.id, listId :listId})"
+    *ngIf="!isSuggest; else showAlreadyWatched">
+    <mat-icon color="primary">thumb_up</mat-icon>
+    <p class="mat-body-2">
+      {{ 'shows.userListDetails.labels.suggestThis' | translate }}
+    </p>
+  </a>
+  <ng-template #showAlreadyWatched>
+    <div class="user-movie-list-item__add checked">
+      <mat-icon>check_circle_outline</mat-icon>
+      <p class="mat-body-2">
+        {{ 'shows.userListDetails.labels.alreadyAdded' | translate }}
+      </p>
+    </div>
+  </ng-template>
+
+</div>

@@ -49,6 +49,6 @@ export class UserMovieListsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.addListSub.unsubscribe();
+    if (this.addListSub) this.addListSub.unsubscribe();
   }
 }
