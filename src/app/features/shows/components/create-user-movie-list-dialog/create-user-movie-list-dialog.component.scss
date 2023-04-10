@@ -1,0 +1,21 @@
+@import "/src/assets/scss/variables/colors/colors";
+
+.mat-headline-4 {
+  margin-bottom: 0;
+  color: $grey-50;
+}
+
+mat-dialog-content {
+  .form-create-list {
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    mat-form-field {
+      mat-label {
+        color: $grey-50;
+      }
+    }
+  }
+}

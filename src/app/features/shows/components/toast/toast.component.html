@@ -1,0 +1,8 @@
+<div class="toast">
+  <div class="" [ngClass]="{'success': data === 'success'}">
+    <mat-icon>{{data === 'success' ? 'check_circle' : 'error'}}</mat-icon>
+  </div>
+  <span class="mat-headline-5" matSnackBarLabel>
+    {{ 'shows.userLists.labels.' + data | translate }}
+  </span>
+</div>

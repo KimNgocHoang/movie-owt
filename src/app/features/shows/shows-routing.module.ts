@@ -1,4 +1,3 @@
-import { SuggestMeComponent } from './pages/suggest-me/suggest-me.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
@@ -8,6 +7,8 @@ import { TvShowDetailsComponent } from './pages/tv-show-details/tv-show-details.
 import { MoviesComponent } from './pages/movies/movies.component';
 import { MovieListComponent } from './pages/movies/movie-list/movie-list.component';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
+import { UserMovieListsComponent } from './pages/user-lists/user-movie-lists/user-movie-lists.component';
+import { UserListsComponent } from './pages/user-lists/user-lists.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,8 +29,9 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'suggest-me',
-    component: SuggestMeComponent,
+    path: 'my-lists',
+    component: UserListsComponent,
+    children: [{ path: '', component: UserMovieListsComponent }],
   },
 ];
 

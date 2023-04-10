@@ -1,0 +1,13 @@
+<div class="heading">
+  <p class="mat-headline-4">{{ 'shows.userLists.title' | translate }}</p>
+  <button mat-flat-button color="primary" (click)="onCreateList()">{{ 'shows.userLists.actions.createList' | translate
+    }}</button>
+</div>
+<div class="list" *ngIf="loading; else showListsItem">
+  <app-lists-item-skeleton *ngFor="let _ of [].constructor(5)"></app-lists-item-skeleton>
+</div>
+<ng-template #showListsItem>
+  <div class="list">
+    <app-user-movie-lists-item *ngFor="let list of lists" [userMovieList]="list"></app-user-movie-lists-item>
+  </div>
+</ng-template>

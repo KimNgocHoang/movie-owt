@@ -1,0 +1,18 @@
+@import "/src/assets/scss/variables/colors/colors";
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  color: $grey-50;
+
+  .mat-headline-4 {
+    margin-bottom: 40px;
+  }
+}
+
+.list {
+  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  margin: 24px 0 20px;
+}

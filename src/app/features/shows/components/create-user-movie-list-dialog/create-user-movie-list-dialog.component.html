@@ -1,0 +1,19 @@
+<p mat-dialog-title class="mat-headline-4">{{ 'shows.createList.title' | translate }}</p>
+<mat-dialog-content>
+  <form class="form-create-list" [formGroup]="formCreate" (ngSubmit)="onSubmit(formCreate)">
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'shows.createList.labels.inputName' | translate }}</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'shows.createList.labels.inputDescription' | translate }}</mat-label>
+      <input matInput formControlName="description">
+    </mat-form-field>
+    <mat-dialog-actions>
+      <button mat-flat-button color="primary" mat-dialog-close>{{ 'shows.createList.actions.cancel' | translate
+        }}</button>
+      <button mat-flat-button color="primary" type="submit" [disabled]="!formCreate.valid">{{
+        'shows.createList.actions.create' | translate }}</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>

@@ -54,6 +54,29 @@
         "genres": "Genres",
         "seasons": "Seasons"
       }
+    },
+    "userLists": {
+      "title": "My Lists",
+      "labels": {
+        "success": "Add successfully",
+        "error": "Add failed",
+        "itemCount": "item"
+      },
+      "actions": {
+        "createList": "Create List",
+        "delete": "Delete"
+      }
+    },
+    "createList": {
+      "title": "Create a new List",
+      "labels": {
+        "inputName": "Name",
+        "inputDescription": "Description"
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "create": "Create"
+      }
     }
   },
   "share": {

@@ -1,0 +1,7 @@
+<div class="list-item">
+  <a [routerLink]="[userMovieList.id]" routerLinkActive="active">
+    <p class="mat-subtitle-1">{{userMovieList.name}}</p>
+    <p class="mat-subtitle-2">{{userMovieList.itemCount}} {{ 'shows.userLists.labels.itemCount' | translate }}</p>
+  </a>
+  <button mat-flat-button color="primary">{{ 'shows.userLists.actions.delete' | translate }}</button>
+</div>

@@ -54,6 +54,29 @@
         "genres": "Thể loại",
         "seasons": "Mùa"
       }
+    },
+    "userLists": {
+      "title": "Danh sách của tôi",
+      "labels": {
+        "success": "Thêm thành công",
+        "error": "Thêm thất bại",
+        "itemCount": "mục"
+      },
+      "actions": {
+        "createList": "Tạo danh sách mới",
+        "delete": "Xóa"
+      }
+    },
+    "createList": {
+      "title": "Tạo danh sách mới",
+      "labels": {
+        "inputName": "Tên danh sách",
+        "inputDescription": "Mô tả danh sách"
+      },
+      "actions": {
+        "cancel": "Hủy",
+        "create": "Tạo mới"
+      }
     }
   },
   "share": {
