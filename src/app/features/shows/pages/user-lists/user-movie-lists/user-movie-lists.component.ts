@@ -1,18 +1,20 @@
-import { Component, OnInit,  } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserMovieList } from '../../../models/user-movie-list.model';
 import { TranslateService } from '@ngx-translate/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUserMovieListDialogComponent } from '../../../components/create-user-movie-list-dialog/create-user-movie-list-dialog.component';
 import { UserListsService } from '../../../services/user-lists.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-movie-lists',
   templateUrl: './user-movie-lists.component.html',
   styleUrls: ['./user-movie-lists.component.scss'],
 })
-export class UserMovieListsComponent implements OnInit {
+export class UserMovieListsComponent implements OnInit, OnDestroy {
   lists: UserMovieList[];
   loading = true;
+  addListSub: Subscription;
   constructor(
     private userListsService: UserListsService,
     public translate: TranslateService,
@@ -33,7 +35,7 @@ export class UserMovieListsComponent implements OnInit {
 
   onCreateList() {
     const dialogRef = this.dialog.open(CreateUserMovieListDialogComponent);
-    dialogRef.componentInstance.addListSuccess.subscribe(
+    this.addListSub = dialogRef.componentInstance.addListSuccess.subscribe(
       (newList: UserMovieList) => {
         if (newList) {
           this.handleAddListSuccess(newList);
@@ -44,5 +46,9 @@ export class UserMovieListsComponent implements OnInit {
 
   handleAddListSuccess(newList: UserMovieList) {
     this.lists = [newList, ...this.lists];
+  }
+
+  ngOnDestroy(): void {
+    this.addListSub.unsubscribe();
   }
 }
