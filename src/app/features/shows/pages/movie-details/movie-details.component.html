@@ -38,7 +38,7 @@
         <form class="form-search">
           <mat-form-field appearance="fill">
             <mat-label>{{'shows.movieDetails.labels.searchList' | translate }}</mat-label>
-            <input matInput [matAutocomplete]="auto" [formControl]="movieCtrl">
+            <input matInput [matAutocomplete]="auto" [formControl]="listCtrl">
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let list of filteredLists | async" [value]="list.name" (click)="addItem({mediaId: movie.id, listId :list.id})">
                 <span>{{list.name}}</span>

@@ -1,4 +1,4 @@
-export type ParamsRequest = {
+export type ListRequest = {
   mediaId?: number;
   listId: number;
 };

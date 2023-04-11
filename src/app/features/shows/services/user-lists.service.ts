@@ -6,7 +6,7 @@ import camelcaseKeys from 'camelcase-keys';
 import { ShowList } from '../models/show-list.model';
 import { UserMovieList } from '../models/user-movie-list.model';
 import { CreateUserListRequest } from '../types/create-user-list-request.type';
-import { ParamsRequest } from '../types/params-request.type';
+import { ListRequest } from '../types/list-request.type';
 import { UserMovieListItem } from '../models/user-movie-list-item.model';
 
 @Injectable({
@@ -37,10 +37,12 @@ export class UserListsService {
   }
 
   getUserListDetails(
-    paramsRequest: ParamsRequest
+    listIdRequest: ListRequest
   ): Observable<UserMovieListItem> {
     return this.http
-      .get<UserMovieListItem>(`${environment.apiHost}/list/${paramsRequest.listId}`)
+      .get<UserMovieListItem>(
+        `${environment.apiHost}/list/${listIdRequest.listId}`
+      )
       .pipe(
         map((responseData) => {
           return camelcaseKeys(responseData, { deep: true });
@@ -48,21 +50,19 @@ export class UserListsService {
       );
   }
 
-  addMovieToList(
-    paramsRequest: ParamsRequest
-  ): Observable<{ success: boolean }> {
-    const body = { media_id: paramsRequest.mediaId };
+  addMovieToList(listRequest: ListRequest): Observable<{ success: boolean }> {
+    const body = { media_id: listRequest.mediaId };
     return this.http.post<{ success: boolean }>(
-      `${environment.apiHost}/list/${paramsRequest.listId}/add_item`,
+      `${environment.apiHost}/list/${listRequest.listId}/add_item`,
       body
     );
   }
 
   checkItemStatus(
-    paramsRequest: ParamsRequest
+    listRequest: ListRequest
   ): Observable<{ item_present: boolean }> {
     return this.http.get<{ id: string; item_present: boolean }>(
-      `${environment.apiHost}/list/${paramsRequest.listId}/item_status?movie_id=${paramsRequest.mediaId}`
+      `${environment.apiHost}/list/${listRequest.listId}/item_status?movie_id=${listRequest.mediaId}`
     );
   }
 }

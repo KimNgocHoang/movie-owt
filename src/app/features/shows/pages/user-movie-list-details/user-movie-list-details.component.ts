@@ -7,11 +7,11 @@ import { UserListsService } from '../../services/user-lists.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Show } from '../../models/show.model';
 import { UserMovieListItem } from '../../models/user-movie-list-item.model';
-import { ParamsRequest } from '../../types/params-request.type';
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ToastComponent } from '../../components/toast/toast.component';
 import { MessageStatus } from '../../enum/message-status.enum';
+import { ListRequest } from '../../types/list-request.type';
 
 @Component({
   selector: 'app-user-movie-list-details',
@@ -39,14 +39,6 @@ export class UserMovieListDetailsComponent implements OnInit {
     private _snackBar: MatSnackBar
   ) {}
 
-  private _filterStates(value: string): Show[] {
-    const filterValue = value.toLowerCase();
-
-    return this.movies.filter((movie) =>
-      movie.title.toLowerCase().includes(filterValue)
-    );
-  }
-
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.listId = +params['id'];
@@ -56,7 +48,14 @@ export class UserMovieListDetailsComponent implements OnInit {
     this.filteredMovies = this.movieCtrl.valueChanges.pipe(
       debounceTime(1000),
       startWith(''),
-      map((movie) => (movie ? this._filterStates(movie) : this.movies.slice()))
+      map((query) =>
+        query
+          ? this.getMoviesBySearch({
+              query,
+              page: 1,
+            })
+          : this.movies.slice()
+      )
     );
   }
 
@@ -68,33 +67,31 @@ export class UserMovieListDetailsComponent implements OnInit {
         this.movies = res.results;
         this.loading = false;
       });
+    return this.movies;
   }
 
-  addItem(movieRequest: ParamsRequest, movie: Show) {
-    this.userListsService
-      .checkItemStatus(movieRequest)
-      .subscribe((response) => {
-        response.item_present
-        ?
-          this._snackBar.openFromComponent(ToastComponent, {
+  addItem(movie: Show) {
+    const listRequest: ListRequest = { mediaId: movie.id, listId: this.listId };
+    this.userListsService.checkItemStatus(listRequest).subscribe((response) => {
+      response.item_present
+        ? this._snackBar.openFromComponent(ToastComponent, {
             duration: 2000,
             data: MessageStatus.ERROR,
             horizontalPosition: 'end',
             verticalPosition: 'top',
           })
-        :
-          this.userListsService
-            .addMovieToList(movieRequest)
+        : this.userListsService
+            .addMovieToList(listRequest)
             .subscribe((response) => {
               if (response.success) {
                 this.openModal = true;
                 this.moviesAddedList = [movie, ...this.moviesAddedList];
               }
             });
-      });
+    });
   }
 
-  getUserListDetails(listIdRequest: ParamsRequest) {
+  getUserListDetails(listIdRequest: ListRequest) {
     this.loadingMoviesAddedList = true;
     this.userListsService.getUserListDetails(listIdRequest).subscribe((res) => {
       this.moviesAddedList = res.items;

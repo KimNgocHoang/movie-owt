@@ -7,7 +7,7 @@ import { UserMovieList } from '../../models/user-movie-list.model';
 import { UserListsService } from '../../services/user-lists.service';
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ParamsRequest } from '../../types/params-request.type';
+import { ListRequest } from '../../types/list-request.type';
 import { ToastComponent } from '../../components/toast/toast.component';
 import { MessageStatus } from '../../enum/message-status.enum';
 
@@ -23,7 +23,7 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   loading = true;
   loadingList = true;
   message: string;
-  movieCtrl = new FormControl('');
+  listCtrl = new FormControl('');
   filteredLists: Observable<UserMovieList[]>;
   getMovieByApiSub: Subscription;
 
@@ -47,7 +47,7 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
       this.movie = this.getMovie(+params['id']);
     });
     this.getLists();
-    this.filteredLists = this.movieCtrl.valueChanges.pipe(
+    this.filteredLists = this.listCtrl.valueChanges.pipe(
       debounceTime(1000),
       startWith(''),
       map((list) => (list ? this._filterStates(list) : this.lists.slice()))
@@ -72,14 +72,14 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  addItem(movieRequest: ParamsRequest) {
-    this.userListsService.checkItemStatus(movieRequest)
+  addItem(listRequest: ListRequest) {
+    this.userListsService
+      .checkItemStatus(listRequest)
       .subscribe((response) => {
-        if(response.item_present) {
-          this.message = MessageStatus.ERROR
-        }
-        else {
-          this.userListsService.addMovieToList(movieRequest)
+        if (response.item_present) {
+          this.message = MessageStatus.ERROR;
+        } else {
+          this.userListsService.addMovieToList(listRequest);
           this.message = MessageStatus.SUCCESS;
         }
         this._snackBar.openFromComponent(ToastComponent, {
@@ -88,7 +88,7 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
           horizontalPosition: 'end',
           verticalPosition: 'top',
         });
-      })
+      });
   }
 
   ngOnDestroy(): void {

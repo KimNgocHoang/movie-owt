@@ -11,7 +11,7 @@
       <mat-label>{{'shows.userListDetails.labels.inputText' | translate }}</mat-label>
       <input matInput [matAutocomplete]="auto" [formControl]="movieCtrl">
       <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie.title" (click)="addItem({mediaId: movie.id, listId :listId}, movie)">
+        <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie.title" (click)="addItem(movie)">
           <a [routerLink]="['/shows/movies', movie.id]">
             <span>{{movie.title}}</span>
           </a>
@@ -23,6 +23,7 @@
   </mat-form-field>
   </form>
 </ng-template>
+
 <span class="mat-subtitle-2"> {{ loadingMoviesAddedList ? 0 : totalResults }} {{ 'shows.userListDetails.labels.itemQuantity' | translate }}</span>
 <div class="list" *ngIf="loadingMoviesAddedList; else showMoviesListDetails">
   <app-movie-item-skeleton *ngFor="let _ of [].constructor(4)"></app-movie-item-skeleton>
