@@ -1,9 +1,9 @@
-import { Show } from '../../shows/models/show.model';
+import { Movie } from './movie.model';
 
 export interface UserMovieListItem {
   id: string;
   createdBy: string;
-  items: Show[];
+  items: Movie[];
   name: string;
   itemCount: number;
 }

@@ -80,7 +80,21 @@
   }
   .mat-mdc-option{
     .mdc-list-item__primary-text{
-      color: $grey-200;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      a{
+        color: $grey-200;
+        text-decoration: none;
+      }
+      .mat-mdc-icon-button{
+        span{
+          .mat-cion{
+            margin: 0;
+          }
+        }
+      }
     }
   }
   $typography-config: mat.get-typography-config($theme);

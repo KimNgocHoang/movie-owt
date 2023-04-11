@@ -28,7 +28,8 @@
         "nameType": "Movie",
         "releaseDate": "Release Date:",
         "runTime": "Run time",
-        "genres": "Genres"
+        "genres": "Genres",
+        "searchList": "Search list"
       }
     },
     "tvShowsList": {

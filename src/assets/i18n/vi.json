@@ -28,7 +28,8 @@
         "nameType": "Phim",
         "releaseDate": "Ngày phát hành:",
         "runTime": "Thời lượng",
-        "genres": "Thể loại"
+        "genres": "Thể loại",
+        "searchList": "Tìm kiếm danh sách"
       }
     },
     "tvShowsList": {
