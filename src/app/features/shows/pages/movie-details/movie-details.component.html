@@ -1,4 +1,4 @@
-<div *ngIf="loading; else showMovieDetails">
+<div *ngIf="loading && loadingList; else showMovieDetails">
   <app-movie-details-skeleton></app-movie-details-skeleton>
 </div>
 <ng-template #showMovieDetails>

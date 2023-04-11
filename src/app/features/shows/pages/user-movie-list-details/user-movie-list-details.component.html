@@ -2,30 +2,35 @@
   <h1 class="mat-headline-1">{{ 'shows.userListDetails.title' | translate }} {{ loadingMoviesAddedList ? "" : userMovieListItem.name }}</h1>
   <button mat-flat-button color="primary" (click)="onBackList()">{{ 'shows.userListDetails.actions.backToMyLists' | translate }}</button>
 </div>
-<form class="form-search">
-  <mat-form-field appearance="fill">
-    <mat-label>{{'shows.userListDetails.labels.inputText' | translate }}</mat-label>
-    <input matInput [matAutocomplete]="auto" [formControl]="movieCtrl">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie.title" (click)="addItem({mediaId: movie.id, listId :listId})">
-        <a [routerLink]="['/shows/movies', movie.id]">
-          <span>{{movie.title}}</span>
-        </a>
-        <button mat-icon-button >
-          <mat-icon color="primary">add_circle</mat-icon>
-        </button>
-      </mat-option>
-    </mat-autocomplete>
-</mat-form-field>
-</form>
+<div *ngIf="loading; else showMovies">
+  <app-skeleton [shape]="'text'" [height]="'30px'" [width]="'400px'"></app-skeleton>
+</div>
+<ng-template #showMovies>
+  <form class="form-search">
+    <mat-form-field appearance="fill">
+      <mat-label>{{'shows.userListDetails.labels.inputText' | translate }}</mat-label>
+      <input matInput [matAutocomplete]="auto" [formControl]="movieCtrl">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie.title" (click)="addItem({mediaId: movie.id, listId :listId})">
+          <a [routerLink]="['/shows/movies', movie.id]">
+            <span>{{movie.title}}</span>
+          </a>
+          <button mat-icon-button >
+            <mat-icon color="primary">add_circle</mat-icon>
+          </button>
+        </mat-option>
+      </mat-autocomplete>
+  </mat-form-field>
+  </form>
+</ng-template>
 <span class="mat-subtitle-2"> {{ loadingMoviesAddedList ? 0 : totalResults }} {{ 'shows.userListDetails.labels.itemQuantity' | translate }}</span>
 <div class="list" *ngIf="loadingMoviesAddedList; else showMoviesListDetails">
   <app-movie-item-skeleton *ngFor="let _ of [].constructor(4)"></app-movie-item-skeleton>
 </div>
 <ng-template #showMoviesListDetails>
   <div class="list">
-    <app-user-movie-list-item *ngFor="let show of moviesAddedList" [movies]="show" [listId]="listId"
-      (modalOpen)="onIsSuggestChange($event)"></app-user-movie-list-item>
+    <app-show-list-item *ngFor="let show of moviesAddedList" [show]="show" [listId]="listId"
+      (modalOpen)="onIsSuggestChange($event)"></app-show-list-item>
   </div>
 </ng-template>
 

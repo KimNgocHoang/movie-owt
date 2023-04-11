@@ -31,7 +31,6 @@ export class UserMovieListDetailsComponent implements OnInit {
   movieCtrl = new FormControl('');
   filteredMovies: Observable<Show[]>;
   movie: Movie;
-  isSuggest = false;
 
   constructor(
     public translate: TranslateService,
@@ -56,6 +55,11 @@ export class UserMovieListDetailsComponent implements OnInit {
       this.getUserListDetails({ listId: +params['id'] });
     });
     this.getMoviesBySearch({ query: '', page: 1 });
+    this.filteredMovies = this.movieCtrl.valueChanges.pipe(
+      debounceTime(1000),
+      startWith(''),
+      map((movie) => (movie ? this._filterStates(movie) : this.movies.slice()))
+    );
   }
 
   getMoviesBySearch(searchMoviesRes: SearchRequest) {
@@ -65,13 +69,6 @@ export class UserMovieListDetailsComponent implements OnInit {
       .subscribe((res) => {
         this.movies = res.results;
         this.loading = false;
-        this.filteredMovies = this.movieCtrl.valueChanges.pipe(
-          debounceTime(1000),
-          startWith(''),
-          map((movie) =>
-            movie ? this._filterStates(movie) : this.movies.slice()
-          )
-        );
       });
   }
 
@@ -82,43 +79,39 @@ export class UserMovieListDetailsComponent implements OnInit {
     return this.movie;
   }
 
-  addItem(paramsRequest: ParamsRequest) {
-    this.movie = this.getMovie(paramsRequest.mediaId);
-    this.isSuggest = this.checkItem(paramsRequest);
-    this.isSuggest
-      ? this._snackBar.openFromComponent(ToastComponent, {
-          duration: 2000,
-          data: MessageStatus.ERROR,
-          horizontalPosition: 'end',
-          verticalPosition: 'top',
-        })
-      : this.userListsService
-          .addMovieToList(paramsRequest)
-          .subscribe((response) => {
-            if (response.status_code === 12) {
-              this.openModal = true;
-              this.moviesAddedList = [this.movie, ...this.moviesAddedList];
-            }
-          });
+  addItem(movieRequest: ParamsRequest) {
+    this.movie = this.getMovie(movieRequest.mediaId);
+    this.userListsService
+      .checkItemStatus(movieRequest)
+      .subscribe((response) => {
+        response.item_present
+        ?
+          this._snackBar.openFromComponent(ToastComponent, {
+            duration: 2000,
+            data: MessageStatus.ERROR,
+            horizontalPosition: 'end',
+            verticalPosition: 'top',
+          })
+        :
+          this.userListsService
+            .addMovieToList(movieRequest)
+            .subscribe((response) => {
+              if (response.success) {
+                this.openModal = true;
+                this.moviesAddedList = [this.movie, ...this.moviesAddedList];
+              }
+            });
+      });
   }
 
-  getUserListDetails(paramsRequest: ParamsRequest) {
+  getUserListDetails(listIdRequest: ParamsRequest) {
     this.loadingMoviesAddedList = true;
-    this.userListsService.getUserListDetails(paramsRequest).subscribe((res) => {
+    this.userListsService.getUserListDetails(listIdRequest).subscribe((res) => {
       this.moviesAddedList = res.items;
       this.totalResults = res.itemCount;
       this.userMovieListItem = res;
       this.loadingMoviesAddedList = false;
     });
-  }
-
-  checkItem(paramsRequest: ParamsRequest) {
-    this.userListsService
-      .checkItemStatus(paramsRequest)
-      .subscribe((response) => {
-        this.isSuggest = response.item_present;
-      });
-    return this.isSuggest;
   }
 
   onIsSuggestChange(value: boolean) {

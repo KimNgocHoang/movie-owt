@@ -22,6 +22,7 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   genres: string;
   loading = true;
   loadingList = true;
+  message: string;
   movieCtrl = new FormControl('');
   filteredLists: Observable<UserMovieList[]>;
   getMovieByApiSub: Subscription;
@@ -46,6 +47,11 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
       this.movie = this.getMovie(+params['id']);
     });
     this.getLists();
+    this.filteredLists = this.movieCtrl.valueChanges.pipe(
+      debounceTime(1000),
+      startWith(''),
+      map((list) => (list ? this._filterStates(list) : this.lists.slice()))
+    );
   }
 
   getMovie(id: number) {
@@ -59,31 +65,30 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   }
 
   getLists() {
-    this.loading = true;
+    this.loadingList = true;
     this.userListsService.getUserLists().subscribe((res) => {
       this.lists = res.results;
-      this.loading = false;
-      this.filteredLists = this.movieCtrl.valueChanges.pipe(
-        debounceTime(1000),
-        startWith(''),
-        map((list) => (list ? this._filterStates(list) : this.lists.slice()))
-      );
+      this.loadingList = false;
     });
   }
 
-  addItem(paramsRequest: ParamsRequest) {
-    this.userListsService
-      .addMovieToList(paramsRequest)
+  addItem(movieRequest: ParamsRequest) {
+    this.userListsService.checkItemStatus(movieRequest)
       .subscribe((response) => {
-        if (response.status_code === 12) {
-          this._snackBar.openFromComponent(ToastComponent, {
-            duration: 2000,
-            data: MessageStatus.SUCCESS,
-            horizontalPosition: 'end',
-            verticalPosition: 'top',
-          });
+        if(response.item_present) {
+          this.message = MessageStatus.ERROR
         }
-      });
+        else {
+          this.userListsService.addMovieToList(movieRequest)
+          this.message = MessageStatus.SUCCESS;
+        }
+        this._snackBar.openFromComponent(ToastComponent, {
+          duration: 2000,
+          data: this.message,
+          horizontalPosition: 'end',
+          verticalPosition: 'top',
+        });
+      })
   }
 
   ngOnDestroy(): void {

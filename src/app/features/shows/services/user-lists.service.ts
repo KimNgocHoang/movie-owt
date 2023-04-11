@@ -50,9 +50,9 @@ export class UserListsService {
 
   addMovieToList(
     paramsRequest: ParamsRequest
-  ): Observable<{ status_code: number }> {
+  ): Observable<{ success: boolean }> {
     const body = { media_id: paramsRequest.mediaId };
-    return this.http.post<{ status_code: number; status_message: string }>(
+    return this.http.post<{ success: boolean }>(
       `${environment.apiHost}/list/${paramsRequest.listId}/add_item`,
       body
     );
