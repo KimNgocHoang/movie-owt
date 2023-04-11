@@ -11,7 +11,7 @@
       <mat-label>{{'shows.userListDetails.labels.inputText' | translate }}</mat-label>
       <input matInput [matAutocomplete]="auto" [formControl]="movieCtrl">
       <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie.title" (click)="addItem({mediaId: movie.id, listId :listId})">
+        <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie.title" (click)="addItem({mediaId: movie.id, listId :listId}, movie)">
           <a [routerLink]="['/shows/movies', movie.id]">
             <span>{{movie.title}}</span>
           </a>

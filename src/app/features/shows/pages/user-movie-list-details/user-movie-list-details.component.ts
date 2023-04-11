@@ -9,7 +9,6 @@ import { Show } from '../../models/show.model';
 import { UserMovieListItem } from '../../models/user-movie-list-item.model';
 import { ParamsRequest } from '../../types/params-request.type';
 import { FormControl } from '@angular/forms';
-import { Movie } from '../../models/movie.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ToastComponent } from '../../components/toast/toast.component';
 import { MessageStatus } from '../../enum/message-status.enum';
@@ -20,7 +19,7 @@ import { MessageStatus } from '../../enum/message-status.enum';
   styleUrls: ['./user-movie-list-details.component.scss'],
 })
 export class UserMovieListDetailsComponent implements OnInit {
-  moviesAddedList: Movie[];
+  moviesAddedList: Show[];
   movies: Show[];
   userMovieListItem: UserMovieListItem;
   listId: number;
@@ -30,7 +29,6 @@ export class UserMovieListDetailsComponent implements OnInit {
   openModal = false;
   movieCtrl = new FormControl('');
   filteredMovies: Observable<Show[]>;
-  movie: Movie;
 
   constructor(
     public translate: TranslateService,
@@ -72,15 +70,7 @@ export class UserMovieListDetailsComponent implements OnInit {
       });
   }
 
-  getMovie(id: number) {
-    this.movieService.getMovieById(id).subscribe((res) => {
-      this.movie = res;
-    });
-    return this.movie;
-  }
-
-  addItem(movieRequest: ParamsRequest) {
-    this.movie = this.getMovie(movieRequest.mediaId);
+  addItem(movieRequest: ParamsRequest, movie: Show) {
     this.userListsService
       .checkItemStatus(movieRequest)
       .subscribe((response) => {
@@ -98,7 +88,7 @@ export class UserMovieListDetailsComponent implements OnInit {
             .subscribe((response) => {
               if (response.success) {
                 this.openModal = true;
-                this.moviesAddedList = [this.movie, ...this.moviesAddedList];
+                this.moviesAddedList = [movie, ...this.moviesAddedList];
               }
             });
       });
