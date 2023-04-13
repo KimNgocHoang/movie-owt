@@ -1,4 +1,4 @@
-export type ListRequest = {
+export type CreateMovieRequest = {
   mediaId?: number;
   listId: number;
 };

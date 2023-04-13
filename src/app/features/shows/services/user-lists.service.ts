@@ -6,7 +6,7 @@ import camelcaseKeys from 'camelcase-keys';
 import { ShowList } from '../models/show-list.model';
 import { UserMovieList } from '../models/user-movie-list.model';
 import { CreateUserListRequest } from '../types/create-user-list-request.type';
-import { ListRequest } from '../types/list-request.type';
+import { CreateMovieRequest } from '../types/create-movie-request.type';
 import { UserMovieListItem } from '../models/user-movie-list-item.model';
 
 @Injectable({
@@ -37,7 +37,7 @@ export class UserListsService {
   }
 
   getUserListDetails(
-    listIdRequest: ListRequest
+    listIdRequest: CreateMovieRequest
   ): Observable<UserMovieListItem> {
     return this.http
       .get<UserMovieListItem>(
@@ -50,19 +50,21 @@ export class UserListsService {
       );
   }
 
-  addMovieToList(listRequest: ListRequest): Observable<{ success: boolean }> {
-    const body = { media_id: listRequest.mediaId };
+  addMovieToList(
+    createMovieRequest: CreateMovieRequest
+  ): Observable<{ success: boolean }> {
+    const body = { media_id: createMovieRequest.mediaId };
     return this.http.post<{ success: boolean }>(
-      `${environment.apiHost}/list/${listRequest.listId}/add_item`,
+      `${environment.apiHost}/list/${createMovieRequest.listId}/add_item`,
       body
     );
   }
 
   checkItemStatus(
-    listRequest: ListRequest
+    MovieRequest: CreateMovieRequest
   ): Observable<{ item_present: boolean }> {
     return this.http.get<{ id: string; item_present: boolean }>(
-      `${environment.apiHost}/list/${listRequest.listId}/item_status?movie_id=${listRequest.mediaId}`
+      `${environment.apiHost}/list/${MovieRequest.listId}/item_status?movie_id=${MovieRequest.mediaId}`
     );
   }
 }

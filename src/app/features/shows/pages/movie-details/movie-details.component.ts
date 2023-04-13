@@ -7,7 +7,7 @@ import { UserMovieList } from '../../models/user-movie-list.model';
 import { UserListsService } from '../../services/user-lists.service';
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ListRequest } from '../../types/list-request.type';
+import { CreateMovieRequest } from '../../types/create-movie-request.type';
 import { ToastComponent } from '../../components/toast/toast.component';
 import { MessageStatus } from '../../enum/message-status.enum';
 
@@ -72,14 +72,14 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  addItem(listRequest: ListRequest) {
+  addItem(createMovieRequest: CreateMovieRequest) {
     this.userListsService
-      .checkItemStatus(listRequest)
+      .checkItemStatus(createMovieRequest)
       .subscribe((response) => {
         if (response.item_present) {
           this.message = MessageStatus.ERROR;
         } else {
-          this.userListsService.addMovieToList(listRequest);
+          this.userListsService.addMovieToList(createMovieRequest);
           this.message = MessageStatus.SUCCESS;
         }
         this._snackBar.openFromComponent(ToastComponent, {
