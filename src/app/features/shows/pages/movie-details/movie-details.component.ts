@@ -70,18 +70,16 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
       this.lists = res.results;
       this.loadingList = false;
     });
+    return this.lists;
   }
 
   addItem(createMovieRequest: CreateMovieRequest) {
     this.userListsService
-      .checkItemStatus(createMovieRequest)
+      .addMovieToList(createMovieRequest)
       .subscribe((response) => {
-        if (response.item_present) {
-          this.message = MessageStatus.ERROR;
-        } else {
-          this.userListsService.addMovieToList(createMovieRequest);
-          this.message = MessageStatus.SUCCESS;
-        }
+        response.success
+          ? (this.message = MessageStatus.SUCCESS)
+          : (this.message = MessageStatus.ERROR);
         this._snackBar.openFromComponent(ToastComponent, {
           duration: 2000,
           data: this.message,

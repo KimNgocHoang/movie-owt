@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -8,6 +8,8 @@ import { UserMovieList } from '../models/user-movie-list.model';
 import { CreateUserListRequest } from '../types/create-user-list-request.type';
 import { CreateMovieRequest } from '../types/create-movie-request.type';
 import { UserMovieListItem } from '../models/user-movie-list-item.model';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -54,17 +56,17 @@ export class UserListsService {
     createMovieRequest: CreateMovieRequest
   ): Observable<{ success: boolean }> {
     const body = { media_id: createMovieRequest.mediaId };
-    return this.http.post<{ success: boolean }>(
-      `${environment.apiHost}/list/${createMovieRequest.listId}/add_item`,
-      body
-    );
-  }
-
-  checkItemStatus(
-    MovieRequest: CreateMovieRequest
-  ): Observable<{ item_present: boolean }> {
-    return this.http.get<{ id: string; item_present: boolean }>(
-      `${environment.apiHost}/list/${MovieRequest.listId}/item_status?movie_id=${MovieRequest.mediaId}`
-    );
+    return this.http
+      .post<{ success: boolean }>(
+        `${environment.apiHost}/list/${createMovieRequest.listId}/add_item`,
+        body
+      )
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          return of({
+            success: error.error.success,
+          });
+        })
+      );
   }
 }

@@ -73,23 +73,19 @@ export class UserMovieListDetailsComponent implements OnInit {
       listId: this.listId,
     };
     this.userListsService
-      .checkItemStatus(createMovieRequest)
+      .addMovieToList(createMovieRequest)
       .subscribe((response) => {
-        response.item_present
-          ? this._snackBar.openFromComponent(ToastComponent, {
-              duration: 2000,
-              data: MessageStatus.ERROR,
-              horizontalPosition: 'end',
-              verticalPosition: 'top',
-            })
-          : this.userListsService
-              .addMovieToList(createMovieRequest)
-              .subscribe((response) => {
-                if (response.success) {
-                  this.openModal = true;
-                  this.moviesAddedList = [movie, ...this.moviesAddedList];
-                }
-              });
+        if (response.success) {
+          this.openModal = true;
+          this.moviesAddedList = [movie, ...this.moviesAddedList];
+        } else {
+          this._snackBar.openFromComponent(ToastComponent, {
+            duration: 2000,
+            data: MessageStatus.ERROR,
+            horizontalPosition: 'end',
+            verticalPosition: 'top',
+          });
+        }
       });
   }
 
