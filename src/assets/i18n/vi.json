@@ -59,8 +59,8 @@
     "userLists": {
       "title": "Danh sách của tôi",
       "labels": {
-        "success": "Thêm thành công",
-        "error": "Thêm thất bại",
+        "success": "Phim đã được thêm thành công ",
+        "error": "Phim bạn muốn thêm đã có trong danh sách",
         "itemCount": "mục"
       },
       "actions": {

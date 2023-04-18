@@ -59,8 +59,8 @@
     "userLists": {
       "title": "My Lists",
       "labels": {
-        "success": "Add successfully",
-        "error": "Add failed",
+        "success": "The movie was updated successfully.",
+        "error": "The movie you tried to submit already exists",
         "itemCount": "item"
       },
       "actions": {
