@@ -9,7 +9,6 @@ import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CreateMovieRequest } from '../../types/create-movie-request.type';
 import { ToastComponent } from '../../components/toast/toast.component';
-import { MessageStatus } from '../../enum/message-status.enum';
 
 @Component({
   selector: 'app-movie-details',
@@ -77,12 +76,9 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
     this.userListsService
       .addMovieToList(createMovieRequest)
       .subscribe((response) => {
-        response.success
-          ? (this.message = MessageStatus.SUCCESS)
-          : (this.message = MessageStatus.ERROR);
         this._snackBar.openFromComponent(ToastComponent, {
           duration: 2000,
-          data: this.message,
+          data: response.status_code,
           horizontalPosition: 'end',
           verticalPosition: 'top',
         });

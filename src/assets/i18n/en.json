@@ -59,8 +59,11 @@
     "userLists": {
       "title": "My Lists",
       "labels": {
-        "success": "The movie was updated successfully.",
-        "error": "The movie you tried to submit already exists",
+        "12": "The movie was updated successfully.",
+        "8": "The data you tried to submit already exists.",
+        "3": "You do not have permissions to access the service.",
+        "34": "The resource you requested could not be found.",
+        "1": "The list was created successfully.",
         "itemCount": "item"
       },
       "actions": {

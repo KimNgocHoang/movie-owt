@@ -10,7 +10,6 @@ import { UserMovieListItem } from '../../models/user-movie-list-item.model';
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ToastComponent } from '../../components/toast/toast.component';
-import { MessageStatus } from '../../enum/message-status.enum';
 import { CreateMovieRequest } from '../../types/create-movie-request.type';
 
 @Component({
@@ -81,7 +80,7 @@ export class UserMovieListDetailsComponent implements OnInit {
         } else {
           this._snackBar.openFromComponent(ToastComponent, {
             duration: 2000,
-            data: MessageStatus.ERROR,
+            data: response.status_code,
             horizontalPosition: 'end',
             verticalPosition: 'top',
           });

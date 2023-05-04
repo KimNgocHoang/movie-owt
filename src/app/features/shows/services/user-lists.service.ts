@@ -31,11 +31,12 @@ export class UserListsService {
 
   createList(
     createUserListRequest: CreateUserListRequest
-  ): Observable<{ success: number; list_id: number }> {
-    return this.http.post<{ success: number; list_id: number }>(
-      `${environment.apiHost}/list`,
-      createUserListRequest
-    );
+  ): Observable<{ success: number; list_id: number; status_code: number }> {
+    return this.http.post<{
+      success: number;
+      list_id: number;
+      status_code: number;
+    }>(`${environment.apiHost}/list`, createUserListRequest);
   }
 
   getUserListDetails(
@@ -54,10 +55,10 @@ export class UserListsService {
 
   addMovieToList(
     createMovieRequest: CreateMovieRequest
-  ): Observable<{ success: boolean }> {
+  ): Observable<{ success: boolean; status_code: number }> {
     const body = { media_id: createMovieRequest.mediaId };
     return this.http
-      .post<{ success: boolean }>(
+      .post<{ success: boolean; status_code: number }>(
         `${environment.apiHost}/list/${createMovieRequest.listId}/add_item`,
         body
       )
@@ -65,6 +66,7 @@ export class UserListsService {
         catchError((error: HttpErrorResponse) => {
           return of({
             success: error.error.success,
+            status_code: error.error.status_code,
           });
         })
       );

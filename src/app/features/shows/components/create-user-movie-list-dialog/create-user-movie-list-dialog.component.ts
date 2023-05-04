@@ -5,7 +5,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef } from '@angular/material/dialog';
 import { UserListsService } from '../../services/user-lists.service';
 import { ToastComponent } from '../toast/toast.component';
-import { MessageStatus } from '../../enum/message-status.enum';
 import { UserMovieListItem } from '../../models/user-movie-list-item.model';
 
 @Component({
@@ -40,20 +39,17 @@ export class CreateUserMovieListDialogComponent implements OnInit {
     if (this.formCreate.valid) {
       this.userListsService.createList(data).subscribe((response) => {
         if (response.success) {
-          this.message = MessageStatus.SUCCESS;
           this.userListsService
-            .getUserListDetails({ listId: response.list_id})
+            .getUserListDetails({ listId: response.list_id })
             .subscribe((response) => {
               const newList: UserMovieListItem = response;
               this.addListSuccess.emit(newList);
             });
           this.initForm();
-        } else {
-          this.message = MessageStatus.ERROR;
         }
         this._snackBar.openFromComponent(ToastComponent, {
           duration: 2000,
-          data: this.message,
+          data: response.status_code,
           horizontalPosition: 'end',
           verticalPosition: 'top',
         });
