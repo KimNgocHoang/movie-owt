@@ -59,12 +59,14 @@
     "userLists": {
       "title": "Danh sách của tôi",
       "labels": {
+        "itemCount": "mục"
+      },
+      "remoteStatusCodes": {
         "12": "Phim đã được thêm thành công.",
         "8": "Dữ liệu bạn muốn thêm đã có trong danh sách.",
         "3": "Bạn không có quyền truy cập vào dịch vụ này.",
         "34": "Tài nguyên bạn yêu cầu không được tìm thấy.",
-        "1": "Danh sách đã được tạo thành công.",
-        "itemCount": "mục"
+        "1": "Danh sách đã được tạo thành công."
       },
       "actions": {
         "createList": "Tạo danh sách mới",
