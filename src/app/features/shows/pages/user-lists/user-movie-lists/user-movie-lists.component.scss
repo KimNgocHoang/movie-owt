@@ -16,3 +16,10 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   margin: 24px 0 20px;
 }
+
+@media screen and (max-width: 739px) {
+  .heading {
+    display: block;
+    margin-bottom: 40px;
+  }
+}

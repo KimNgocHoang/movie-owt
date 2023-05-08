@@ -75,6 +75,18 @@
         color: $grey-100;
       }
     }
+    .movie-info__select-lists{
+      .form-search{
+        display: flex;
+          margin-bottom: 24px;
+          align-items: center;
+          max-width: 350px;
+
+          mat-form-field {
+            width: 100%;
+          }
+      }
+    }
   }
 }
 

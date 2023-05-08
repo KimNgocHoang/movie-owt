@@ -23,6 +23,8 @@ import { CreateUserMovieListDialogComponent } from './components/create-user-mov
 import { UserMovieListsComponent } from './pages/user-lists/user-movie-lists/user-movie-lists.component';
 import { UserMovieListsItemComponent } from './components/user-movie-lists-item/user-movie-lists-item.component';
 import { UserListsComponent } from './pages/user-lists/user-lists.component';
+import { UserMovieListItemComponent } from './components/user-movie-list-item/user-movie-list-item.component';
+import { UserMovieListDetailsComponent } from './pages/user-movie-list-details/user-movie-list-details.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { UserListsComponent } from './pages/user-lists/user-lists.component';
     UserMovieListsComponent,
     CreateUserMovieListDialogComponent,
     UserListsComponent,
+    UserMovieListItemComponent,
+    UserMovieListDetailsComponent,
   ],
   imports: [
     CommonModule,

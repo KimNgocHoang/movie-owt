@@ -28,7 +28,8 @@
         "nameType": "Phim",
         "releaseDate": "Ngày phát hành:",
         "runTime": "Thời lượng",
-        "genres": "Thể loại"
+        "genres": "Thể loại",
+        "searchList": "Tìm kiếm danh sách"
       }
     },
     "tvShowsList": {
@@ -58,9 +59,14 @@
     "userLists": {
       "title": "Danh sách của tôi",
       "labels": {
-        "success": "Thêm thành công",
-        "error": "Thêm thất bại",
         "itemCount": "mục"
+      },
+      "remoteStatusCodes": {
+        "12": "Phim đã được thêm thành công.",
+        "8": "Dữ liệu bạn muốn thêm đã có trong danh sách.",
+        "3": "Bạn không có quyền truy cập vào dịch vụ này.",
+        "34": "Tài nguyên bạn yêu cầu không được tìm thấy.",
+        "1": "Danh sách đã được tạo thành công."
       },
       "actions": {
         "createList": "Tạo danh sách mới",
@@ -76,6 +82,21 @@
       "actions": {
         "cancel": "Hủy",
         "create": "Tạo mới"
+      }
+    },
+    "userListDetails": {
+      "title": "Tên danh sách:",
+      "labels": {
+        "itemQuantity": "mục",
+        "inputText": "Tìm kiếm Phim hoặc Chương trình TV",
+        "inputPlaceholder": "Ví dụ.",
+        "titleModal": "Cảm ơn bạn đã gợi ý",
+        "descriptionModal": "Đề xuất của bạn đã được thêm thành công vào danh sách theo dõi của tôi, đôi khi tôi sẽ quản lý để xem đề xuất của bạn. ❤",
+        "suggestThis": "Gợi ý phim",
+        "alreadyAdded": "Đã thêm"
+      },
+      "actions": {
+        "backToMyLists": "Quay lại danh sách"
       }
     }
   },

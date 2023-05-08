@@ -6,4 +6,9 @@
   .mat-icon {
     color: $grey-600;
   }
+  .mat-mdc-unelevated-button {
+    .mat-icon {
+      margin: 0 !important;
+    }
+  }
 }

@@ -28,7 +28,8 @@
         "nameType": "Movie",
         "releaseDate": "Release Date:",
         "runTime": "Run time",
-        "genres": "Genres"
+        "genres": "Genres",
+        "searchList": "Search list"
       }
     },
     "tvShowsList": {
@@ -58,9 +59,14 @@
     "userLists": {
       "title": "My Lists",
       "labels": {
-        "success": "Add successfully",
-        "error": "Add failed",
         "itemCount": "item"
+      },
+      "remoteStatusCodes": {
+        "12": "The movie was updated successfully.",
+        "8": "The data you tried to submit already exists.",
+        "3": "You do not have permissions to access the service.",
+        "34": "The resource you requested could not be found.",
+        "1": "The list was created successfully."
       },
       "actions": {
         "createList": "Create List",
@@ -76,6 +82,21 @@
       "actions": {
         "cancel": "Cancel",
         "create": "Create"
+      }
+    },
+    "userListDetails": {
+      "title": "List Name:",
+      "labels": {
+        "itemQuantity": "items",
+        "inputText": "Search Movies or TV Shows",
+        "inputPlaceholder": "eg.",
+        "titleModal": "Thank you for your suggestion",
+        "descriptionModal": "Your suggestion has been succesfully added to my watchlist, I will manage sometime to watch your suggestion. ❤",
+        "suggestThis": "Suggest this",
+        "alreadyAdded": "Already added"
+      },
+      "actions": {
+        "backToMyLists": "Back to my lists"
       }
     }
   },

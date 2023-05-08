@@ -16,7 +16,7 @@ export class ApiKeyInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     const tokenizedReq = request.clone({
       setHeaders: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json;charset=utf-8',
         Authorization: `Bearer ${environment.apiKey}`,
       },
     });

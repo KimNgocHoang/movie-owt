@@ -14,6 +14,7 @@ import {
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [],
@@ -29,6 +30,7 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
     MatButtonToggleModule,
     MatSnackBarModule,
     MatDialogModule,
+    MatAutocompleteModule,
   ],
   providers: [
     { provide: MatPaginatorIntl, useClass: TranslatedMatPaginator },

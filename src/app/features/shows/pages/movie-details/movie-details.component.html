@@ -1,4 +1,4 @@
-<div *ngIf="loading; else showMovieDetails">
+<div *ngIf="loading && loadingList; else showMovieDetails">
   <app-movie-details-skeleton></app-movie-details-skeleton>
 </div>
 <ng-template #showMovieDetails>
@@ -33,6 +33,19 @@
       <div class="movie-info__genres">
         <p class="mat-subtitle-2">{{'shows.movieDetails.labels.genres' | translate }}</p>
         <p class="mat-subtitle-1">{{genres}}</p>
+      </div>
+      <div class="movie-info__select-lists">
+        <form class="form-search">
+          <mat-form-field appearance="fill">
+            <mat-label>{{'shows.movieDetails.labels.searchList' | translate }}</mat-label>
+            <input matInput [matAutocomplete]="auto" [formControl]="listCtrl">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let list of filteredLists | async" [value]="list.name" (click)="addItem({mediaId: movie.id, listId :list.id})">
+                <span>{{list.name}}</span>
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
       </div>
     </div>
   </div>
